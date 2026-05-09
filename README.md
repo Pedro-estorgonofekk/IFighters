@@ -119,15 +119,17 @@ res://
   ```bash
   git clone https://github.com/Pedro-estorgonofekk/IFighters.git
   ```
-- A partir desse ponto utilizaremos para a sincronização:
+- A partir desse ponto utilizaremos para a sincronização os comandos à seguir, é interessante o uso destes no começo do dia de trabalho:
 
   ```bash
-  git checkout main
-  git pull origin main --rebase
+  # Sincronizar com a develop enquanto mantém o trabalho feito
+  git pull origin develop --rebase
+
+  # Faz o "checkin" numa branch q sera criada automaticamente
   git checkout -b feat/nome-da-feature
   ```
 
-- Faça normalmente, tenha em mente que os commits são checkpoints, recomendo que faça pequenos commits e no fim faça o push
+- Faça normalmente os códigos, tenha em mente que os commits são checkpoints, recomendo que faça pequenos commits e no fim faça o push
 
   ```bash
   # Verificar os arquivos alterados e branch em trabalho
@@ -169,10 +171,10 @@ res://
 
 # ⚠️ Dicas de sobrevivência ⚠️
 
-* **Feche a Godot antes de grandes manobras:** Quando for trocar de branch, fazer o `git pull --rebase` feche a engine pra evitar corromper os arquivos.
+* **Feche a Godot antes de grandes manobras:** Quando for trocar de branch, fazer commits, etc. Feche a engine pra evitar corromper os arquivos.
 
-* **O jogo deve estar "Compilavel:"** Antes de fazer o push tenha certeza de testar para evitar que outrem faça a sincronia com build quebrada.
+* **O jogo deve estar "Compilavel":** Antes de fazer o push tenha certeza de testar para evitar que outrem faça a sincronia com build quebrada.
 
-* **Não altere os arquivos dos outros:** Caso seja necessário dentro da cena de outro colega, avise-o ou peça pra ele criar um `signal` global, ou até mesmo uma função pública.
+* **Não altere os arquivos dos outros:** Caso seja necessário pegar algo dentro da cena de outro colega, avise-o ou peça pra ele criar um `signal` global, ou até mesmo uma função pública.
 
-* **Instruções:** Caso necessário faça um `README.md` para passar as instruções do código na raiz do seu diretório de trabalho, recomendo o site [MarkdownPreview](https://markdownlivepreview.com/)
+* **Instruções:** Caso necessário faça um `README.md` para passar as instruções do código na raiz do seu diretório de trabalho, recomendo o site [MarkdownPreview](https://markdownlivepreview.com/) para escrever.
