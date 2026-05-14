@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://bj6yuwfof6df7"]
+
+[ext_resource type="Texture2D" uid="uid://ca17l6e0edfh1" path="res://Assets/Sprites/1000089434.png" id="1_t6w0q"]
+[ext_resource type="Texture2D" uid="uid://dvifoucqtfiif" path="res://Assets/Sprites/1000089437.png" id="2_mjmdf"]
+[ext_resource type="PackedScene" uid="uid://bpjau1ax54yd6" path="res://Scenes/UI/botoes.tscn" id="2_t6w0q"]
+[ext_resource type="Texture2D" uid="uid://i3bhhg5nravo" path="res://Assets/Sprites/1000089438.png" id="3_72sra"]
+
+[node name="Control" type="TextureRect" unique_id=2512954]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_t6w0q")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1205284464]
+light_mask = 31
+visibility_layer = 31
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -56.0
+offset_right = 102.0
+offset_bottom = 244.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+alignment = 1
+
+[node name="Button" parent="VBoxContainer" unique_id=1487168696 instance=ExtResource("2_t6w0q")]
+layout_mode = 2
+
+[node name="Button2" parent="VBoxContainer" unique_id=1978648003 instance=ExtResource("2_t6w0q")]
+layout_mode = 2
+texture_normal = ExtResource("2_mjmdf")
+
+[node name="Button3" parent="VBoxContainer" unique_id=84119034 instance=ExtResource("2_t6w0q")]
+layout_mode = 2
+texture_normal = ExtResource("3_72sra")

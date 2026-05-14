@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://bpjau1ax54yd6"]
+
+[ext_resource type="Texture2D" uid="uid://bi2n2rgh115vp" path="res://Assets/Sprites/1000089436.png" id="1_irj3u"]
+[ext_resource type="Script" uid="uid://c6j66hc8euhh4" path="res://Scripts/Utils/BotaoHover.gd" id="2_0aj6e"]
+
+[node name="Button" type="TextureButton" unique_id=1487168696]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+texture_normal = ExtResource("1_irj3u")
+ignore_texture_size = true
+stretch_mode = 5
+script = ExtResource("2_0aj6e")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
