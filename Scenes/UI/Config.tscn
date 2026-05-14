@@ -1,9 +1,31 @@
 [gd_scene format=3 uid="uid://daf7m8ytmvgvb"]
 
-[node name="Control" type="Control" unique_id=1003177733]
-layout_mode = 3
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5uvo"]
+load_path = "res://.godot/imported/1000089434.png-9f08c66f0a0dd0272f2556c9befba3c9.ctex"
+
+[node name="Control" type="TextureRect" unique_id=759559597]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = SubResource("CompressedTexture2D_m5uvo")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="." unique_id=1037027686]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -291.5
+offset_top = -24.0
+offset_right = 291.5
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 41
+text = "Tela de configurações em desenvolvimento"
