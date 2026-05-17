@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://daf7m8ytmvgvb"]
 
+[ext_resource type="Texture2D" uid="uid://bptsl3ukqlh1o" path="res://Assets/Sprites/config.jpeg" id="1_org15"]
+[ext_resource type="Texture2D" uid="uid://bxj6inq3k4l43" path="res://Assets/Sprites/panel.jpeg" id="2_08ctb"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5uvo"]
 load_path = "res://.godot/imported/1000089434.png-9f08c66f0a0dd0272f2556c9befba3c9.ctex"
 
@@ -12,20 +15,33 @@ grow_vertical = 2
 texture = SubResource("CompressedTexture2D_m5uvo")
 expand_mode = 1
 
-[node name="Label" type="Label" parent="." unique_id=1037027686]
+[node name="ConfigTitulo" type="TextureRect" parent="." unique_id=1522924880]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.16800001
+anchor_right = 0.5
+anchor_bottom = 0.16800001
+offset_left = -216.0
+offset_top = -58.72001
+offset_right = 216.0
+offset_bottom = 58.27999
+grow_horizontal = 2
+texture = ExtResource("1_org15")
+expand_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="." unique_id=679230161]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -291.5
-offset_top = -24.0
-offset_right = 291.5
-offset_bottom = 24.0
+offset_left = -216.0
+offset_top = -126.0
+offset_right = 216.0
+offset_bottom = 266.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 41
-text = "Tela de configurações em desenvolvimento"
+texture = ExtResource("2_08ctb")
+expand_mode = 1

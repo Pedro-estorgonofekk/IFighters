@@ -15,6 +15,7 @@ grow_vertical = 2
 texture = ExtResource("1_t6w0q")
 expand_mode = 1
 script = ExtResource("2_k8um8")
+metadata/_edit_group_ = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1205284464]
 light_mask = 31

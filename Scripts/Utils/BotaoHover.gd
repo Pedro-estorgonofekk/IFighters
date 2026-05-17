@@ -11,18 +11,18 @@ func _process(delta: float) -> void:
 	pass
 
 
-func _on_mouse_entered():
+func _on_mouse_entered() -> void:
 	sobre()
 
 
 
-func _on_mouse_exited():
+func _on_mouse_exited() -> void:
 	saiu()
 	
-func sobre():
+func sobre() -> void:
 	modulate = Color(0.7,0.7,0.7,0.7)
 	
-func saiu():
+func saiu() -> void:
 	modulate = Color(1.0,1.0,1.0,1.0)
 
 	
