@@ -3,6 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://bptsl3ukqlh1o" path="res://Assets/Sprites/config.jpeg" id="1_org15"]
 [ext_resource type="Texture2D" uid="uid://bxj6inq3k4l43" path="res://Assets/Sprites/panel.jpeg" id="2_08ctb"]
 [ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="3_08ctb"]
+[ext_resource type="Texture2D" uid="uid://bvpx8rp6psxpm" path="res://Assets/Sprites/salvar.jpeg" id="4_1at7u"]
+[ext_resource type="Script" uid="uid://dlby5u1vsqbnf" path="res://Scripts/Utils/BotaoSombra.gd" id="4_p78xr"]
+[ext_resource type="Texture2D" uid="uid://bouu52ml6wnnl" path="res://Assets/Sprites/voltar.jpeg" id="5_bh3p2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5uvo"]
 load_path = "res://.godot/imported/1000089434.png-9f08c66f0a0dd0272f2556c9befba3c9.ctex"
@@ -91,3 +94,37 @@ value = 70.0
 [node name="Sfx" type="HSlider" parent="Volumes" unique_id=2028671291]
 layout_mode = 2
 value = 70.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2038798474]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.499
+anchor_top = 0.83900005
+anchor_right = 0.499
+anchor_bottom = 0.83900005
+offset_left = -206.04001
+offset_top = -55.060028
+offset_right = 206.95999
+offset_bottom = 54.939972
+theme_override_constants/separation = 2
+script = ExtResource("4_p78xr")
+
+[node name="save" type="TextureButton" parent="HBoxContainer" unique_id=1420162192]
+custom_minimum_size = Vector2(205, 110)
+layout_mode = 2
+texture_normal = ExtResource("4_1at7u")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="back" type="TextureButton" parent="HBoxContainer" unique_id=302145408]
+custom_minimum_size = Vector2(205, 110)
+layout_mode = 2
+texture_normal = ExtResource("5_bh3p2")
+ignore_texture_size = true
+stretch_mode = 5
+
+[connection signal="mouse_entered" from="HBoxContainer/save" to="HBoxContainer" method="_on_save_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/save" to="HBoxContainer" method="_on_save_mouse_exited"]
+[connection signal="mouse_entered" from="HBoxContainer/back" to="HBoxContainer" method="_on_back_mouse_entered"]
+[connection signal="mouse_exited" from="HBoxContainer/back" to="HBoxContainer" method="_on_back_mouse_exited"]
+[connection signal="pressed" from="HBoxContainer/back" to="HBoxContainer" method="_on_back_pressed"]
