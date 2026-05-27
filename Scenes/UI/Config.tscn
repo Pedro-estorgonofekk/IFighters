@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://daf7m8ytmvgvb"]
 
-[ext_resource type="Texture2D" uid="uid://bptsl3ukqlh1o" path="res://Assets/Sprites/config.jpeg" id="1_org15"]
+[ext_resource type="Texture2D" uid="uid://bptsl3ukqlh1o" path="res://Assets/Sprites/configBtn.jpeg" id="1_org15"]
 [ext_resource type="Texture2D" uid="uid://bxj6inq3k4l43" path="res://Assets/Sprites/panel.jpeg" id="2_08ctb"]
 [ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="3_08ctb"]
-[ext_resource type="Texture2D" uid="uid://bvpx8rp6psxpm" path="res://Assets/Sprites/salvar.jpeg" id="4_1at7u"]
+[ext_resource type="Texture2D" uid="uid://bvpx8rp6psxpm" path="res://Assets/Sprites/salvarBtn.jpeg" id="4_1at7u"]
 [ext_resource type="Script" uid="uid://dlby5u1vsqbnf" path="res://Scripts/Utils/BotaoSombra.gd" id="4_p78xr"]
-[ext_resource type="Texture2D" uid="uid://bouu52ml6wnnl" path="res://Assets/Sprites/voltar.jpeg" id="5_bh3p2"]
+[ext_resource type="Texture2D" uid="uid://bqkimdj18ceba" path="res://Assets/Sprites/voltarBtn.jpeg" id="5_bh3p2"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m5uvo"]
 load_path = "res://.godot/imported/1000089434.png-9f08c66f0a0dd0272f2556c9befba3c9.ctex"
