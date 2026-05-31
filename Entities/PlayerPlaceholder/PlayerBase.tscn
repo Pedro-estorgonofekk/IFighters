@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://cgxtdwxpkgkyd"]
+
+[ext_resource type="Texture2D" uid="uid://bnipg3qiqe4hb" path="res://Entities/PlayerPlaceholder/idle.png" id="1_4olgi"]
+[ext_resource type="Script" uid="uid://dyofe0tam3trm" path="res://Entities/PlayerPlaceholder/PlayerBase.gd" id="1_8k1wt"]
+[ext_resource type="Texture2D" uid="uid://strq5lrh0xe4" path="res://Entities/PlayerPlaceholder/idle2.png" id="2_f2ued"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6fiqx"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f2ued"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_4olgi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_f2ued")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="Area2D" unique_id=1837461515]
+script = ExtResource("1_8k1wt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1653272200]
+shape = SubResource("RectangleShape2D_6fiqx")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860600443]
+position = Vector2(9.536743e-07, 1.1920929e-07)
+scale = Vector2(0.16210938, 0.16210938)
+sprite_frames = SubResource("SpriteFrames_f2ued")
+animation = &"idle"
+frame_progress = 0.8091081
