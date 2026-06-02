@@ -17,4 +17,7 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("EsquerdaP1"):
 		move_local_x(delta * -vel)
 		anim.stop()
-		
+	if Input.is_action_pressed("AgachaP1"):
+		print("Agachando")
+	if Input.is_action_pressed("PulaP1"):
+		print("Pulando")
