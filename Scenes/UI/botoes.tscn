@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bpjau1ax54yd6"]
 
-[ext_resource type="Texture2D" uid="uid://bi2n2rgh115vp" path="res://Assets/Sprites/1000089436.png" id="1_irj3u"]
+[ext_resource type="Texture2D" uid="uid://bi2n2rgh115vp" path="res://Assets/Sprites/historiaBtn.png" id="1_irj3u"]
 [ext_resource type="Script" uid="uid://c6j66hc8euhh4" path="res://Scripts/Utils/BotaoHover.gd" id="2_0aj6e"]
 
 [node name="Button" type="TextureButton" unique_id=1487168696]
