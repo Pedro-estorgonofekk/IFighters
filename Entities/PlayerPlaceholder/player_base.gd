@@ -22,6 +22,10 @@ func _physics_process(delta: float) -> void:
 	if direction:
 		velocity.x = direction * SPEED
 		anim.stop()
+		if direction > 0:
+			anim.flip_h = false
+		elif direction< 0:
+			anim.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		anim.play("idle")
@@ -30,5 +34,7 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 5000
 	if Input.is_action_just_pressed("DashP1") and Input.is_action_pressed("EsquerdaP1") and !Input.is_action_pressed("DireitaP1"):
 		velocity.x = -5000
+	if Input.is_action_pressed("AgachaP1"):
+		velocity.x = direction * 0
 		
 	move_and_slide()
