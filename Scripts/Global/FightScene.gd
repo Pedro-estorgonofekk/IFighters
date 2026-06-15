@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var player: Area2D = $Player
+@onready var player: CharacterBody2D = $Player
 @onready var P1Spawn: Marker2D = $Stage/P1Spawn
 
 var vel = 200
