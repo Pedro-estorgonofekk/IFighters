@@ -12,7 +12,7 @@ config_version=5
 
 config/name="IFighters"
 run/main_scene="uid://bj6yuwfof6df7"
-config/features=PackedStringArray("4.6", "Mobile")
+config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
 [display]
