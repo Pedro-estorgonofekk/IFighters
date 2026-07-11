@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://cgxtdwxpkgkyd"]
 
 [ext_resource type="Texture2D" uid="uid://cb4ao1vdxrlgd" path="res://Entities/PlayerPlaceholder/idle.png" id="1_4olgi"]
-[ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerPlaceholder/player_base.gd" id="1_8k1wt"]
+[ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerPlaceholder/PlayerBase.gd" id="1_8k1wt"]
 [ext_resource type="Texture2D" uid="uid://strq5lrh0xe4" path="res://Entities/PlayerPlaceholder/idle2.png" id="2_f2ued"]
+[ext_resource type="Script" uid="uid://mptunu8jnbkm" path="res://Entities/Resources/PlayerStats.gd" id="4_rdwt8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8k1wt"]
 size = Vector2(64, 183)
@@ -16,7 +17,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_f2ued")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -35,3 +36,7 @@ scale = Vector2(0.16210938, 0.16210938)
 sprite_frames = SubResource("SpriteFrames_f2ued")
 animation = &"idle"
 frame_progress = 0.8091081
+
+[node name="Health" type="Node" parent="." unique_id=905551826]
+script = ExtResource("4_rdwt8")
+metadata/_custom_type_script = "uid://mptunu8jnbkm"
