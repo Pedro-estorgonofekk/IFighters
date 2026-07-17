@@ -1,8 +1,8 @@
 extends Node
-class_name HealthComponent
+class_name Health
 
 signal healthDepleted
-signal tomou_dano(dmgTaken, playerHealth)
+signal tomouDano(dmgTaken, playerHealth)
 
 @export var maxHealth: int = 100
 var playerHealth: int
@@ -14,7 +14,7 @@ func tomar_dano(damage: int) -> void:
 	playerHealth -= damage
 	#clampi é pra vida n sair do limite de 0-100
 	playerHealth = clampi(playerHealth, 0, playerHealth) 
-	tomou_dano.emit(damage, playerHealth) 
+	tomouDano.emit(damage, playerHealth) 
 	
 	if playerHealth == 0:
 		healthDepleted.emit()
