@@ -1,8 +1,14 @@
 [gd_scene format=3 uid="uid://cgxtdwxpkgkyd"]
 
 [ext_resource type="Texture2D" uid="uid://cb4ao1vdxrlgd" path="res://Entities/PlayerPlaceholder/idle.png" id="1_4olgi"]
-[ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerPlaceholder/player_base.gd" id="1_8k1wt"]
+[ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerPlaceholder/PlayerBase.gd" id="1_8k1wt"]
 [ext_resource type="Texture2D" uid="uid://strq5lrh0xe4" path="res://Entities/PlayerPlaceholder/idle2.png" id="2_f2ued"]
+[ext_resource type="Script" uid="uid://mptunu8jnbkm" path="res://Entities/Resources/PlayerStats.gd" id="4_rdwt8"]
+[ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="5_0qbsp"]
+[ext_resource type="Script" uid="uid://btemv3bi81y5" path="res://Entities/Resources/Hurtbox.gd" id="6_om4q2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8k1wt"]
+size = Vector2(64, 183)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_f2ued"]
 animations = [{
@@ -13,7 +19,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("2_f2ued")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }]
@@ -21,9 +27,10 @@ animations = [{
 [node name="Player" type="CharacterBody2D" unique_id=1496453183]
 script = ExtResource("1_8k1wt")
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." unique_id=1417079054]
-position = Vector2(-1.5, 12.5)
-polygon = PackedVector2Array(8.5, -4.5, 26.5, 12.5, 30.5, 19.5, 35.5, 37.5, 32.5, 66.5, 48.5, 89.5, 22.5, 90.5, 17.5, 49.5, -7.5, 10.5, -27.5, 54.5, -37.5, 72.5, -40.5, 91.5, -49.5, 90.5, -44.5, 63.5, -33.5, 40.5, -30.5, 9.5, -26.5, -11.5, -25.5, -34.5, -31.5, -43.5, -34.5, -58.5, -10.5, -71.5, -7.5, -86.5, 2.5, -92.5, 10.5, -83.5, 11.5, -72.5, 7.5, -64.5, 13.5, -62.5, 18.5, -52.5, 22.5, -43.5, 46.5, -51.5, 52.5, -45.5, 48.5, -42.5, 33.5, -34.5, 17.5, -34.5, 11.5, -40.5, 7.5, -34.5, 5.5, -11.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=929478290]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_8k1wt")
+debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860600443]
 position = Vector2(9.536743e-07, 1.1920929e-07)
@@ -31,3 +38,28 @@ scale = Vector2(0.16210938, 0.16210938)
 sprite_frames = SubResource("SpriteFrames_f2ued")
 animation = &"idle"
 frame_progress = 0.8091081
+
+[node name="Health" type="Node" parent="." unique_id=905551826]
+script = ExtResource("4_rdwt8")
+metadata/_custom_type_script = "uid://mptunu8jnbkm"
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=789786805]
+collision_mask = 8
+script = ExtResource("5_0qbsp")
+metadata/_custom_type_script = "uid://drtjci2lya2yr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=477596351]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_8k1wt")
+debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
+
+[node name="Hurtbox" type="Area2D" parent="." unique_id=2042549355]
+collision_layer = 2
+collision_mask = 4
+script = ExtResource("6_om4q2")
+metadata/_custom_type_script = "uid://btemv3bi81y5"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox" unique_id=2094873526]
+position = Vector2(0, 12.5)
+shape = SubResource("RectangleShape2D_8k1wt")
+debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
