@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cdaot58sab30j" path="res://Scripts/Global/FightScene.gd" id="1_7jb6k"]
 [ext_resource type="PackedScene" uid="uid://dgbhhlfqmotfp" path="res://Scenes/Scenarios/Stages/StagePlaceholder.tscn" id="1_th3ru"]
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerPlaceholder/PlayerBase.tscn" id="2_7jb6k"]
-[ext_resource type="Script" uid="uid://mptunu8jnbkm" path="res://Entities/Resources/PlayerStats.gd" id="4_m7cwq"]
 
 [node name="FightScene" type="Node2D" unique_id=546099236]
 script = ExtResource("1_7jb6k")
@@ -12,7 +11,3 @@ script = ExtResource("1_7jb6k")
 position = Vector2(480, 270)
 
 [node name="Player" parent="." unique_id=1837461515 instance=ExtResource("2_7jb6k")]
-
-[node name="Health" type="Node" parent="." unique_id=302760409]
-script = ExtResource("4_m7cwq")
-metadata/_custom_type_script = "uid://mptunu8jnbkm"
