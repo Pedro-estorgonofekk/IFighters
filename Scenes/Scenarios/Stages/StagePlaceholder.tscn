@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://dgbhhlfqmotfp"]
+
+[ext_resource type="Texture2D" uid="uid://mr7mmh3wko4t" path="res://Assets/Sprites/bg.png" id="1_65koc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tbvaf"]
+size = Vector2(960, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_htk83"]
+size = Vector2(20, 504)
+
+[node name="Stage" type="Node2D" unique_id=716982872]
+
+[node name="Background" type="Sprite2D" parent="." unique_id=503197157]
+texture = ExtResource("1_65koc")
+
+[node name="Floor" type="StaticBody2D" parent="." unique_id=1251637829]
+position = Vector2(0, 260)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor" unique_id=1575228594]
+shape = SubResource("RectangleShape2D_tbvaf")
+
+[node name="P1Spawn" type="Marker2D" parent="." unique_id=1666656760]
+position = Vector2(-240, 0)
+
+[node name="P2Spawn" type="Marker2D" parent="." unique_id=1594026796]
+position = Vector2(240, 0)
+
+[node name="RightBound" type="StaticBody2D" parent="." unique_id=1607743861]
+position = Vector2(490, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBound" unique_id=601438544]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_htk83")
+
+[node name="LeftBound" type="StaticBody2D" parent="." unique_id=741532522]
+position = Vector2(-490, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound" unique_id=246031787]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_htk83")
