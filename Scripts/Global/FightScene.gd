@@ -7,3 +7,4 @@ var vel = 200
 
 func _ready():
 	player.global_position = P1Spawn.global_position
+	
