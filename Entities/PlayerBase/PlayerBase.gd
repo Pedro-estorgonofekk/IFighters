@@ -6,7 +6,7 @@ extends CharacterBody2D
 @export var player_id: int
 
 const speed = 300.0
-const jump_velocity = -650.0
+const jump_velocity = -700.0
 
 const dash_speed = 900.0
 const dash_duration = 0.15
@@ -99,9 +99,9 @@ func _physics_process(delta: float) -> void:
 			var collider = collision.get_collider()
 			
 			if collider.is_in_group("Player") and collision.get_normal().y < 0:
-				var direcao_escorrego = 15.0 if global_position.x > collider.global_position.x else -15.0
+				var slip_direction = 8.0 if global_position.x > collider.global_position.x else -8.0
 				velocity.y = 0
-				move_local_x(direcao_escorrego)
-				print("bucecha")
+				move_local_x(slip_direction)
+				
 
 	move_and_slide()
