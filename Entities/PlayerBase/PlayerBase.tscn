@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cgxtdwxpkgkyd"]
 
-[ext_resource type="Texture2D" uid="uid://cb4ao1vdxrlgd" path="res://Entities/PlayerBase/idle.png" id="1_4olgi"]
+[ext_resource type="Texture2D" uid="uid://bhqrqxxw1sxud" path="res://Entities/PlayerBase/idle.png" id="1_4olgi"]
 [ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerBase/PlayerBase.gd" id="1_8k1wt"]
-[ext_resource type="Texture2D" uid="uid://strq5lrh0xe4" path="res://Entities/PlayerBase/idle2.png" id="2_f2ued"]
+[ext_resource type="Texture2D" uid="uid://bv1tb1rfgx6xh" path="res://Entities/PlayerBase/idle2.png" id="2_f2ued"]
 [ext_resource type="Script" uid="uid://mptunu8jnbkm" path="res://Entities/Resources/PlayerStats.gd" id="4_rdwt8"]
 [ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="5_0qbsp"]
 [ext_resource type="Script" uid="uid://btemv3bi81y5" path="res://Entities/Resources/Hurtbox.gd" id="6_om4q2"]

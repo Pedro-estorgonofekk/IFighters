@@ -1,9 +1,9 @@
 extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
-@onready var hitbox: Hitbox = $Hitbox
-@onready var hurtbox: Hurtbox = $Hurtbox
-@export var player_id: int = 1
+@onready var hitbox := $Hitbox
+@onready var hurtbox := $Hurtbox
+@export var player_id: int
 
 const speed = 300.0
 const jump_velocity = -650.0
@@ -50,6 +50,7 @@ func setupPlayer():
 		hurtbox.collision_mask = 1
 
 func _ready() -> void:
+	setupPlayer()
 	anim.play("idle")
 
 func _physics_process(delta: float) -> void:
