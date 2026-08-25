@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox := $Hitbox
+@onready var tamanho = $Hitbox/CollisionShape2D
 @onready var hurtbox := $Hurtbox
 @export var player_id: int
 
@@ -52,7 +53,8 @@ func setupPlayer():
 func _ready() -> void:
 	setupPlayer()
 	anim.play("idle")
-
+	print(tamanho.size)
+	
 func _physics_process(delta: float) -> void:
 	if dash_timer > 0:
 		dash_timer -= delta
@@ -69,11 +71,11 @@ func _physics_process(delta: float) -> void:
 
 	if is_dashing:
 		velocity.x = dash_direction * dash_speed
-		# anim.play("dash")
+		anim.play("dash")
 	else:
 		if Input.is_action_pressed(action_crouch) and is_on_floor():
 			velocity.x = 0
-			# anim.play("crouch")
+			anim.play("crouch")
 			
 		elif direction != 0:
 			velocity.x = direction * speed

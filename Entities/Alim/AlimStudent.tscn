@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://twt2houyehm2"]
+
+[ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_h68ok"]
+[ext_resource type="Texture2D" uid="uid://dk3eg1yc7hyod" path="res://Entities/Alim/alimentosSpritesheet.png" id="2_47mw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_47mw1"]
+atlas = ExtResource("2_47mw1")
+region = Rect2(0, 0, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b42ka"]
+atlas = ExtResource("2_47mw1")
+region = Rect2(224, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1s0h"]
+atlas = ExtResource("2_47mw1")
+region = Rect2(112, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i0nue"]
+atlas = ExtResource("2_47mw1")
+region = Rect2(224, 112, 112, 112)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5velu"]
+atlas = ExtResource("2_47mw1")
+region = Rect2(336, 112, 112, 112)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l1s0h"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_47mw1")
+}],
+"loop": 1,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b42ka")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1s0h")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i0nue")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5velu")
+}],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}]
+
+[node name="Player" unique_id=1496453183 instance=ExtResource("1_h68ok")]
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=1860600443]
+position = Vector2(31, 39.999996)
+scale = Vector2(2.457, 2.457)
+sprite_frames = SubResource("SpriteFrames_l1s0h")
+animation = &"jump"
+autoplay = "idle"
+frame_progress = 0.0
