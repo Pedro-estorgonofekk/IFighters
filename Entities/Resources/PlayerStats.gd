@@ -14,7 +14,7 @@ func takeDmg(damage: int) -> void:
 	playerHealth -= damage
 	
 	#clampi é pra vida n sair do limite de 0-100
-	playerHealth = clampi(playerHealth, 0, playerHealth) 
+	playerHealth = clampi(playerHealth, 0, maxHealth) 
 	tookDmg.emit(damage, playerHealth) 
 	
 	if playerHealth <= 0:

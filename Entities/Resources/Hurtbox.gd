@@ -1,14 +1,14 @@
 class_name Hurtbox
 extends Area2D
 
-signal receivedDmg
+signal receivedDmg(amount: int)
 
 @export var health: Health 
 
 func _ready() -> void:
-	connect("area_entered", on_area_entered)
+	area_entered.connect(_on_area_entered)
 
-func on_area_entered(hitbox: Hitbox) -> void:
-	if hitbox:
-		health.playerHealth -= hitbox.damage
-		receivedDmg.emit(hitbox.damage)
+func _on_area_entered(area: Area2D) -> void:
+	if area is Hitbox and health:
+		health.takeDmg(area.damage)
+		receivedDmg.emit(area.damage)
