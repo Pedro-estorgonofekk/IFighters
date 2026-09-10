@@ -44,6 +44,8 @@ var action_jump: String
 var action_crouch: String
 var action_dash: String
 
+# Variaveis Aux. Direção Player
+var opponent : CharacterBody2D 
 
 func setup_player() -> void:
 	if player_id == 1:
@@ -70,15 +72,32 @@ func setup_player() -> void:
 		hurtbox.collision_layer = 8
 		hurtbox.collision_mask = 1
 
+func find_opponent():
+	var players = get_tree().get_nodes_in_group("Player")
+	
+	for i in players:
+		if i != self:
+			opponent = i
+			break
+
+func face_direction():
+	if opponent == null: return
+	
+	if opponent.global_position.x < global_position.x:
+		anim.flip_h = true
+		
+	else:
+		anim.flip_h = false
 
 func _ready() -> void:
 	setup_player()
 	disable_collision()
 	change_state(State.IDLE)
-
+	call_deferred("find_opponent")
 
 func _physics_process(delta: float) -> void:
-	# Atualiza timers globais
+	
+	face_direction()
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
 
@@ -178,7 +197,6 @@ func state_move() -> void:
 
 	if direction != 0:
 		velocity.x = direction * SPEED
-		anim.flip_h = (direction < 0)
 	else:
 		change_state(State.IDLE)
 		return
@@ -208,8 +226,6 @@ func state_crouch() -> void:
 func state_jump() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
-	if direction != 0:
-		anim.flip_h = (direction < 0)
 
 	# Quando começa a descer
 	if velocity.y > 0:
@@ -219,8 +235,6 @@ func state_jump() -> void:
 func state_fall() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
-	if direction != 0:
-		anim.flip_h = (direction < 0)
 
 	# Aterrissou no chão
 	if is_on_floor():

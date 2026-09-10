@@ -19,7 +19,3 @@ func takeDmg(damage: int) -> void:
 	
 	if playerHealth <= 0:
 		healthDepleted.emit()
-
-func _process(delta: float) -> void:
-	print(playerHealth)
-	
