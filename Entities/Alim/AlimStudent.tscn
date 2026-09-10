@@ -92,15 +92,15 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" unique_id=1496453183 instance=ExtResource("1_h68ok")]
+[node name="Player2" unique_id=1496453183 instance=ExtResource("1_h68ok")]
 
-[node name="AnimatedSprite2D" parent="." index="1" unique_id=1860600443]
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
-animation = &"walk"
+animation = &"crouch"
 autoplay = "idle"
-frame_progress = 0.63495666
+frame_progress = 0.0
 
-[node name="CollisionShape2D" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=2094873526]
-position = Vector2(0, 13)
+[node name="CSCrouchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="3" unique_id=855191741]
+position = Vector2(-1, 58)

@@ -129,22 +129,37 @@ func _physics_process(delta: float) -> void:
 
 func disable_collision():
 	#Hitbox
+# Hitboxes
 	cs_idle_hit.disabled = true
+	cs_idle_hit.visible = false
+	
 	cs_punch_hit.disabled = true
+	cs_punch_hit.visible = false
+	
 	cs_bullet_hit.disabled = true
+	cs_bullet_hit.visible = false
+	
 	cs_crouch_hit.disabled = true
+	cs_crouch_hit.visible = false
+	
 	cs_ult_hit.disabled = true
+	cs_ult_hit.visible = false
 	
-	#hurtbox
+	# Hurtboxes
 	cs_idle_hurt.disabled = true
+	cs_idle_hurt.visible = false
+	
 	cs_punch_hurt.disabled = true
+	cs_punch_hurt.visible = false
+	
 	cs_bullet_hurt.disabled = true
+	cs_bullet_hurt.visible = false
+	
 	cs_crouch_hurt.disabled = true
+	cs_crouch_hurt.visible = false
+	
 	cs_ult_hurt.disabled = true
-	
-	
-	
-	
+	cs_ult_hurt.visible = false
 	
 	
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
@@ -176,8 +191,18 @@ func change_state(new_state: State) -> void:
 
 func state_idle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
-	cs_idle_hit.disabled = false
 	cs_idle_hurt.disabled = false
+	cs_idle_hit.disabled = false
+	cs_punch_hit.disabled = true
+	cs_punch_hurt.disabled = true
+	cs_bullet_hit.disabled = true
+	cs_bullet_hurt.disabled = true
+	cs_crouch_hit.disabled = true
+	cs_crouch_hurt.disabled = true
+	cs_ult_hit.disabled = true
+	cs_ult_hurt.disabled = true
+	
+	cs_idle_hit.visible = true
 
 	# Transições
 	if tentar_dash():
@@ -194,7 +219,17 @@ func state_idle() -> void:
 
 func state_move() -> void:
 	var direction := Input.get_axis(action_left, action_right)
-
+	cs_idle_hurt.disabled = false
+	cs_idle_hit.disabled = false
+	cs_punch_hit.disabled = true
+	cs_punch_hurt.disabled = true
+	cs_bullet_hit.disabled = true
+	cs_bullet_hurt.disabled = true
+	cs_crouch_hit.disabled = true
+	cs_crouch_hurt.disabled = true
+	cs_ult_hit.disabled = true
+	cs_ult_hurt.disabled = true
+	
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
@@ -214,7 +249,18 @@ func state_move() -> void:
 
 func state_crouch() -> void:
 	velocity.x = 0
-
+	cs_idle_hurt.disabled = true
+	cs_idle_hit.disabled = true
+	cs_punch_hit.disabled = true
+	cs_punch_hurt.disabled = true
+	cs_bullet_hit.disabled = true
+	cs_bullet_hurt.disabled = true
+	cs_crouch_hit.disabled = false
+	cs_crouch_hurt.disabled = false
+	cs_ult_hit.disabled = true
+	cs_ult_hurt.disabled = true
+	cs_idle_hit.visible = false
+	cs_crouch_hit.visible = true
 	# Soltou o agachar
 	if not Input.is_action_pressed(action_crouch):
 		if Input.get_axis(action_left, action_right) != 0:
