@@ -6,8 +6,22 @@ var current_state: State = State.IDLE
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox := $Hitbox
-@onready var tamanho = $Hitbox/CollisionShape2D
 @onready var hurtbox := $Hurtbox
+
+#Hitboxes
+@onready var cs_idle_hit: CollisionShape2D = $Hitbox/CSIdleHit
+@onready var cs_punch_hit: CollisionShape2D = $Hitbox/CSPunchHit
+@onready var cs_bullet_hit: CollisionShape2D = $Hitbox/CSBulletHit
+@onready var cs_crouch_hit: CollisionShape2D = $Hitbox/CSCrouchHit
+@onready var cs_ult_hit: CollisionShape2D = $Hitbox/CSUltHit
+
+#Hurtboxes
+@onready var cs_idle_hurt: CollisionShape2D = $Hurtbox/CSIdleHurt
+@onready var cs_punch_hurt: CollisionShape2D = $Hurtbox/CSPunchHurt
+@onready var cs_bullet_hurt: CollisionShape2D = $Hurtbox/CSBulletHurt
+@onready var cs_crouch_hurt: CollisionShape2D = $Hurtbox/CSCrouchHurt
+@onready var cs_ult_hurt: CollisionShape2D = $Hurtbox/CSUltHurt
+
 
 @export var player_id: int
 
@@ -59,6 +73,7 @@ func setup_player() -> void:
 
 func _ready() -> void:
 	setup_player()
+	disable_collision()
 	change_state(State.IDLE)
 
 
@@ -92,6 +107,27 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+
+func disable_collision():
+	#Hitbox
+	cs_idle_hit.disabled = true
+	cs_punch_hit.disabled = true
+	cs_bullet_hit.disabled = true
+	cs_crouch_hit.disabled = true
+	cs_ult_hit.disabled = true
+	
+	#hurtbox
+	cs_idle_hurt.disabled = true
+	cs_punch_hurt.disabled = true
+	cs_bullet_hurt.disabled = true
+	cs_crouch_hurt.disabled = true
+	cs_ult_hurt.disabled = true
+	
+	
+	
+	
+	
+	
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
 
 func change_state(new_state: State) -> void:
@@ -121,6 +157,8 @@ func change_state(new_state: State) -> void:
 
 func state_idle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
+	cs_idle_hit.disabled = false
+	cs_idle_hurt.disabled = false
 
 	# Transições
 	if tentar_dash():
