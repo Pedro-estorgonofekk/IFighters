@@ -201,7 +201,7 @@ func state_idle() -> void:
 	cs_crouch_hurt.disabled = true
 	cs_ult_hit.disabled = true
 	cs_ult_hurt.disabled = true
-	
+	cs_crouch_hit.visible = false
 	cs_idle_hit.visible = true
 
 	# Transições
@@ -229,6 +229,8 @@ func state_move() -> void:
 	cs_crouch_hurt.disabled = true
 	cs_ult_hit.disabled = true
 	cs_ult_hurt.disabled = true
+	cs_idle_hit.visible = true
+	cs_crouch_hit.visible = false
 	
 	if direction != 0:
 		velocity.x = direction * SPEED
@@ -270,6 +272,18 @@ func state_crouch() -> void:
 
 
 func state_jump() -> void:
+	cs_idle_hurt.disabled = false
+	cs_idle_hit.disabled = false
+	cs_punch_hit.disabled = true
+	cs_punch_hurt.disabled = true
+	cs_bullet_hit.disabled = true
+	cs_bullet_hurt.disabled = true
+	cs_crouch_hit.disabled = true
+	cs_crouch_hurt.disabled = true
+	cs_ult_hit.disabled = true
+	cs_ult_hurt.disabled = true
+	cs_idle_hit.visible = true
+	cs_crouch_hit.visible = false
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
 
