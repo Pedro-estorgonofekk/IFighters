@@ -4,13 +4,35 @@
 [ext_resource type="Texture2D" uid="uid://n4t6lgh7ydkw" path="res://Entities/Alim/Sprites/em pé.png" id="2_47mw1"]
 [ext_resource type="Texture2D" uid="uid://64ulotpn6o5v" path="res://Entities/Alim/Sprites/agachado1.png" id="2_ewn6j"]
 [ext_resource type="Texture2D" uid="uid://isdtuc251k54" path="res://Entities/Alim/Sprites/pulo2.png" id="3_hta1d"]
+[ext_resource type="Texture2D" uid="uid://dc0u5r4h8mmbu" path="res://Entities/Alim/Sprites/dashreserva.png" id="4_hta1d"]
 [ext_resource type="Texture2D" uid="uid://dbf3c48ecttjo" path="res://Entities/Alim/Sprites/pulo1-3.png" id="5_k1ax1"]
-[ext_resource type="Texture2D" uid="uid://dcybbefy2o1sr" path="res://Entities/Alim/Sprites/soco1.png" id="6_otmuh"]
-[ext_resource type="Texture2D" uid="uid://dyu155fe65ji3" path="res://Entities/Alim/Sprites/soco2.png" id="7_oi570"]
+[ext_resource type="Texture2D" uid="uid://b36gtr1mylem5" path="res://Entities/Alim/Sprites/andar1.png" id="7_hta1d"]
+[ext_resource type="Texture2D" uid="uid://dclcd34gfoctj" path="res://Entities/Alim/Sprites/andar2.png" id="8_k1ax1"]
+[ext_resource type="Texture2D" uid="uid://dxgi34hri5era" path="res://Entities/Alim/Sprites/paradinho.png" id="8_otmuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1s02"]
 atlas = ExtResource("2_ewn6j")
 region = Rect2(0, 0, 112, 81)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hta1d"]
+atlas = ExtResource("3_hta1d")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k1ax1"]
+atlas = ExtResource("4_hta1d")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_otmuh"]
+atlas = ExtResource("7_hta1d")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc43v"]
+atlas = ExtResource("8_otmuh")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oi570"]
+atlas = ExtResource("8_k1ax1")
+region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h68ok"]
 animations = [{
@@ -24,9 +46,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("3_hta1d")
+"texture": SubResource("AtlasTexture_hta1d")
 }],
-"loop": 1,
+"loop": 2,
 "name": &"dash",
 "speed": 5.0
 }, {
@@ -44,6 +66,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": ExtResource("3_hta1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k1ax1")
 }],
 "loop": 0,
 "name": &"jump",
@@ -51,10 +76,16 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("6_otmuh")
+"texture": SubResource("AtlasTexture_otmuh")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lc43v")
 }, {
 "duration": 1.0,
-"texture": ExtResource("7_oi570")
+"texture": SubResource("AtlasTexture_oi570")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_lc43v")
 }],
 "loop": 1,
 "name": &"walk",
@@ -67,9 +98,9 @@ animations = [{
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
-animation = &"dash"
+animation = &"walk"
 autoplay = "idle"
-frame_progress = 0.0
+frame_progress = 0.63495666
 
 [node name="CollisionShape2D" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=2094873526]
 position = Vector2(0, 13)
