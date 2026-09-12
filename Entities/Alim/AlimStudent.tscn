@@ -93,7 +93,7 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Player" unique_id=1496453183 instance=ExtResource("1_h68ok")]
+[node name="AlimStudent" unique_id=1496453183 instance=ExtResource("1_h68ok")]
 
 [node name="AnimatedSprite2D" parent="." index="1" unique_id=1860600443]
 position = Vector2(2.999998, 15)
@@ -106,4 +106,5 @@ frame_progress = 0.63495666
 position = Vector2(0, 13)
 
 [node name="Attacks" parent="." index="5" unique_id=1310549290]
+projectile_dmg = 10
 projectile = ExtResource("10_otmuh")

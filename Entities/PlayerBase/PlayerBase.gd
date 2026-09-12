@@ -30,6 +30,8 @@ var action_jump: String
 var action_crouch: String
 var action_dash: String
 
+
+
 # Variaveis Aux. Direção Player
 var opponent : CharacterBody2D 
 
@@ -71,7 +73,6 @@ func FaceDirection():
 	
 	if opponent.global_position.x < global_position.x:
 		anim.flip_h = true
-		
 	else:
 		anim.flip_h = false
 

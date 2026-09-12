@@ -110,3 +110,5 @@ script = ExtResource("9_3xxhn")
 metadata/_custom_type_script = "uid://c1x2uj6c5k00t"
 
 [node name="Timer" type="Timer" parent="Attacks" unique_id=2021702805]
+wait_time = 0.5
+one_shot = true
