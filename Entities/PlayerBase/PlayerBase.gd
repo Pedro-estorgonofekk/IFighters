@@ -13,7 +13,7 @@ var current_state: State = State.IDLE
 
 # Constantes de Física
 const SPEED = 300.0
-const JUMP_VELOCITY = -700.0
+const JUMP_VELOCITY = -750.0
 const DASH_SPEED = 900.0
 const DASH_DURATION = 0.15
 const DASH_COOLDOWN = 0.4
