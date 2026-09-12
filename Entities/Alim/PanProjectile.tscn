@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dna7y0yac5615"]
+
+[ext_resource type="Script" uid="uid://bwiea2nwjjjdt" path="res://Entities/Alim/PanProjectile.gd" id="1_346vi"]
+[ext_resource type="Texture2D" uid="uid://drcs626j8y15t" path="res://Entities/Alim/Sprites/arremesso4.png" id="2_vd8w1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 19.235384
+
+[node name="Area2D" type="Area2D" unique_id=1711222767]
+script = ExtResource("1_346vi")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=663598487]
+texture = ExtResource("2_vd8w1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=64508300]
+shape = SubResource("CircleShape2D_g4v7s")
