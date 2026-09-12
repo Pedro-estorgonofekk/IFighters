@@ -33,7 +33,7 @@ var action_dash: String
 # Variaveis Aux. Direção Player
 var opponent : CharacterBody2D 
 
-func setup_player() -> void:
+func SetupPlayer() -> void:
 	if player_id == 1:
 		action_right = "DireitaP1"
 		action_left = "EsquerdaP1"
@@ -58,7 +58,7 @@ func setup_player() -> void:
 		hurtbox.collision_layer = 8
 		hurtbox.collision_mask = 1
 
-func find_opponent():
+func FindOpponent():
 	var players = get_tree().get_nodes_in_group("Player")
 	
 	for i in players:
@@ -66,7 +66,7 @@ func find_opponent():
 			opponent = i
 			break
 
-func face_direction():
+func FaceDirection():
 	if opponent == null: return
 	
 	if opponent.global_position.x < global_position.x:
@@ -76,13 +76,13 @@ func face_direction():
 		anim.flip_h = false
 
 func _ready() -> void:
-	setup_player()
-	change_state(State.IDLE)
-	call_deferred("find_opponent")
+	SetupPlayer()
+	ChangeState(State.IDLE)
+	call_deferred("FindOpponent")
 
 func _physics_process(delta: float) -> void:
 	
-	face_direction()
+	FaceDirection()
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
 
@@ -93,27 +93,29 @@ func _physics_process(delta: float) -> void:
 	# Executa a lógica do estado atual
 	match current_state:
 		State.IDLE:
-			state_idle()
+			StateIdle()
 		State.MOVE:
-			state_move()
+			StateMove()
 		State.CROUCH:
-			state_crouch()
+			StateCrouch()
 		State.JUMP:
-			state_jump()
+			StateJump()
 		State.FALL:
-			state_fall()
+			StateFall()
 		State.DASH:
-			state_dash(delta)
-
+			StateDash(delta)
+	
+	if Input.is_action_just_pressed(action_crouch):
+		$Attacks.Throw()
 	# Lógica para não ficar em cima do oponente (escorregar)
-	tratar_colisao_com_oponente()
+	OpponentCollision()
 
 	move_and_slide()
 
 
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
 
-func change_state(new_state: State) -> void:
+func ChangeState(new_state: State) -> void:
 	current_state = new_state
 
 	match current_state:
@@ -138,97 +140,97 @@ func change_state(new_state: State) -> void:
 
 # --- COMPORTAMENTO DOS ESTADOS ---
 
-func state_idle() -> void:
+func StateIdle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	# Transições
-	if tentar_dash():
+	if TryDash():
 		return
 	if Input.is_action_just_pressed(action_jump) and is_on_floor():
-		change_state(State.JUMP)
+		ChangeState(State.JUMP)
 	elif Input.is_action_pressed(action_crouch) and is_on_floor():
-		change_state(State.CROUCH)
+		ChangeState(State.CROUCH)
 	elif Input.get_axis(action_left, action_right) != 0:
-		change_state(State.MOVE)
+		ChangeState(State.MOVE)
 	elif not is_on_floor():
-		change_state(State.FALL)
+		ChangeState(State.FALL)
 
 
-func state_move() -> void:
+func StateMove() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
-		change_state(State.IDLE)
+		ChangeState(State.IDLE)
 		return
 
 	# Transições
-	if tentar_dash():
+	if TryDash():
 		return
 	if Input.is_action_just_pressed(action_jump) and is_on_floor():
-		change_state(State.JUMP)
+		ChangeState(State.JUMP)
 	elif Input.is_action_pressed(action_crouch) and is_on_floor():
-		change_state(State.CROUCH)
+		ChangeState(State.CROUCH)
 	elif not is_on_floor():
-		change_state(State.FALL)
+		ChangeState(State.FALL)
 
 
-func state_crouch() -> void:
+func StateCrouch() -> void:
 	velocity.x = 0
 
 	# Soltou o agachar
 	if not Input.is_action_pressed(action_crouch):
 		if Input.get_axis(action_left, action_right) != 0:
-			change_state(State.MOVE)
+			ChangeState(State.MOVE)
 		else:
-			change_state(State.IDLE)
+			ChangeState(State.IDLE)
 
 
-func state_jump() -> void:
+func StateJump() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
 
 	# Quando começa a descer
 	if velocity.y > 0:
-		change_state(State.FALL)
+		ChangeState(State.FALL)
 
 
-func state_fall() -> void:
+func StateFall() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
 
 	# Aterrissou no chão
 	if is_on_floor():
 		if direction != 0:
-			change_state(State.MOVE)
+			ChangeState(State.MOVE)
 		else:
-			change_state(State.IDLE)
+			ChangeState(State.IDLE)
 
 
-func state_dash(delta: float) -> void:
+func StateDash(delta: float) -> void:
 	velocity.x = dash_direction * DASH_SPEED
 	dash_timer -= delta
 
 	if dash_timer <= 0:
 		if is_on_floor():
-			change_state(State.IDLE)
+			ChangeState(State.IDLE)
 		else:
-			change_state(State.FALL)
+			ChangeState(State.FALL)
 
 
 # --- FUNÇÕES AUXILIARES ---
 
-func tentar_dash() -> bool:
+func TryDash() -> bool:
 	var direction := Input.get_axis(action_left, action_right)
 	if Input.is_action_just_pressed(action_dash) and dash_cooldown_timer <= 0 and direction != 0:
 		dash_direction = direction
-		change_state(State.DASH)
+		ChangeState(State.DASH)
 		return true
 	return false
 
 
-func tratar_colisao_com_oponente() -> void:
+func OpponentCollision() -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()

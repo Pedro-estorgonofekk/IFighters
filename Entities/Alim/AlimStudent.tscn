@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://b36gtr1mylem5" path="res://Entities/Alim/Sprites/andar1.png" id="7_hta1d"]
 [ext_resource type="Texture2D" uid="uid://dclcd34gfoctj" path="res://Entities/Alim/Sprites/andar2.png" id="8_k1ax1"]
 [ext_resource type="Texture2D" uid="uid://dxgi34hri5era" path="res://Entities/Alim/Sprites/paradinho.png" id="8_otmuh"]
+[ext_resource type="PackedScene" uid="uid://dna7y0yac5615" path="res://Entities/Alim/PanProjectile.tscn" id="10_otmuh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1s02"]
 atlas = ExtResource("2_ewn6j")
@@ -99,8 +100,10 @@ position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
 animation = &"walk"
-autoplay = "idle"
 frame_progress = 0.63495666
 
 [node name="CollisionShape2D" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=2094873526]
 position = Vector2(0, 13)
+
+[node name="Attacks" parent="." index="5" unique_id=1310549290]
+projectile = ExtResource("10_otmuh")
