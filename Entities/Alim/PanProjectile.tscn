@@ -1,16 +1,25 @@
-[gd_scene format=3 uid="uid://dna7y0yac5615"]
+[gd_scene format=3 uid="uid://cvpae2f6aednh"]
 
-[ext_resource type="Script" uid="uid://bwiea2nwjjjdt" path="res://Entities/Alim/PanProjectile.gd" id="1_346vi"]
+[ext_resource type="PackedScene" uid="uid://b3n3s7e3pq6fr" path="res://Entities/PlayerBase/ProjectileBase.tscn" id="1_hnvuh"]
 [ext_resource type="Texture2D" uid="uid://drcs626j8y15t" path="res://Entities/Alim/Sprites/arremesso4.png" id="2_vd8w1"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
-radius = 19.235384
+[sub_resource type="AtlasTexture" id="AtlasTexture_346vi"]
+atlas = ExtResource("2_vd8w1")
+region = Rect2(0, 0, 96, 96)
 
-[node name="Area2D" type="Area2D" unique_id=1711222767]
-script = ExtResource("1_346vi")
+[sub_resource type="SpriteFrames" id="SpriteFrames_346vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_346vi")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=663598487]
-texture = ExtResource("2_vd8w1")
+[node name="PanProjectile" unique_id=1901221698 instance=ExtResource("1_hnvuh")]
+spinnable = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=64508300]
-shape = SubResource("CircleShape2D_g4v7s")
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=921523398]
+sprite_frames = SubResource("SpriteFrames_346vi")

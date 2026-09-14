@@ -1,12 +1,129 @@
 [gd_scene format=3 uid="uid://3q4537mj43w"]
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_c2ov0"]
-[ext_resource type="PackedScene" uid="uid://bfhbhl2jis6lg" path="res://Entities/Agro/ChikenProjectile.tscn" id="2_mxowb"]
+[ext_resource type="Texture2D" uid="uid://d2tsyi45c6bym" path="res://Entities/Agro/Sprites/agachado0agro.png" id="2_81w87"]
+[ext_resource type="PackedScene" uid="uid://dhm4xb60pjqf2" path="res://Entities/Agro/ChickenProjectile.tscn" id="2_mxowb"]
+[ext_resource type="Texture2D" uid="uid://c3fsacekx8vyo" path="res://Entities/Agro/Sprites/paradinhoagro.png" id="4_iy73q"]
+[ext_resource type="Texture2D" uid="uid://bxdd45nr18yvg" path="res://Entities/Agro/Sprites/pulo2agro.png" id="6_xpygc"]
+[ext_resource type="Texture2D" uid="uid://jylvvhbfiq2d" path="res://Entities/Agro/Sprites/dashagro.png" id="7_o0cf6"]
+[ext_resource type="Texture2D" uid="uid://obqg3suqe6wq" path="res://Entities/Agro/Sprites/indoali2agro.png" id="7_xpygc"]
+[ext_resource type="Texture2D" uid="uid://oyk0kjy6ev3b" path="res://Entities/Agro/Sprites/indoali1agro.png" id="8_o0cf6"]
 
-[node name="Player" unique_id=1496453183 instance=ExtResource("1_c2ov0")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_8rgri"]
+atlas = ExtResource("2_81w87")
+region = Rect2(0, 0, 92, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpygc"]
+atlas = ExtResource("7_o0cf6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0cf6"]
+atlas = ExtResource("4_iy73q")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_src17"]
+atlas = ExtResource("2_81w87")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjgs6"]
+atlas = ExtResource("6_xpygc")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbvwu"]
+atlas = ExtResource("7_o0cf6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3fsa"]
+atlas = ExtResource("7_xpygc")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_050d7"]
+atlas = ExtResource("4_iy73q")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnikx"]
+atlas = ExtResource("8_o0cf6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltjo1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8rgri")
+}],
+"loop": 1,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpygc")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0cf6")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_src17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bjgs6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbvwu")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3fsa")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_050d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnikx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_050d7")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[node name="AgroStudent" unique_id=1496453183 instance=ExtResource("1_c2ov0")]
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
-modulate = Color(0.624665, 0.6224481, 1, 1)
+position = Vector2(9.536743e-07, 15.999996)
+scale = Vector2(3.127, 3.127)
+sprite_frames = SubResource("SpriteFrames_ltjo1")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=929478290]
+visible = true
+
+[node name="Hitbox" parent="." index="3" unique_id=789786805]
+visible = false
+
+[node name="Hurtbox" parent="." index="4" unique_id=2042549355]
+visible = false
+
+[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
+visible = false
+
+[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
+visible = false
 
 [node name="Attacks" parent="." index="5" unique_id=1310549290]
 projectile = ExtResource("2_mxowb")

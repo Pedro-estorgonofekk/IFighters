@@ -16,7 +16,6 @@ var current_state: State = State.IDLE
 @onready var cs_idle_hurt: CollisionShape2D = $Hurtbox/CSIdleHurt
 @onready var cs_crouch_hurt: CollisionShape2D = $Hurtbox/CSCrouchHurt
 
-
 @export var player_id: int
 
 # Constantes de Física
@@ -37,8 +36,9 @@ var action_left: String
 var action_jump: String
 var action_crouch: String
 var action_dash: String
-
-
+var action_weak: String
+var action_strong: String
+var action_throw: String
 
 # Variaveis Aux. Direção Player
 var opponent : CharacterBody2D 
@@ -253,7 +253,6 @@ func StateDash(delta: float) -> void:
 			ChangeState(State.IDLE)
 		else:
 			ChangeState(State.FALL)
-
 
 # --- FUNÇÕES AUXILIARES ---
 

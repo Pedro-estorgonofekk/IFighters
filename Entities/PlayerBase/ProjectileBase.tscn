@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b3n3s7e3pq6fr"]
+
+[ext_resource type="Script" uid="uid://dnnddyukfb8u8" path="res://Entities/PlayerBase/ProjectileBase.gd" id="1_7n4o8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
+radius = 19.24
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+
+[node name="ProjectileBase" type="Area2D" unique_id=1901221698]
+script = ExtResource("1_7n4o8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=992233991]
+shape = SubResource("CircleShape2D_g4v7s")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=921523398]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"

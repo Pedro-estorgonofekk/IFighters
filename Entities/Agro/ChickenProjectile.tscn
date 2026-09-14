@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://dhm4xb60pjqf2"]
+
+[ext_resource type="PackedScene" uid="uid://b3n3s7e3pq6fr" path="res://Entities/PlayerBase/ProjectileBase.tscn" id="1_80a05"]
+[ext_resource type="Texture2D" uid="uid://owbaewbh03xf" path="res://Entities/Agro/Sprites/galinha.png" id="2_4c0rj"]
+[ext_resource type="Texture2D" uid="uid://dcvac7v51876s" path="res://Entities/Agro/Sprites/galinha2.png" id="3_hre3y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmq17"]
+atlas = ExtResource("2_4c0rj")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_coy38"]
+atlas = ExtResource("3_hre3y")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_346vi"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmq17")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_coy38")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ChickenProjectile" unique_id=1901221698 instance=ExtResource("1_80a05")]
+speed = 650
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=921523398]
+sprite_frames = SubResource("SpriteFrames_346vi")
+frame_progress = 0.8250081
