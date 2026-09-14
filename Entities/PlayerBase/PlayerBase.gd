@@ -128,7 +128,6 @@ func _physics_process(delta: float) -> void:
 
 
 func disable_collision():
-	#Hitbox
 # Hitboxes
 	cs_idle_hit.disabled = true
 	cs_idle_hit.visible = false
@@ -191,16 +190,11 @@ func change_state(new_state: State) -> void:
 
 func state_idle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	disable_collision()
 	cs_idle_hurt.disabled = false
 	cs_idle_hit.disabled = false
-	cs_punch_hit.disabled = true
-	cs_punch_hurt.disabled = true
-	cs_bullet_hit.disabled = true
-	cs_bullet_hurt.disabled = true
-	cs_crouch_hit.disabled = true
-	cs_crouch_hurt.disabled = true
-	cs_ult_hit.disabled = true
-	cs_ult_hurt.disabled = true
+
 	
 	cs_idle_hit.visible = true
 
@@ -219,16 +213,12 @@ func state_idle() -> void:
 
 func state_move() -> void:
 	var direction := Input.get_axis(action_left, action_right)
+	
+	disable_collision()
 	cs_idle_hurt.disabled = false
 	cs_idle_hit.disabled = false
-	cs_punch_hit.disabled = true
-	cs_punch_hurt.disabled = true
-	cs_bullet_hit.disabled = true
-	cs_bullet_hurt.disabled = true
-	cs_crouch_hit.disabled = true
-	cs_crouch_hurt.disabled = true
-	cs_ult_hit.disabled = true
-	cs_ult_hurt.disabled = true
+	cs_idle_hit.visible = true
+
 	
 	if direction != 0:
 		velocity.x = direction * SPEED
@@ -249,16 +239,9 @@ func state_move() -> void:
 
 func state_crouch() -> void:
 	velocity.x = 0
-	cs_idle_hurt.disabled = true
-	cs_idle_hit.disabled = true
-	cs_punch_hit.disabled = true
-	cs_punch_hurt.disabled = true
-	cs_bullet_hit.disabled = true
-	cs_bullet_hurt.disabled = true
-	cs_crouch_hit.disabled = false
+	disable_collision()
 	cs_crouch_hurt.disabled = false
-	cs_ult_hit.disabled = true
-	cs_ult_hurt.disabled = true
+	cs_crouch_hit.disabled = false
 	cs_idle_hit.visible = false
 	cs_crouch_hit.visible = true
 	# Soltou o agachar
