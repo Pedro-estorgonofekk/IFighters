@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://bfhbhl2jis6lg"]
+
+[ext_resource type="Texture2D" uid="uid://owbaewbh03xf" path="res://Entities/Agro/Sprites/galinha.png" id="1_cw6co"]
+[ext_resource type="Script" uid="uid://cgi0qg7npblli" path="res://Entities/Agro/ChikenProjectile.gd" id="1_t84iq"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t84iq"]
+atlas = ExtResource("1_cw6co")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cw6co"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t84iq")
+}],
+"loop": 1,
+"name": &"throw",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jt7q6"]
+radius = 19.24
+
+[node name="ChikenProjectile" type="Area2D" unique_id=500374370]
+script = ExtResource("1_t84iq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=312946020]
+sprite_frames = SubResource("SpriteFrames_cw6co")
+animation = &"throw"
+autoplay = "throw"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1092270539]
+shape = SubResource("CircleShape2D_jt7q6")

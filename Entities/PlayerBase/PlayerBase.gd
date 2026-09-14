@@ -6,8 +6,16 @@ var current_state: State = State.IDLE
 
 @onready var anim: AnimatedSprite2D = $AnimatedSprite2D
 @onready var hitbox := $Hitbox
-@onready var tamanho = $Hitbox/CollisionShape2D
 @onready var hurtbox := $Hurtbox
+
+#Hitboxes
+@onready var cs_punch_hit: CollisionShape2D = $Hitbox/CSPunchHit
+@onready var cs_ult_hit: CollisionShape2D = $Hitbox/CSUltHit
+
+#Hurtboxes
+@onready var cs_idle_hurt: CollisionShape2D = $Hurtbox/CSIdleHurt
+@onready var cs_crouch_hurt: CollisionShape2D = $Hurtbox/CSCrouchHurt
+
 
 @export var player_id: int
 
@@ -78,6 +86,7 @@ func FaceDirection():
 
 func _ready() -> void:
 	SetupPlayer()
+	DisableCollision()
 	ChangeState(State.IDLE)
 	call_deferred("FindOpponent")
 
@@ -108,12 +117,29 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed(action_crouch):
 		$Attacks.Throw()
+		
 	# Lógica para não ficar em cima do oponente (escorregar)
 	OpponentCollision()
 
 	move_and_slide()
 
 
+
+func DisableCollision():
+# Hitboxes
+	cs_punch_hit.disabled = true
+	cs_punch_hit.visible = false
+	
+	cs_ult_hit.disabled = true
+	cs_ult_hit.visible = false
+	
+	# Hurtboxes
+	cs_idle_hurt.disabled = true
+	cs_idle_hurt.visible = false
+	
+	cs_crouch_hurt.disabled = true
+	cs_crouch_hurt.visible = false
+	
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
 
 func ChangeState(new_state: State) -> void:
@@ -143,6 +169,9 @@ func ChangeState(new_state: State) -> void:
 
 func StateIdle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+	DisableCollision()
+	cs_idle_hurt.disabled = false
 
 	# Transições
 	if TryDash():
@@ -159,7 +188,10 @@ func StateIdle() -> void:
 
 func StateMove() -> void:
 	var direction := Input.get_axis(action_left, action_right)
-
+	
+	DisableCollision()
+	cs_idle_hurt.disabled = false
+	
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
@@ -179,7 +211,10 @@ func StateMove() -> void:
 
 func StateCrouch() -> void:
 	velocity.x = 0
-
+	DisableCollision()
+	cs_crouch_hurt.disabled = false
+	cs_crouch_hurt.visible = true
+	
 	# Soltou o agachar
 	if not Input.is_action_pressed(action_crouch):
 		if Input.get_axis(action_left, action_right) != 0:
