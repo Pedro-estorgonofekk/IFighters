@@ -38,7 +38,7 @@ var action_crouch: String
 var action_dash: String
 var action_weak: String
 var action_strong: String
-var action_throw: String
+var action_ult: String
 
 # Variaveis Aux. Direção Player
 var opponent : CharacterBody2D 
@@ -50,7 +50,11 @@ func SetupPlayer() -> void:
 		action_jump = "PulaP1"
 		action_crouch = "AgachaP1"
 		action_dash = "DashP1"
-
+		
+		action_weak = "AtaqueFracoP1"
+		action_strong = "AtaqueForteP1"
+		action_ult = "UltP1"
+		
 		hitbox.collision_layer = 1
 		hitbox.collision_mask = 8
 		hurtbox.collision_layer = 2
@@ -62,6 +66,10 @@ func SetupPlayer() -> void:
 		action_jump = "PulaP2"
 		action_crouch = "AgachaP2"
 		action_dash = "DashP2"
+
+		action_weak = "AtaqueFracoP2"
+		action_strong = "AtaqueForteP2"
+		action_ult = "UltP2"
 
 		hitbox.collision_layer = 4
 		hitbox.collision_mask = 2
@@ -90,6 +98,9 @@ func _ready() -> void:
 	ChangeState(State.IDLE)
 	call_deferred("FindOpponent")
 
+
+# --- FUNÇÃO PRINCIPAL RODADA EM TODOS OS FRAMES ---
+
 func _physics_process(delta: float) -> void:
 	
 	FaceDirection()
@@ -114,8 +125,11 @@ func _physics_process(delta: float) -> void:
 			StateFall()
 		State.DASH:
 			StateDash(delta)
-	
-	if Input.is_action_just_pressed(action_crouch):
+			
+	if Input.is_action_just_pressed(action_weak):
+		$Attacks.WeakPunch()
+		
+	if Input.is_action_just_pressed(action_ult) and Input.is_action_just_pressed(action_weak):
 		$Attacks.Throw()
 		
 	# Lógica para não ficar em cima do oponente (escorregar)
@@ -172,7 +186,8 @@ func StateIdle() -> void:
 	
 	DisableCollision()
 	cs_idle_hurt.disabled = false
-
+	cs_idle_hurt.visible = true
+	
 	# Transições
 	if TryDash():
 		return
@@ -191,6 +206,7 @@ func StateMove() -> void:
 	
 	DisableCollision()
 	cs_idle_hurt.disabled = false
+	cs_idle_hurt.visible = true
 	
 	if direction != 0:
 		velocity.x = direction * SPEED

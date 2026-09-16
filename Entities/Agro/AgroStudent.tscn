@@ -103,12 +103,19 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d3n1g"]
+size = Vector2(77.88, 186.495)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rgri"]
+size = Vector2(108, 137.495)
+
 [node name="AgroStudent" unique_id=1496453183 instance=ExtResource("1_c2ov0")]
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(9.536743e-07, 15.999996)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"crouch"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=929478290]
 visible = true
@@ -116,14 +123,13 @@ visible = true
 [node name="Hitbox" parent="." index="3" unique_id=789786805]
 visible = false
 
-[node name="Hurtbox" parent="." index="4" unique_id=2042549355]
-visible = false
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
+position = Vector2(-1.78, 10.5)
+shape = SubResource("RectangleShape2D_d3n1g")
 
-[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
-visible = false
-
-[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
-visible = false
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
+position = Vector2(-9, 35)
+shape = SubResource("RectangleShape2D_8rgri")
 
 [node name="Attacks" parent="." index="5" unique_id=1310549290]
 projectile = ExtResource("2_mxowb")

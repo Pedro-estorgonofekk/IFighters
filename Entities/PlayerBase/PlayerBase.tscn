@@ -63,7 +63,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8k1wt"]
-size = Vector2(97, 183)
+size = Vector2(40, 184)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22qvb"]
 size = Vector2(97, 183.745)
@@ -88,8 +88,7 @@ animation = &"idle"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=929478290]
-visible = false
-position = Vector2(0, 12.5)
+position = Vector2(-4, 12)
 shape = SubResource("RectangleShape2D_8k1wt")
 debug_color = Color(0.3655542, 0.47727454, 1, 0.41960785)
 

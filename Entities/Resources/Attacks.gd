@@ -3,14 +3,29 @@ extends Node
 
 @onready var cooldown = $Timer
 
+#Variaveis gerais e especificas dos ataques
 @export var weak_dmg: int
 @export var strong_dmg: int
 @export var ult_dmg: int
 @export var projectile_dmg: int
 @export var projectile: PackedScene
 
+var cs_punch_hit: CollisionShape2D
+var cs_
+"DisableCollision()
+		
+		cs_idle_hurt.disabled = false
+		cs_idle_hurt.visible = true
+		
+		cs_punch_hit.disabled = false
+		cs_punch_hit.visible = true
+		"
+var anim: AnimatedSprite2D
+
 func WeakPunch():
-	pass
+	anim = get_parent().get_node("AnimatedSprite2D")
+	anim.play("weak_punch")
+	print("tamo indo")
 	
 func StrgPunch():
 	pass

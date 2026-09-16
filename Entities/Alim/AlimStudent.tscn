@@ -93,13 +93,30 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwvxx"]
+size = Vector2(67, 182.36)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xxhn"]
+size = Vector2(113, 129.21)
+
 [node name="AlimStudent" unique_id=1496453183 instance=ExtResource("1_h68ok")]
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
-animation = &"walk"
+animation = &"crouch"
+
+[node name="Hitbox" parent="." index="3" unique_id=789786805]
+visible = false
+
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
+position = Vector2(-0.5, 12.82)
+shape = SubResource("RectangleShape2D_dwvxx")
+
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
+position = Vector2(-1.5, 39)
+shape = SubResource("RectangleShape2D_3xxhn")
 
 [node name="Attacks" parent="." index="5" unique_id=1310549290]
 projectile = ExtResource("10_otmuh")
