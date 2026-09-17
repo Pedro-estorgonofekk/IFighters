@@ -1,7 +1,7 @@
 class_name Attacks
 extends Node
 
-@onready var cooldown = $Timer
+@onready var cooldown = $Cooldown
 
 #Variaveis gerais e especificas dos ataques
 @export var weak_dmg: int
@@ -9,6 +9,7 @@ extends Node
 @export var projectile_dmg: int
 @export var projectile: PackedScene
 
+@onready var hitbox := get_parent().get_node("Hitbox")
 @onready var cs_punch_hit := get_parent().get_node("Hitbox/CSPunchHit")
 @onready var cs_ult_hit := get_parent().get_node("Hitbox/CSUltHit")
 @onready var anim := get_parent().get_node("AnimatedSprite2D")
@@ -19,8 +20,13 @@ extends Node
 		
 
 func WeakPunch():
-	anim.play("weak_punch")
-	
+	if cooldown.is_stopped():
+		anim.play("weak_punch")
+		cs_punch_hit.disabled = false
+		cs_punch_hit.visible = true
+		hitbox.damage = weak_dmg
+		cooldown.start()
+		
 func StrgPunch():
 	pass
 
@@ -28,7 +34,6 @@ func Ult():
 	pass
 
 func Throw():
-	print(cs_punch_hit)
 	if projectile != null and cooldown.is_stopped():
 		var proj = projectile.instantiate()
 		var sprite = get_parent().get_node("AnimatedSprite2D")

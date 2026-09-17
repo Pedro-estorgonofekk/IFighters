@@ -152,8 +152,9 @@ debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
 
 [node name="Attacks" type="Node" parent="." unique_id=1310549290]
 script = ExtResource("9_3xxhn")
+weak_dmg = 10
 metadata/_custom_type_script = "uid://c1x2uj6c5k00t"
 
-[node name="Timer" type="Timer" parent="Attacks" unique_id=2021702805]
+[node name="Cooldown" type="Timer" parent="Attacks" unique_id=2021702805]
 wait_time = 0.5
 one_shot = true

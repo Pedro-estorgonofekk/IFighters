@@ -9,10 +9,11 @@ var playerHealth: int
 
 func _ready() -> void:
 	playerHealth = maxHealth
-
+	print(playerHealth)
+	
 func takeDmg(damage: int) -> void:
 	playerHealth -= damage
-	
+	print(playerHealth)
 	#clampi é pra vida n sair do limite de 0-100
 	playerHealth = clampi(playerHealth, 0, maxHealth) 
 	tookDmg.emit(damage, playerHealth) 
