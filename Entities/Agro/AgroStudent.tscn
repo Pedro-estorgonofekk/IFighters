@@ -144,7 +144,6 @@ size = Vector2(108, 137.495)
 position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"crouch"
 
 [node name="CSCrouch" parent="." index="2" unique_id=602869493]
 position = Vector2(-8, 26)

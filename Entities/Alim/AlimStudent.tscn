@@ -129,13 +129,12 @@ size = Vector2(113, 129.21)
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
-animation = &"weak_punch"
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
 position = Vector2(51, 13.5)
 shape = SubResource("RectangleShape2D_bahen")
 
-[node name="Hurtbox" parent="." index="4" unique_id=2042549355]
+[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
 visible = true
 
 [node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
@@ -148,5 +147,5 @@ visible = false
 position = Vector2(-1.5, 39)
 shape = SubResource("RectangleShape2D_3xxhn")
 
-[node name="Attacks" parent="." index="5" unique_id=1310549290]
+[node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("10_otmuh")
