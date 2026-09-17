@@ -9,7 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b36gtr1mylem5" path="res://Entities/Alim/Sprites/andar1.png" id="7_hta1d"]
 [ext_resource type="Texture2D" uid="uid://dclcd34gfoctj" path="res://Entities/Alim/Sprites/andar2.png" id="8_k1ax1"]
 [ext_resource type="Texture2D" uid="uid://dxgi34hri5era" path="res://Entities/Alim/Sprites/paradinho.png" id="8_otmuh"]
+[ext_resource type="Texture2D" uid="uid://hy47oblrskl7" path="res://Entities/Alim/Sprites/fraco2.png" id="10_oi570"]
 [ext_resource type="PackedScene" uid="uid://cvpae2f6aednh" path="res://Entities/Alim/PanProjectile.tscn" id="10_otmuh"]
+[ext_resource type="Texture2D" uid="uid://ckickhk8xb1g3" path="res://Entities/Alim/Sprites/fraco1.png" id="11_w1s02"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1s02"]
 atlas = ExtResource("2_ewn6j")
@@ -33,6 +35,14 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_oi570"]
 atlas = ExtResource("8_k1ax1")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm8cd"]
+atlas = ExtResource("10_oi570")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_judu6"]
+atlas = ExtResource("11_w1s02")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_h68ok"]
@@ -62,10 +72,10 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.8,
+"duration": 0.6,
 "texture": ExtResource("5_k1ax1")
 }, {
-"duration": 1.0,
+"duration": 0.6,
 "texture": ExtResource("3_hta1d")
 }, {
 "duration": 1.0,
@@ -91,7 +101,21 @@ animations = [{
 "loop": 1,
 "name": &"walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mm8cd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_judu6")
+}],
+"loop": 0,
+"name": &"weak_punch",
+"speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bahen"]
+size = Vector2(22, 23)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dwvxx"]
 size = Vector2(67, 182.36)
@@ -105,16 +129,22 @@ size = Vector2(113, 129.21)
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
-animation = &"crouch"
+animation = &"weak_punch"
 
-[node name="Hitbox" parent="." index="3" unique_id=789786805]
+[node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
+position = Vector2(51, 13.5)
+shape = SubResource("RectangleShape2D_bahen")
+
+[node name="Hurtbox" parent="." index="4" unique_id=2042549355]
+visible = true
+
+[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
 visible = false
-
-[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
 position = Vector2(-0.5, 12.82)
 shape = SubResource("RectangleShape2D_dwvxx")
 
-[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
+[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
+visible = false
 position = Vector2(-1.5, 39)
 shape = SubResource("RectangleShape2D_3xxhn")
 

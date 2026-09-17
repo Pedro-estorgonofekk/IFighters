@@ -4,17 +4,21 @@ extends CharacterBody2D
 enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH }
 var current_state: State = State.IDLE
 
-@onready var anim: AnimatedSprite2D = $AnimatedSprite2D
+@onready var anim := $AnimatedSprite2D
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
 
+#Colision Shapes
+@onready var cs_idle := $CSIdle
+@onready var cs_crouch := $CSCrouch
+
 #Hitboxes
-@onready var cs_punch_hit: CollisionShape2D = $Hitbox/CSPunchHit
-@onready var cs_ult_hit: CollisionShape2D = $Hitbox/CSUltHit
+@onready var cs_punch_hit := $Hitbox/CSPunchHit
+@onready var cs_ult_hit := $Hitbox/CSUltHit
 
 #Hurtboxes
-@onready var cs_idle_hurt: CollisionShape2D = $Hurtbox/CSIdleHurt
-@onready var cs_crouch_hurt: CollisionShape2D = $Hurtbox/CSCrouchHurt
+@onready var cs_idle_hurt := $Hurtbox/CSIdleHurt
+@onready var cs_crouch_hurt := $Hurtbox/CSCrouchHurt
 
 @export var player_id: int
 
@@ -89,6 +93,7 @@ func FaceDirection():
 	
 	if opponent.global_position.x < global_position.x:
 		anim.flip_h = true
+		
 	else:
 		anim.flip_h = false
 
@@ -102,7 +107,6 @@ func _ready() -> void:
 # --- FUNÇÃO PRINCIPAL RODADA EM TODOS OS FRAMES ---
 
 func _physics_process(delta: float) -> void:
-	
 	FaceDirection()
 	if dash_cooldown_timer > 0:
 		dash_cooldown_timer -= delta
@@ -129,7 +133,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed(action_weak):
 		$Attacks.WeakPunch()
 		
-	if Input.is_action_just_pressed(action_ult) and Input.is_action_just_pressed(action_weak):
+	if Input.is_action_just_pressed(action_strong):
 		$Attacks.Throw()
 		
 	# Lógica para não ficar em cima do oponente (escorregar)
@@ -188,6 +192,12 @@ func StateIdle() -> void:
 	cs_idle_hurt.disabled = false
 	cs_idle_hurt.visible = true
 	
+	cs_idle.disabled = false
+	cs_idle.visible = true
+	
+	cs_crouch.disabled = true
+	cs_crouch.visible = false
+	
 	# Transições
 	if TryDash():
 		return
@@ -207,6 +217,12 @@ func StateMove() -> void:
 	DisableCollision()
 	cs_idle_hurt.disabled = false
 	cs_idle_hurt.visible = true
+	
+	cs_idle.disabled = false
+	cs_idle.visible = true
+	
+	cs_crouch.disabled = true
+	cs_crouch.visible = false
 	
 	if direction != 0:
 		velocity.x = direction * SPEED
@@ -230,6 +246,12 @@ func StateCrouch() -> void:
 	DisableCollision()
 	cs_crouch_hurt.disabled = false
 	cs_crouch_hurt.visible = true
+	
+	cs_idle.disabled = true
+	cs_idle.visible = false
+	
+	cs_crouch.disabled = false
+	cs_crouch.visible = true
 	
 	# Soltou o agachar
 	if not Input.is_action_pressed(action_crouch):

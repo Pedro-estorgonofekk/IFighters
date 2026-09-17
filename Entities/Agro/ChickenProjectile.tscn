@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dhm4xb60pjqf2"]
 
 [ext_resource type="PackedScene" uid="uid://b3n3s7e3pq6fr" path="res://Entities/PlayerBase/ProjectileBase.tscn" id="1_80a05"]
-[ext_resource type="Texture2D" uid="uid://owbaewbh03xf" path="res://Entities/Agro/Sprites/galinha.png" id="2_4c0rj"]
+[ext_resource type="Texture2D" uid="uid://dpmhvka0s52ra" path="res://Entities/Agro/Sprites/galinha.png" id="2_4c0rj"]
 [ext_resource type="Texture2D" uid="uid://dcvac7v51876s" path="res://Entities/Agro/Sprites/galinha2.png" id="3_hre3y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmq17"]

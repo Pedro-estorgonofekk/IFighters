@@ -63,7 +63,7 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_474vm"]
 atlas = ExtResource("11_1h7fa")
-region = Rect2(0, 0, 92, 92)
+region = Rect2(0, 0, 92, 83)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ltjo1"]
 animations = [{
@@ -143,8 +143,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_xpygc"]
-size = Vector2(24, 31)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xxhn"]
+size = Vector2(56, 155)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ky1o"]
+size = Vector2(23.25, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6nw"]
 size = Vector2(50, 155.75)
@@ -158,20 +161,29 @@ size = Vector2(91, 116)
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"walk"
+
+[node name="CSIdle" parent="." index="1" unique_id=929478290]
+position = Vector2(-4, 26.5)
+shape = SubResource("RectangleShape2D_3xxhn")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-position = Vector2(42, 15)
-shape = SubResource("RectangleShape2D_xpygc")
+visible = false
+position = Vector2(40.625, 13)
+shape = SubResource("RectangleShape2D_4ky1o")
 debug_color = Color(0.994266, 0, 0.19339177, 0.41960785)
 
-[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
+[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
+visible = true
+
+[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
+visible = false
 position = Vector2(-3, 25.875)
 shape = SubResource("RectangleShape2D_1x6nw")
 
-[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
+[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
+visible = false
 position = Vector2(-3.5, 46)
 shape = SubResource("RectangleShape2D_aba48")
 
-[node name="Attacks" parent="." index="5" unique_id=1310549290]
+[node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("2_urhxr")

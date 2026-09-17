@@ -1,55 +1,67 @@
 [gd_scene format=3 uid="uid://3q4537mj43w"]
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_c2ov0"]
-[ext_resource type="Texture2D" uid="uid://d2tsyi45c6bym" path="res://Entities/Agro/Sprites/agachado0agro.png" id="2_81w87"]
+[ext_resource type="Texture2D" uid="uid://y1oq6jkharbw" path="res://Entities/Agro/Sprites/agachado 1 agro.png" id="2_8rgri"]
 [ext_resource type="PackedScene" uid="uid://dhm4xb60pjqf2" path="res://Entities/Agro/ChickenProjectile.tscn" id="2_mxowb"]
-[ext_resource type="Texture2D" uid="uid://c3fsacekx8vyo" path="res://Entities/Agro/Sprites/paradinhoagro.png" id="4_iy73q"]
-[ext_resource type="Texture2D" uid="uid://bxdd45nr18yvg" path="res://Entities/Agro/Sprites/pulo2agro.png" id="6_xpygc"]
-[ext_resource type="Texture2D" uid="uid://jylvvhbfiq2d" path="res://Entities/Agro/Sprites/dashagro.png" id="7_o0cf6"]
-[ext_resource type="Texture2D" uid="uid://obqg3suqe6wq" path="res://Entities/Agro/Sprites/indoali2agro.png" id="7_xpygc"]
-[ext_resource type="Texture2D" uid="uid://oyk0kjy6ev3b" path="res://Entities/Agro/Sprites/indoali1agro.png" id="8_o0cf6"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8rgri"]
-atlas = ExtResource("2_81w87")
-region = Rect2(0, 0, 92, 72)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xpygc"]
-atlas = ExtResource("7_o0cf6")
-region = Rect2(0, 0, 92, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o0cf6"]
-atlas = ExtResource("4_iy73q")
-region = Rect2(0, 0, 92, 92)
+[ext_resource type="Texture2D" uid="uid://bm7t26q45mgf2" path="res://Entities/Agro/Sprites/forte agro.png" id="3_xpygc"]
+[ext_resource type="Texture2D" uid="uid://dneomwwt3m6w3" path="res://Entities/Agro/Sprites/paradinho agro.png" id="4_o0cf6"]
+[ext_resource type="Texture2D" uid="uid://dadu2yp83gti" path="res://Entities/Agro/Sprites/agachado agro.png" id="5_t3fsa"]
+[ext_resource type="Texture2D" uid="uid://jbophwf3mi58" path="res://Entities/Agro/Sprites/pulo 1 agro.png" id="6_bjgs6"]
+[ext_resource type="Texture2D" uid="uid://by77mnx6talps" path="res://Entities/Agro/Sprites/pulo 2 agro.png" id="7_jbvwu"]
+[ext_resource type="Texture2D" uid="uid://d4m6mwccy0gvp" path="res://Entities/Agro/Sprites/indoali 1 agro.png" id="8_o0cf6"]
+[ext_resource type="Texture2D" uid="uid://cwgex5qelfpbf" path="res://Entities/Agro/Sprites/indoali 2 agro.png" id="9_t3fsa"]
+[ext_resource type="Texture2D" uid="uid://rj0mtdiigl7f" path="res://Entities/Agro/Sprites/soco 2 agro.png" id="10_bjgs6"]
+[ext_resource type="Texture2D" uid="uid://dj2k6grq8a84s" path="res://Entities/Agro/Sprites/soco 1 agro.png" id="11_jbvwu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_src17"]
-atlas = ExtResource("2_81w87")
-region = Rect2(0, 0, 92, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bjgs6"]
-atlas = ExtResource("6_xpygc")
-region = Rect2(0, 0, 92, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbvwu"]
-atlas = ExtResource("7_o0cf6")
-region = Rect2(0, 0, 92, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_t3fsa"]
-atlas = ExtResource("7_xpygc")
-region = Rect2(0, 0, 92, 92)
+atlas = ExtResource("2_8rgri")
+region = Rect2(0, 0, 92, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_050d7"]
-atlas = ExtResource("4_iy73q")
+atlas = ExtResource("3_xpygc")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnikx"]
+atlas = ExtResource("4_o0cf6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cftox"]
+atlas = ExtResource("5_t3fsa")
+region = Rect2(0, 0, 92, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_afxfs"]
+atlas = ExtResource("6_bjgs6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ar775"]
+atlas = ExtResource("7_jbvwu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bjgs6"]
 atlas = ExtResource("8_o0cf6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbvwu"]
+atlas = ExtResource("4_o0cf6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjgol"]
+atlas = ExtResource("9_t3fsa")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osepe"]
+atlas = ExtResource("10_bjgs6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqgyb"]
+atlas = ExtResource("11_jbvwu")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ltjo1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8rgri")
+"texture": SubResource("AtlasTexture_src17")
 }],
 "loop": 1,
 "name": &"crouch",
@@ -57,7 +69,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xpygc")
+"texture": SubResource("AtlasTexture_050d7")
 }],
 "loop": 1,
 "name": &"dash",
@@ -65,21 +77,21 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o0cf6")
+"texture": SubResource("AtlasTexture_xnikx")
 }],
 "loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 0.8,
-"texture": SubResource("AtlasTexture_src17")
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_cftox")
+}, {
+"duration": 0.6,
+"texture": SubResource("AtlasTexture_afxfs")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bjgs6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbvwu")
+"texture": SubResource("AtlasTexture_ar775")
 }],
 "loop": 0,
 "name": &"jump",
@@ -87,24 +99,41 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_t3fsa")
+"texture": SubResource("AtlasTexture_bjgs6")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_050d7")
+"texture": SubResource("AtlasTexture_jbvwu")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xnikx")
+"texture": SubResource("AtlasTexture_xjgol")
 }, {
 "duration": 0.5,
-"texture": SubResource("AtlasTexture_050d7")
+"texture": SubResource("AtlasTexture_jbvwu")
 }],
 "loop": 1,
 "name": &"walk",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osepe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gqgyb")
+}],
+"loop": 0,
+"name": &"weak_punch",
+"speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1h7fa"]
+size = Vector2(102, 156)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dwvxx"]
+size = Vector2(25, 27.5)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d3n1g"]
-size = Vector2(77.88, 186.495)
+size = Vector2(84, 186.495)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rgri"]
 size = Vector2(108, 137.495)
@@ -112,24 +141,31 @@ size = Vector2(108, 137.495)
 [node name="AgroStudent" unique_id=1496453183 instance=ExtResource("1_c2ov0")]
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
-position = Vector2(9.536743e-07, 15.999996)
+position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
 animation = &"crouch"
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=929478290]
+[node name="CSCrouch" parent="." index="2" unique_id=602869493]
+position = Vector2(-8, 26)
+shape = SubResource("RectangleShape2D_1h7fa")
+
+[node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
+position = Vector2(56.5, 7.75)
+shape = SubResource("RectangleShape2D_dwvxx")
+
+[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
 visible = true
 
-[node name="Hitbox" parent="." index="3" unique_id=789786805]
+[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
 visible = false
-
-[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
-position = Vector2(-1.78, 10.5)
+position = Vector2(-7, 10.755)
 shape = SubResource("RectangleShape2D_d3n1g")
 
-[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
-position = Vector2(-9, 35)
+[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
+visible = false
+position = Vector2(-9, 35.255)
 shape = SubResource("RectangleShape2D_8rgri")
 
-[node name="Attacks" parent="." index="5" unique_id=1310549290]
+[node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("2_mxowb")
