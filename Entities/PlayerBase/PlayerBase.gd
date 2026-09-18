@@ -135,7 +135,9 @@ func _physics_process(delta: float) -> void:
 		
 	if Input.is_action_just_pressed(action_strong):
 		$Attacks.Throw()
-		
+	
+	if Input.is_action_just_pressed(action_ult):
+		$Attacks.Ult()
 	# Lógica para não ficar em cima do oponente (escorregar)
 	OpponentCollision()
 

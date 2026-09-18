@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cwgex5qelfpbf" path="res://Entities/Agro/Sprites/indoali 2 agro.png" id="9_t3fsa"]
 [ext_resource type="Texture2D" uid="uid://rj0mtdiigl7f" path="res://Entities/Agro/Sprites/soco 2 agro.png" id="10_bjgs6"]
 [ext_resource type="Texture2D" uid="uid://dj2k6grq8a84s" path="res://Entities/Agro/Sprites/soco 1 agro.png" id="11_jbvwu"]
+[ext_resource type="PackedScene" uid="uid://duy4nv3fxaa14" path="res://Entities/Agro/BullUltimate.tscn" id="13_jbvwu"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_src17"]
 atlas = ExtResource("2_8rgri")
@@ -168,3 +169,4 @@ shape = SubResource("RectangleShape2D_8rgri")
 
 [node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("2_mxowb")
+ultimate = ExtResource("13_jbvwu")

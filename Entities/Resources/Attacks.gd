@@ -8,6 +8,7 @@ extends Node
 @export var ult_dmg: int
 @export var projectile_dmg: int
 @export var projectile: PackedScene
+@export var ultimate: PackedScene
 
 @onready var hitbox := get_parent().get_node("Hitbox")
 @onready var cs_punch_hit := get_parent().get_node("Hitbox/CSPunchHit")
@@ -31,8 +32,22 @@ func StrgPunch():
 	pass
 
 func Ult():
-	pass
-
+	if ultimate != null and cooldown.is_stopped():
+		var ult = ultimate.instantiate()
+		var sprite = get_parent().get_node("AnimatedSprite2D")
+		
+		if sprite.flip_h == true:
+			ult.direction = -1
+		else:
+			ult.direction = 1
+		
+		ult.damage = ult_dmg
+		ult.global_position = Vector2(-100, 415)
+		
+		get_tree().current_scene.add_child(ult)
+		print(ult.global_position)
+		cooldown.start()
+		
 func Throw():
 	if projectile != null and cooldown.is_stopped():
 		var proj = projectile.instantiate()

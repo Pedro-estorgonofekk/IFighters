@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bo5betn06i467"]
+
+[ext_resource type="Script" uid="uid://byus5pi06m586" path="res://Entities/PlayerBase/UltimateBase.gd" id="1_gxp0f"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+
+[node name="Ultimate" type="Area2D" unique_id=1919238557]
+script = ExtResource("1_gxp0f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=712295857]
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=902426999]
