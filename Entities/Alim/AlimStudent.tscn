@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://hy47oblrskl7" path="res://Entities/Alim/Sprites/fraco2.png" id="10_oi570"]
 [ext_resource type="PackedScene" uid="uid://cvpae2f6aednh" path="res://Entities/Alim/PanProjectile.tscn" id="10_otmuh"]
 [ext_resource type="Texture2D" uid="uid://ckickhk8xb1g3" path="res://Entities/Alim/Sprites/fraco1.png" id="11_w1s02"]
+[ext_resource type="PackedScene" uid="uid://7tyfeb5xofo4" path="res://Entities/Alim/CheeseUltimate.tscn" id="13_lc43v"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w1s02"]
 atlas = ExtResource("2_ewn6j")
@@ -149,3 +150,4 @@ shape = SubResource("RectangleShape2D_3xxhn")
 
 [node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("10_otmuh")
+ultimate = ExtResource("13_lc43v")

@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://7tyfeb5xofo4"]
+
+[ext_resource type="PackedScene" uid="uid://bo5betn06i467" path="res://Entities/PlayerBase/UltimateBase.tscn" id="1_i0uhe"]
+[ext_resource type="Texture2D" uid="uid://dowhtimjimtjm" path="res://Entities/Alim/Sprites/ult.png" id="2_d7wy7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bfgo8"]
+atlas = ExtResource("2_d7wy7")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gi8wf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bfgo8")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pmagt"]
+radius = 135.9
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qk6b4"]
+radius = 135.9
+
+[node name="Ultimate" unique_id=1919238557 instance=ExtResource("1_i0uhe")]
+spinnable = true
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=712295857]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_gi8wf")
+autoplay = "default"
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=902426999]
+shape = SubResource("CircleShape2D_pmagt")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1306120600) index="0" unique_id=268889667]
+shape = SubResource("CircleShape2D_qk6b4")
+debug_color = Color(0.99866766, 0, 0.14787182, 0.41960785)

@@ -6,7 +6,6 @@ extends Area2D
 @export var direction := 1
 @export var spinnable: bool
 
-
 func _process(delta: float) -> void:
 	self.global_position.x += (delta * speed) * direction
 	if spinnable: self.rotation += spin

@@ -27,7 +27,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gcakm"]
-size = Vector2(310.125, 176.4375)
+size = Vector2(310, 176)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4c0rj"]
+size = Vector2(310, 176)
 
 [node name="Ultimate" unique_id=1919238557 instance=ExtResource("1_mbht0")]
 
@@ -38,3 +41,7 @@ autoplay = "default"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=902426999]
 shape = SubResource("RectangleShape2D_gcakm")
+
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(1306120600) index="0" unique_id=268889667]
+shape = SubResource("RectangleShape2D_4c0rj")
+debug_color = Color(0.99999994, 0.019067021, 0.0029600412, 0.41960785)

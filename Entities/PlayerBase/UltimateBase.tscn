@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bo5betn06i467"]
 
 [ext_resource type="Script" uid="uid://byus5pi06m586" path="res://Entities/PlayerBase/UltimateBase.gd" id="1_gxp0f"]
+[ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="2_qv7av"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
 
@@ -11,3 +12,9 @@ script = ExtResource("1_gxp0f")
 sprite_frames = SubResource("SpriteFrames_g4v7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=902426999]
+
+[node name="Hitbox" type="Area2D" parent="." unique_id=1306120600]
+script = ExtResource("2_qv7av")
+metadata/_custom_type_script = "uid://drtjci2lya2yr"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox" unique_id=268889667]

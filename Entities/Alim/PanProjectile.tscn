@@ -21,5 +21,8 @@ animations = [{
 [node name="PanProjectile" unique_id=1901221698 instance=ExtResource("1_hnvuh")]
 spinnable = true
 
-[node name="AnimatedSprite2D" parent="." index="1" unique_id=921523398]
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(327109658) index="0" unique_id=992233991]
+debug_color = Color(0.9915977, 0, 0.2695226, 0.41960785)
+
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=921523398]
 sprite_frames = SubResource("SpriteFrames_346vi")

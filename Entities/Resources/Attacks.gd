@@ -38,11 +38,13 @@ func Ult():
 		
 		if sprite.flip_h == true:
 			ult.direction = -1
+			ult.global_position = Vector2(1100, 415)
+			ult.get_node("AnimatedSprite2D").flip_h = true
 		else:
 			ult.direction = 1
+			ult.global_position = Vector2(-100, 415)
 		
 		ult.damage = ult_dmg
-		ult.global_position = Vector2(-100, 415)
 		
 		get_tree().current_scene.add_child(ult)
 		print(ult.global_position)
