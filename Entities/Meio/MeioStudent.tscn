@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://d1yaw6h3brpd1"]
+
+[ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_7rtbg"]
+[ext_resource type="Texture2D" uid="uid://hpmvrejigqgt" path="res://Entities/Meio/Sprites/parada meio.png" id="2_y7loo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4odi4"]
+atlas = ExtResource("2_y7loo")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7rtbg"]
+animations = [{
+"frames": [],
+"loop": 1,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4odi4")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}, {
+"frames": [],
+"loop": 1,
+"name": &"weak_punch",
+"speed": 5.0
+}]
+
+[node name="MeioStudent" unique_id=1496453183 instance=ExtResource("1_7rtbg")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
+position = Vector2(0, 8.165)
+scale = Vector2(2.457, 2.457)
+sprite_frames = SubResource("SpriteFrames_7rtbg")

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://b3in5q5qg7udc"]
+
+[ext_resource type="PackedScene" uid="uid://b3n3s7e3pq6fr" path="res://Entities/PlayerBase/ProjectileBase.tscn" id="1_vkkbn"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ungsc"]
+
+[node name="ProjectileBase" unique_id=1901221698 instance=ExtResource("1_vkkbn")]
+
+[node name="AnimatedSprite2D" parent="." index="2" unique_id=921523398]
+sprite_frames = SubResource("SpriteFrames_ungsc")
+frame_progress = 0.7291665
