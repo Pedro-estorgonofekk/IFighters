@@ -12,7 +12,6 @@ extends Node
 
 @onready var hitbox := get_parent().get_node("Hitbox")
 @onready var cs_punch_hit := get_parent().get_node("Hitbox/CSPunchHit")
-@onready var cs_ult_hit := get_parent().get_node("Hitbox/CSUltHit")
 @onready var anim := get_parent().get_node("AnimatedSprite2D")
 
 #@onready var current_state = get_parent().current_state

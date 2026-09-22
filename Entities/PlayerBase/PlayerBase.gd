@@ -1,22 +1,22 @@
 extends CharacterBody2D
 
 # 1. Definição dos Estados
-enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH }
+enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, PUNCH }
 var current_state: State = State.IDLE
 
+# Referências de Nós
 @onready var anim := $AnimatedSprite2D
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
 
-#Colision Shapes
+# Collision Shapes do Corpo
 @onready var cs_idle := $CSIdle
 @onready var cs_crouch := $CSCrouch
 
-#Hitboxes
+# Hitboxes (Ataques)
 @onready var cs_punch_hit := $Hitbox/CSPunchHit
-@onready var cs_ult_hit := $Hitbox/CSUltHit
 
-#Hurtboxes
+# Hurtboxes (Vulnerabilidade)
 @onready var cs_idle_hurt := $Hurtbox/CSIdleHurt
 @onready var cs_crouch_hurt := $Hurtbox/CSCrouchHurt
 
@@ -44,8 +44,55 @@ var action_weak: String
 var action_strong: String
 var action_ult: String
 
-# Variaveis Aux. Direção Player
-var opponent : CharacterBody2D 
+# Variáveis Auxiliares
+var opponent: CharacterBody2D 
+
+
+func _ready() -> void:
+	SetupPlayer()
+	DisableCollision()
+	
+	if anim and not anim.animation_finished.is_connected(_on_animation_finished):
+		anim.animation_finished.connect(_on_animation_finished)
+		
+	ChangeState(State.IDLE)
+	call_deferred("FindOpponent")
+
+
+func _physics_process(delta: float) -> void:
+	# Não vira de lado enquanto estiver executando o ataque
+	if current_state != State.PUNCH:
+		FaceDirection()
+
+	if dash_cooldown_timer > 0:
+		dash_cooldown_timer -= delta
+
+	# Gravidade extra no ar
+	if not is_on_floor() and current_state != State.DASH:
+		velocity += get_gravity() * delta * 1.3
+
+	# Lógica dos estados
+	match current_state:
+		State.IDLE:
+			StateIdle()
+		State.MOVE:
+			StateMove()
+		State.CROUCH:
+			StateCrouch()
+		State.JUMP:
+			StateJump()
+		State.FALL:
+			StateFall()
+		State.DASH:
+			StateDash(delta)
+		State.PUNCH:
+			StatePunch()
+
+	OpponentCollision()
+	move_and_slide()
+
+
+# --- SETUP E CONFIGURAÇÕES DE CONTROLE/COLISÃO ---
 
 func SetupPlayer() -> void:
 	if player_id == 1:
@@ -54,7 +101,6 @@ func SetupPlayer() -> void:
 		action_jump = "PulaP1"
 		action_crouch = "AgachaP1"
 		action_dash = "DashP1"
-		
 		action_weak = "AtaqueFracoP1"
 		action_strong = "AtaqueForteP1"
 		action_ult = "UltP1"
@@ -70,7 +116,6 @@ func SetupPlayer() -> void:
 		action_jump = "PulaP2"
 		action_crouch = "AgachaP2"
 		action_dash = "DashP2"
-
 		action_weak = "AtaqueFracoP2"
 		action_strong = "AtaqueForteP2"
 		action_ult = "UltP2"
@@ -80,127 +125,138 @@ func SetupPlayer() -> void:
 		hurtbox.collision_layer = 8
 		hurtbox.collision_mask = 1
 
-func FindOpponent():
+
+func FindOpponent() -> void:
 	var players = get_tree().get_nodes_in_group("Player")
-	
 	for i in players:
 		if i != self:
 			opponent = i
 			break
 
-func FaceDirection():
+
+func FaceDirection() -> void:
 	if opponent == null: return
 	
-	if opponent.global_position.x < global_position.x:
-		anim.flip_h = true
-		
-	else:
-		anim.flip_h = false
-
-func _ready() -> void:
-	SetupPlayer()
-	DisableCollision()
-	ChangeState(State.IDLE)
-	call_deferred("FindOpponent")
+	var mirando_esquerda = opponent.global_position.x < global_position.x
+	anim.flip_h = mirando_esquerda
+	
+	# Inverte a orientação horizontal das áreas de colisão
+	var dir = -1.0 if mirando_esquerda else 1.0
+	hitbox.scale.x = dir
+	hurtbox.scale.x = dir
 
 
-# --- FUNÇÃO PRINCIPAL RODADA EM TODOS OS FRAMES ---
-
-func _physics_process(delta: float) -> void:
-	FaceDirection()
-	if dash_cooldown_timer > 0:
-		dash_cooldown_timer -= delta
-
-	# Aplica gravidade fora do chão (exceto durante o dash)
-	if not is_on_floor() and current_state != State.DASH:
-		velocity += get_gravity() * delta * 1.3
-
-	# Executa a lógica do estado atual
-	match current_state:
-		State.IDLE:
-			StateIdle()
-		State.MOVE:
-			StateMove()
-		State.CROUCH:
-			StateCrouch()
-		State.JUMP:
-			StateJump()
-		State.FALL:
-			StateFall()
-		State.DASH:
-			StateDash(delta)
-			
-	if Input.is_action_just_pressed(action_weak):
-		$Attacks.WeakPunch()
-		
-	if Input.is_action_just_pressed(action_strong):
-		$Attacks.Throw()
-		
-	# Lógica para não ficar em cima do oponente (escorregar)
-	OpponentCollision()
-
-	move_and_slide()
-
-
-
-func DisableCollision():
-# Hitboxes
+func DisableCollision() -> void:
+	# Hitboxes de Ataque
 	cs_punch_hit.disabled = true
 	cs_punch_hit.visible = false
 	
-	cs_ult_hit.disabled = true
-	cs_ult_hit.visible = false
-	
-	# Hurtboxes
+	# Hurtboxes de Dano
 	cs_idle_hurt.disabled = true
 	cs_idle_hurt.visible = false
-	
 	cs_crouch_hurt.disabled = true
 	cs_crouch_hurt.visible = false
-	
+
+
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
 
 func ChangeState(new_state: State) -> void:
+	# Se estiver executando o soco, impede a troca de estado até finalizar
+	if current_state == State.PUNCH and new_state != State.IDLE:
+		return
+
 	current_state = new_state
 
 	match current_state:
 		State.IDLE:
+			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			cs_idle_hurt.disabled = false
+			cs_idle_hurt.visible = true
 			anim.play("idle")
+
 		State.MOVE:
+			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			cs_idle_hurt.disabled = false
+			cs_idle_hurt.visible = true
 			anim.play("walk")
+
 		State.CROUCH:
+			DisableCollision()
 			velocity.x = 0
+			cs_crouch.disabled = false
+			cs_crouch.visible = true
+			cs_crouch_hurt.disabled = false
+			cs_crouch_hurt.visible = true
 			anim.play("crouch")
+
 		State.JUMP:
+			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			cs_idle_hurt.disabled = false
+			cs_idle_hurt.visible = true
 			velocity.y = JUMP_VELOCITY
 			anim.play("jump")
+
 		State.FALL:
-			pass # anim.play("fall")
+			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			cs_idle_hurt.disabled = false
+			cs_idle_hurt.visible = true
+
 		State.DASH:
+			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			cs_idle_hurt.disabled = false
+			cs_idle_hurt.visible = true
 			dash_timer = DASH_DURATION
 			dash_cooldown_timer = DASH_COOLDOWN
 			velocity.y = 0
 			anim.play("dash")
 
+		State.PUNCH:
+			velocity.x = 0
+			$Attacks.WeakPunch()
+			
+			# Timer de segurança para evitar travamentos caso a animação falhe
+			get_tree().create_timer(0.5).timeout.connect(func():
+				if current_state == State.PUNCH:
+					ChangeState(State.IDLE)
+			, CONNECT_ONE_SHOT)
 
-# --- COMPORTAMENTO DOS ESTADOS ---
+
+# --- CHECAGEM DE ATAQUES E COMPORTAMENTO ---
+
+func CheckAttacks() -> bool:
+	if current_state == State.PUNCH:
+		return true
+
+	if Input.is_action_just_pressed(action_strong):
+		ChangeState(State.PUNCH)
+		return true
+		
+	if Input.is_action_just_pressed(action_weak):
+		$Attacks.Throw()
+		return true
+
+	if Input.is_action_just_pressed(action_ult):
+		$Attacks.Ult()
+		return true
+		
+	return false
+
 
 func StateIdle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
-	
-	DisableCollision()
-	cs_idle_hurt.disabled = false
-	cs_idle_hurt.visible = true
-	
-	cs_idle.disabled = false
-	cs_idle.visible = true
-	
-	cs_crouch.disabled = true
-	cs_crouch.visible = false
-	
-	# Transições
-	if TryDash():
-		return
+
+	if CheckAttacks(): return
+	if TryDash(): return
 	if Input.is_action_just_pressed(action_jump) and is_on_floor():
 		ChangeState(State.JUMP)
 	elif Input.is_action_pressed(action_crouch) and is_on_floor():
@@ -213,26 +269,15 @@ func StateIdle() -> void:
 
 func StateMove() -> void:
 	var direction := Input.get_axis(action_left, action_right)
-	
-	DisableCollision()
-	cs_idle_hurt.disabled = false
-	cs_idle_hurt.visible = true
-	
-	cs_idle.disabled = false
-	cs_idle.visible = true
-	
-	cs_crouch.disabled = true
-	cs_crouch.visible = false
-	
+
 	if direction != 0:
 		velocity.x = direction * SPEED
 	else:
 		ChangeState(State.IDLE)
 		return
 
-	# Transições
-	if TryDash():
-		return
+	if CheckAttacks(): return
+	if TryDash(): return
 	if Input.is_action_just_pressed(action_jump) and is_on_floor():
 		ChangeState(State.JUMP)
 	elif Input.is_action_pressed(action_crouch) and is_on_floor():
@@ -243,17 +288,8 @@ func StateMove() -> void:
 
 func StateCrouch() -> void:
 	velocity.x = 0
-	DisableCollision()
-	cs_crouch_hurt.disabled = false
-	cs_crouch_hurt.visible = true
-	
-	cs_idle.disabled = true
-	cs_idle.visible = false
-	
-	cs_crouch.disabled = false
-	cs_crouch.visible = true
-	
-	# Soltou o agachar
+
+	if CheckAttacks(): return
 	if not Input.is_action_pressed(action_crouch):
 		if Input.get_axis(action_left, action_right) != 0:
 			ChangeState(State.MOVE)
@@ -264,8 +300,8 @@ func StateCrouch() -> void:
 func StateJump() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
-
-	# Quando começa a descer
+	TryDash()
+	if CheckAttacks(): return
 	if velocity.y > 0:
 		ChangeState(State.FALL)
 
@@ -273,8 +309,8 @@ func StateJump() -> void:
 func StateFall() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
-
-	# Aterrissou no chão
+	TryDash()
+	if CheckAttacks(): return
 	if is_on_floor():
 		if direction != 0:
 			ChangeState(State.MOVE)
@@ -292,7 +328,17 @@ func StateDash(delta: float) -> void:
 		else:
 			ChangeState(State.FALL)
 
-# --- FUNÇÕES AUXILIARES ---
+
+func StatePunch() -> void:
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+
+
+# --- CALLBACKS E SISTEMAS AUXILIARES ---
+
+func _on_animation_finished() -> void:
+	if current_state == State.PUNCH or anim.animation == "weak_punch":
+		ChangeState(State.IDLE)
+
 
 func TryDash() -> bool:
 	var direction := Input.get_axis(action_left, action_right)
@@ -309,6 +355,6 @@ func OpponentCollision() -> void:
 		var collider = collision.get_collider()
 		
 		if collider and collider.is_in_group("Player") and collision.get_normal().y < 0:
-			var slip_direction = 8.0 if global_position.x > collider.global_position.x else -8.0
+			var slip_direction = 15.0 if global_position.x > collider.global_position.x else -15.0
 			velocity.y = 0
 			move_local_x(slip_direction)

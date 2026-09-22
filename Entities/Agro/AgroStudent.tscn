@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dhm4xb60pjqf2" path="res://Entities/Agro/ChickenProjectile.tscn" id="2_mxowb"]
 [ext_resource type="Texture2D" uid="uid://bm7t26q45mgf2" path="res://Entities/Agro/Sprites/forte agro.png" id="3_xpygc"]
 [ext_resource type="Texture2D" uid="uid://dneomwwt3m6w3" path="res://Entities/Agro/Sprites/paradinho agro.png" id="4_o0cf6"]
+[ext_resource type="Texture2D" uid="uid://dkrioji5tip75" path="res://Entities/Agro/Sprites/dash agro.png" id="4_src17"]
 [ext_resource type="Texture2D" uid="uid://dadu2yp83gti" path="res://Entities/Agro/Sprites/agachado agro.png" id="5_t3fsa"]
 [ext_resource type="Texture2D" uid="uid://jbophwf3mi58" path="res://Entities/Agro/Sprites/pulo 1 agro.png" id="6_bjgs6"]
 [ext_resource type="Texture2D" uid="uid://by77mnx6talps" path="res://Entities/Agro/Sprites/pulo 2 agro.png" id="7_jbvwu"]
@@ -20,6 +21,10 @@ region = Rect2(0, 0, 92, 72)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_050d7"]
 atlas = ExtResource("3_xpygc")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6nee"]
+atlas = ExtResource("4_src17")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnikx"]
@@ -69,10 +74,13 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_050d7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6nee")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"dash",
 "speed": 5.0
 }, {
@@ -145,6 +153,7 @@ size = Vector2(108, 137.495)
 position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"dash"
 
 [node name="CSCrouch" parent="." index="2" unique_id=602869493]
 position = Vector2(-8, 26)

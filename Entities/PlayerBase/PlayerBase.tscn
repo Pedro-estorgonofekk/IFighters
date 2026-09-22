@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://cgxtdwxpkgkyd"]
 
-[ext_resource type="Texture2D" uid="uid://bhqrqxxw1sxud" path="res://Entities/PlayerBase/Sprites/idle.png" id="1_4olgi"]
+[ext_resource type="Texture2D" uid="uid://hdp2p1864702" path="res://Entities/PlayerBase/Sprites/idle.png" id="1_4olgi"]
 [ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerBase/PlayerBase.gd" id="1_8k1wt"]
-[ext_resource type="Texture2D" uid="uid://bv1tb1rfgx6xh" path="res://Entities/PlayerBase/Sprites/idle2.png" id="2_f2ued"]
-[ext_resource type="Texture2D" uid="uid://e7rqj016g6nn" path="res://Entities/PlayerBase/Sprites/soco.png" id="2_t3wls"]
-[ext_resource type="Texture2D" uid="uid://bubnfjevliw86" path="res://Entities/PlayerBase/Sprites/preparando.png" id="3_3xxhn"]
+[ext_resource type="Texture2D" uid="uid://cmg86u6k82akq" path="res://Entities/PlayerBase/Sprites/idle2.png" id="2_f2ued"]
+[ext_resource type="Texture2D" uid="uid://ujbfl3w1r426" path="res://Entities/PlayerBase/Sprites/soco.png" id="2_t3wls"]
+[ext_resource type="Texture2D" uid="uid://bfbo3qnkanhpl" path="res://Entities/PlayerBase/Sprites/preparando.png" id="3_3xxhn"]
 [ext_resource type="Script" uid="uid://mptunu8jnbkm" path="res://Entities/Resources/PlayerStats.gd" id="4_rdwt8"]
 [ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="5_0qbsp"]
 [ext_resource type="Script" uid="uid://btemv3bi81y5" path="res://Entities/Resources/Hurtbox.gd" id="6_om4q2"]
@@ -83,9 +83,6 @@ size = Vector2(104, 113)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_22qvb"]
 size = Vector2(80.5, 24)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bahen"]
-size = Vector2(97, 183.745)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oxc2s"]
 size = Vector2(97, 183.75)
 
@@ -99,7 +96,7 @@ script = ExtResource("1_8k1wt")
 position = Vector2(9.536743e-07, 1.1920929e-07)
 scale = Vector2(0.16210938, 0.16210938)
 sprite_frames = SubResource("SpriteFrames_f2ued")
-animation = &"idle"
+animation = &"crouch"
 autoplay = "idle"
 
 [node name="CSIdle" type="CollisionShape2D" parent="." unique_id=929478290]
@@ -125,12 +122,6 @@ metadata/_custom_type_script = "uid://drtjci2lya2yr"
 position = Vector2(39.75, -48)
 shape = SubResource("RectangleShape2D_22qvb")
 debug_color = Color(0.9964587, 0, 0.1461407, 0.41960785)
-
-[node name="CSUltHit" type="CollisionShape2D" parent="Hitbox" unique_id=1547363042]
-visible = false
-position = Vector2(-3.5, 11.8724985)
-shape = SubResource("RectangleShape2D_bahen")
-debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
 
 [node name="Hurtbox" type="Area2D" parent="." unique_id=2042549355]
 visible = false

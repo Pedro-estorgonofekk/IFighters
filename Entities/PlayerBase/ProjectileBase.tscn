@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dnnddyukfb8u8" path="res://Entities/PlayerBase/ProjectileBase.gd" id="1_7n4o8"]
 [ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="2_tdirk"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tdirk"]
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_g4v7s"]
 radius = 19.24
 
@@ -12,7 +14,7 @@ radius = 19.24
 script = ExtResource("1_7n4o8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1145508088]
-shape = SubResource("CircleShape2D_g4v7s")
+shape = SubResource("RectangleShape2D_tdirk")
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=327109658]
 script = ExtResource("2_tdirk")

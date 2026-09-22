@@ -1,11 +1,40 @@
 [gd_scene format=3 uid="uid://b3in5q5qg7udc"]
 
 [ext_resource type="PackedScene" uid="uid://b3n3s7e3pq6fr" path="res://Entities/PlayerBase/ProjectileBase.tscn" id="1_vkkbn"]
+[ext_resource type="Texture2D" uid="uid://b2jfv32alrjji" path="res://Entities/Meio/Sprites/projervas.png" id="2_ungsc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rujdr"]
+size = Vector2(33, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvtd3"]
+atlas = ExtResource("2_ungsc")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2vim"]
+atlas = ExtResource("2_ungsc")
+region = Rect2(0, 48, 96, 48)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ungsc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvtd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2vim")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="ProjectileBase" unique_id=1901221698 instance=ExtResource("1_vkkbn")]
 
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(327109658) index="0" unique_id=992233991]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_rujdr")
+debug_color = Color(0.9932763, 0, 0.24672371, 0.41960785)
+
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=921523398]
 sprite_frames = SubResource("SpriteFrames_ungsc")
-frame_progress = 0.7291665
+frame_progress = 0.8594508

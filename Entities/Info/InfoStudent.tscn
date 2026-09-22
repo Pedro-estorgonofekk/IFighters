@@ -21,6 +21,10 @@ region = Rect2(0, 0, 92, 72)
 atlas = ExtResource("3_srl3b")
 region = Rect2(0, 0, 92, 104)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_m06ba"]
+atlas = ExtResource("6_xpidu")
+region = Rect2(0, 0, 92, 92)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x6nw"]
 atlas = ExtResource("3_7mtff")
 region = Rect2(0, 0, 92, 92)
@@ -76,8 +80,11 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
-"duration": 1.0,
+"duration": 1.5,
 "texture": SubResource("AtlasTexture_i6r3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m06ba")
 }],
 "loop": 1,
 "name": &"dash",
@@ -161,6 +168,7 @@ size = Vector2(91, 116)
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"dash"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-4, 26.5)
