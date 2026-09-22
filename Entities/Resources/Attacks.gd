@@ -21,7 +21,6 @@ extends Node
 
 func WeakPunch():
 	if cooldown.is_stopped():
-		anim.play("weak_punch")
 		cs_punch_hit.disabled = false
 		cs_punch_hit.visible = true
 		hitbox.damage = weak_dmg

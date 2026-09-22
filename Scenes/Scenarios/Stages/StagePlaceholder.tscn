@@ -6,7 +6,7 @@
 size = Vector2(960, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htk83"]
-size = Vector2(20, 504)
+size = Vector2(20, 540)
 
 [node name="Stage" type="Node2D" unique_id=716982872]
 
@@ -36,5 +36,5 @@ shape = SubResource("RectangleShape2D_htk83")
 position = Vector2(-490, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound" unique_id=246031787]
-position = Vector2(0, -2)
+position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_htk83")

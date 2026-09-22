@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # 1. Definição dos Estados
-enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, PUNCH }
+enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, PUNCH, ULT, THROW }
 var current_state: State = State.IDLE
 
 # Referências de Nós
@@ -55,12 +55,14 @@ func _ready() -> void:
 	if anim and not anim.animation_finished.is_connected(_on_animation_finished):
 		anim.animation_finished.connect(_on_animation_finished)
 		
+	if anim and not anim.frame_changed.is_connected(_on_frame_changed):
+		anim.frame_changed.connect(_on_frame_changed)
+	
 	ChangeState(State.IDLE)
 	call_deferred("FindOpponent")
 
 
 func _physics_process(delta: float) -> void:
-	# Não vira de lado enquanto estiver executando o ataque
 	if current_state != State.PUNCH:
 		FaceDirection()
 
@@ -87,6 +89,10 @@ func _physics_process(delta: float) -> void:
 			StateDash(delta)
 		State.PUNCH:
 			StatePunch()
+		State.THROW:
+			StateThrow()
+		State.ULT:
+			StateUlt()
 
 	OpponentCollision()
 	move_and_slide()
@@ -144,7 +150,8 @@ func FaceDirection() -> void:
 	var dir = -1.0 if mirando_esquerda else 1.0
 	hitbox.scale.x = dir
 	hurtbox.scale.x = dir
-
+	cs_idle.scale.x = dir
+	cs_crouch.scale.x = dir
 
 func DisableCollision() -> void:
 	# Hitboxes de Ataque
@@ -157,6 +164,12 @@ func DisableCollision() -> void:
 	cs_crouch_hurt.disabled = true
 	cs_crouch_hurt.visible = false
 
+	# Hitbox player
+	cs_idle.disabled = true
+	cs_idle.visible = false
+	
+	cs_crouch.disabled = true
+	cs_crouch.visible = false
 
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
 
@@ -229,24 +242,36 @@ func ChangeState(new_state: State) -> void:
 				if current_state == State.PUNCH:
 					ChangeState(State.IDLE)
 			, CONNECT_ONE_SHOT)
+			anim.play("weak_punch")
+			
+		State.THROW:
+			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			
+			velocity.x = 0
+			anim.play("throw")
+			
+		State.ULT:
+			DisableCollision()
+			velocity.x = 0
+			$Attacks.Ult()
+		
 
 
 # --- CHECAGEM DE ATAQUES E COMPORTAMENTO ---
 
 func CheckAttacks() -> bool:
-	if current_state == State.PUNCH:
-		return true
-
 	if Input.is_action_just_pressed(action_strong):
-		ChangeState(State.PUNCH)
+		ChangeState(State.THROW)
 		return true
 		
 	if Input.is_action_just_pressed(action_weak):
-		$Attacks.Throw()
+		ChangeState(State.PUNCH)	
 		return true
 
 	if Input.is_action_just_pressed(action_ult):
-		$Attacks.Ult()
+		ChangeState(State.ULT)
 		return true
 		
 	return false
@@ -256,6 +281,7 @@ func StateIdle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	if CheckAttacks(): return
+	
 	if TryDash(): return
 	if Input.is_action_just_pressed(action_jump) and is_on_floor():
 		ChangeState(State.JUMP)
@@ -277,7 +303,9 @@ func StateMove() -> void:
 		return
 
 	if CheckAttacks(): return
+	
 	if TryDash(): return
+	
 	if Input.is_action_just_pressed(action_jump) and is_on_floor():
 		ChangeState(State.JUMP)
 	elif Input.is_action_pressed(action_crouch) and is_on_floor():
@@ -300,8 +328,10 @@ func StateCrouch() -> void:
 func StateJump() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
-	TryDash()
+	
+	if TryDash(): return
 	if CheckAttacks(): return
+	
 	if velocity.y > 0:
 		ChangeState(State.FALL)
 
@@ -309,8 +339,10 @@ func StateJump() -> void:
 func StateFall() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 	velocity.x = direction * SPEED
-	TryDash()
+	
+	if TryDash(): return
 	if CheckAttacks(): return
+	
 	if is_on_floor():
 		if direction != 0:
 			ChangeState(State.MOVE)
@@ -332,12 +364,26 @@ func StateDash(delta: float) -> void:
 func StatePunch() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 
+func StateThrow() -> void:
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+	
+func StateUlt() -> void:
+	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 # --- CALLBACKS E SISTEMAS AUXILIARES ---
 
 func _on_animation_finished() -> void:
-	if current_state == State.PUNCH or anim.animation == "weak_punch":
+	if current_state in [State.PUNCH, State.THROW, State.ULT]:
 		ChangeState(State.IDLE)
+
+	elif anim.animation == "weak_punch" or anim.animation == "crouch" or anim.animation == "dash":
+		ChangeState(State.IDLE)
+
+func _on_frame_changed() -> void:
+	if current_state == State.THROW:
+		var ultimo_frame = anim.sprite_frames.get_frame_count(anim.animation) - 1
+		if anim.frame == ultimo_frame:
+			$Attacks.Throw()
 
 
 func TryDash() -> bool:
@@ -353,8 +399,7 @@ func OpponentCollision() -> void:
 	for i in get_slide_collision_count():
 		var collision = get_slide_collision(i)
 		var collider = collision.get_collider()
-		
+
 		if collider and collider.is_in_group("Player") and collision.get_normal().y < 0:
-			var slip_direction = 15.0 if global_position.x > collider.global_position.x else -15.0
-			velocity.y = 0
-			move_local_x(slip_direction)
+			var slip_direction = 200.0 if global_position.x > collider.global_position.x else -200.0
+			velocity.x = slip_direction

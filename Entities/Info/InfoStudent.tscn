@@ -7,9 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://b8f0qbi5savqw" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
 [ext_resource type="Texture2D" uid="uid://b2fr5mltueyhg" path="res://Entities/Info/Sprites/pulo 2 info.png" id="5_43yv6"]
 [ext_resource type="Texture2D" uid="uid://bierlojqme0iy" path="res://Entities/Info/Sprites/dash info.png" id="6_xpidu"]
+[ext_resource type="Texture2D" uid="uid://cxckqtxcgphjm" path="res://Entities/Info/Sprites/arremesso 2 info.png" id="7_gxhch"]
 [ext_resource type="Texture2D" uid="uid://dgakx207fx817" path="res://Entities/Info/Sprites/indoali 1 info.png" id="7_x1gql"]
+[ext_resource type="Texture2D" uid="uid://d1stffq33hjtd" path="res://Entities/Info/Sprites/arremesso 1 info.png" id="8_bhloe"]
 [ext_resource type="Texture2D" uid="uid://het0r1tepy6l" path="res://Entities/Info/Sprites/indoali 2 info.png" id="8_p316y"]
 [ext_resource type="Texture2D" uid="uid://ws0lrofu26c4" path="res://Entities/Info/Sprites/chute 3 info.png" id="9_p316y"]
+[ext_resource type="Texture2D" uid="uid://cpce4inrjxelf" path="res://Entities/Info/Sprites/arremesso 3 info.png" id="9_u1yr1"]
 [ext_resource type="Texture2D" uid="uid://cy5veu7xcsw45" path="res://Entities/Info/Sprites/chute 2 - dano info.png" id="10_dwvxx"]
 [ext_resource type="Texture2D" uid="uid://btjnussugmuse" path="res://Entities/Info/Sprites/chute 1 info.png" id="11_1h7fa"]
 
@@ -43,6 +46,18 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q3jh4"]
 atlas = ExtResource("6_xpidu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4acw1"]
+atlas = ExtResource("7_gxhch")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eu0w"]
+atlas = ExtResource("8_bhloe")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dwmq"]
+atlas = ExtResource("9_u1yr1")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwvxx"]
@@ -120,6 +135,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_4acw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eu0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dwmq")
+}],
+"loop": 0,
+"name": &"throw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dwvxx")
 }, {
 "duration": 0.5,
@@ -168,7 +197,9 @@ size = Vector2(91, 116)
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"dash"
+animation = &"throw"
+frame = 2
+frame_progress = 1.0
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-4, 26.5)

@@ -11,7 +11,9 @@
 [ext_resource type="Texture2D" uid="uid://by77mnx6talps" path="res://Entities/Agro/Sprites/pulo 2 agro.png" id="7_jbvwu"]
 [ext_resource type="Texture2D" uid="uid://d4m6mwccy0gvp" path="res://Entities/Agro/Sprites/indoali 1 agro.png" id="8_o0cf6"]
 [ext_resource type="Texture2D" uid="uid://cwgex5qelfpbf" path="res://Entities/Agro/Sprites/indoali 2 agro.png" id="9_t3fsa"]
+[ext_resource type="Texture2D" uid="uid://b520djoi3hke5" path="res://Entities/Agro/Sprites/arremesso 1 agro.png" id="9_xnikx"]
 [ext_resource type="Texture2D" uid="uid://rj0mtdiigl7f" path="res://Entities/Agro/Sprites/soco 2 agro.png" id="10_bjgs6"]
+[ext_resource type="Texture2D" uid="uid://dl7ajrguu7dtr" path="res://Entities/Agro/Sprites/arremesso 2 agro.png" id="10_cftox"]
 [ext_resource type="Texture2D" uid="uid://dj2k6grq8a84s" path="res://Entities/Agro/Sprites/soco 1 agro.png" id="11_jbvwu"]
 [ext_resource type="PackedScene" uid="uid://duy4nv3fxaa14" path="res://Entities/Agro/BullUltimate.tscn" id="13_jbvwu"]
 
@@ -41,6 +43,14 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ar775"]
 atlas = ExtResource("7_jbvwu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgusy"]
+atlas = ExtResource("9_xnikx")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr06g"]
+atlas = ExtResource("10_cftox")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bjgs6"]
@@ -107,6 +117,17 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_bgusy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr06g")
+}],
+"loop": 0,
+"name": &"throw",
+"speed": 5.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_bjgs6")
 }, {
@@ -153,7 +174,7 @@ size = Vector2(108, 137.495)
 position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"dash"
+animation = &"throw"
 
 [node name="CSCrouch" parent="." index="2" unique_id=602869493]
 position = Vector2(-8, 26)
