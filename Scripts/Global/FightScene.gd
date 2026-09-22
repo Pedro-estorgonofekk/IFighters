@@ -7,7 +7,7 @@ var vel = 200
 
 #Isso aq é só pra tornar utilizavel o codigo o valor do path sera alterado via script posteriormente
 var player_1 = "res://Entities/Info/InfoStudent.tscn"
-var player_2 = "res://Entities/Alim/AlimStudent.tscn"
+var player_2 = "res://Entities/Meio/MeioStudent.tscn"
 
 func SpawnPlayers():
 	var p1 = load(player_1).instantiate()
