@@ -254,6 +254,9 @@ func ChangeState(new_state: State) -> void:
 			
 		State.ULT:
 			DisableCollision()
+			cs_idle.disabled = false
+			cs_idle.visible = true
+			
 			velocity.x = 0
 			$Attacks.Ult()
 		

@@ -122,6 +122,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tumsx"]
+size = Vector2(67, 182.36)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bahen"]
 size = Vector2(22, 23)
 
@@ -137,7 +140,10 @@ size = Vector2(113, 129.21)
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
-animation = &"dash"
+
+[node name="CSIdle" parent="." index="1" unique_id=929478290]
+position = Vector2(1.5, 12.82)
+shape = SubResource("RectangleShape2D_tumsx")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
 position = Vector2(51, 13.5)
@@ -147,7 +153,6 @@ shape = SubResource("RectangleShape2D_bahen")
 visible = true
 
 [node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
-visible = false
 position = Vector2(-0.5, 12.82)
 shape = SubResource("RectangleShape2D_dwvxx")
 

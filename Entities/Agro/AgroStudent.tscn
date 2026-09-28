@@ -156,6 +156,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mm8cd"]
+size = Vector2(84, 186.495)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1h7fa"]
 size = Vector2(102, 156)
 
@@ -174,7 +177,10 @@ size = Vector2(108, 137.495)
 position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"throw"
+
+[node name="CSIdle" parent="." index="1" unique_id=929478290]
+position = Vector2(-5, 10.75)
+shape = SubResource("RectangleShape2D_mm8cd")
 
 [node name="CSCrouch" parent="." index="2" unique_id=602869493]
 position = Vector2(-8, 26)
@@ -188,7 +194,6 @@ shape = SubResource("RectangleShape2D_dwvxx")
 visible = true
 
 [node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
-visible = false
 position = Vector2(-7, 10.755)
 shape = SubResource("RectangleShape2D_d3n1g")
 
