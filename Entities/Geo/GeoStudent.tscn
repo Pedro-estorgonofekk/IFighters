@@ -14,6 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://08wfup5rtq3" path="res://Entities/Geo/Sprites/soco 2 geo.png" id="12_0qb4x"]
 [ext_resource type="Texture2D" uid="uid://cbrt1qgv6dfh5" path="res://Entities/Geo/Sprites/soco 1 geo.png" id="13_01utu"]
 [ext_resource type="Texture2D" uid="uid://nwpy2642pa0k" path="res://Entities/Geo/Sprites/sei la usa pra oq quiser.png" id="14_iiolu"]
+[ext_resource type="PackedScene" uid="uid://diydcyc4c0vn2" path="res://Entities/Geo/DirtProjectile.tscn" id="15_6v3f3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcao0"]
 atlas = ExtResource("2_agww1")
@@ -21,6 +22,10 @@ region = Rect2(0, 0, 92, 62)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fjp6u"]
 atlas = ExtResource("3_6v3f3")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6v3f3"]
+atlas = ExtResource("7_a5qn7")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ltnel"]
@@ -92,6 +97,9 @@ animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_fjp6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6v3f3")
 }],
 "loop": 0,
 "name": &"dash",
@@ -192,7 +200,7 @@ size = Vector2(104, 96)
 position = Vector2(0, 27.84)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_p376b")
-animation = &"weak_punch"
+animation = &"dash"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-4, 26.5)
@@ -214,3 +222,6 @@ shape = SubResource("RectangleShape2D_rxioh")
 [node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
 position = Vector2(-6, 56)
 shape = SubResource("RectangleShape2D_o7fhu")
+
+[node name="Attacks" parent="." index="6" unique_id=1310549290]
+projectile = ExtResource("15_6v3f3")
