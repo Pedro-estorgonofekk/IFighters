@@ -258,7 +258,7 @@ func ChangeState(new_state: State) -> void:
 			cs_idle.visible = true
 			
 			velocity.x = 0
-			$Attacks.Ult()
+			anim.play("weak_punch")
 		
 
 
@@ -384,9 +384,14 @@ func _on_animation_finished() -> void:
 
 func _on_frame_changed() -> void:
 	if current_state == State.THROW:
-		var ultimo_frame = anim.sprite_frames.get_frame_count(anim.animation) - 1
-		if anim.frame == ultimo_frame:
+		var last_frame = anim.sprite_frames.get_frame_count(anim.animation) - 1
+		if anim.frame == last_frame:
 			$Attacks.Throw()
+	
+	if current_state == State.ULT:
+		var last_frame = anim.sprite_frames.get_frame_count(anim.animation) - 1
+		if anim.frame == last_frame:
+			$Attacks.Ult()
 
 
 func TryDash() -> bool:

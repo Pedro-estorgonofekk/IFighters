@@ -54,6 +54,10 @@ region = Rect2(0, 0, 92, 92)
 atlas = ExtResource("8_q78rh")
 region = Rect2(0, 0, 92, 92)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_rf4j5"]
+atlas = ExtResource("10_02tqh")
+region = Rect2(0, 0, 92, 92)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_32ypr"]
 atlas = ExtResource("9_73wa6")
 region = Rect2(0, 0, 92, 92)
@@ -135,6 +139,9 @@ animations = [{
 "texture": SubResource("AtlasTexture_u8je7")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rf4j5")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_32ypr")
 }],
 "loop": 0,
@@ -188,7 +195,9 @@ size = Vector2(117, 121)
 position = Vector2(0, 8.165)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_7rtbg")
-animation = &"idle"
+animation = &"throw"
+frame = 3
+frame_progress = 1.0
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 19.5)

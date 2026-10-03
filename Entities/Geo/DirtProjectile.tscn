@@ -29,6 +29,10 @@ animations = [{
 [node name="DirtProjectile" unique_id=1901221698 instance=ExtResource("1_dsrgi")]
 spinnable = true
 
+[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(327109658) index="0" unique_id=992233991]
+debug_color = Color(0.9882353, 0, 0, 0.41960785)
+
 [node name="AnimatedSprite2D" parent="." index="2" unique_id=921523398]
+scale = Vector2(1.43, 1.43)
 sprite_frames = SubResource("SpriteFrames_agww1")
 frame_progress = 0.4560628
