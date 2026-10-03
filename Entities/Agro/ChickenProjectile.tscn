@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://dpmhvka0s52ra" path="res://Entities/Agro/Sprites/galinha.png" id="2_4c0rj"]
 [ext_resource type="Texture2D" uid="uid://dcvac7v51876s" path="res://Entities/Agro/Sprites/galinha2.png" id="3_hre3y"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_7n4o8"]
+radius = 24.0
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmq17"]
 atlas = ExtResource("2_4c0rj")
 region = Rect2(0, 0, 96, 96)
@@ -29,9 +32,10 @@ animations = [{
 [node name="ChickenProjectile" unique_id=1901221698 instance=ExtResource("1_80a05")]
 speed = 650
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(327109658) index="0" unique_id=992233991]
-debug_color = Color(1, 0.0153199695, 0.029077904, 0.41960785)
+[node name="CollisionShape2D" parent="." index="0" unique_id=472614932]
+shape = SubResource("CircleShape2D_7n4o8")
+debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="AnimatedSprite2D" parent="." index="2" unique_id=921523398]
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=921523398]
 sprite_frames = SubResource("SpriteFrames_346vi")
 frame_progress = 0.8250081

@@ -34,6 +34,10 @@ func Ult():
 		var ult = ultimate.instantiate()
 		var sprite = get_parent().get_node("AnimatedSprite2D")
 		
+		ult.collision_layer = hitbox.collision_layer
+		ult.collision_mask = hitbox.collision_mask
+		ult.damage = projectile_dmg
+		
 		if sprite.flip_h == true:
 			ult.direction = -1
 			ult.global_position = Vector2(1100, 415)
@@ -48,10 +52,14 @@ func Ult():
 		print(ult.global_position)
 		cooldown.start()
 		
-func Throw():
+func Throw() -> void:
 	if projectile != null and cooldown.is_stopped():
 		var proj = projectile.instantiate()
 		var sprite = get_parent().get_node("AnimatedSprite2D")
+		
+		proj.collision_layer = hitbox.collision_layer
+		proj.collision_mask = hitbox.collision_mask
+		proj.damage = projectile_dmg
 		
 		if sprite.flip_h == true:
 			proj.direction = -1
@@ -62,6 +70,5 @@ func Throw():
 		proj.global_position = get_parent().global_position
 		
 		get_tree().current_scene.add_child(proj)
-		
 		
 		cooldown.start()

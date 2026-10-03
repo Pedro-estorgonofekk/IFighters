@@ -15,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cpce4inrjxelf" path="res://Entities/Info/Sprites/arremesso 3 info.png" id="9_u1yr1"]
 [ext_resource type="Texture2D" uid="uid://cy5veu7xcsw45" path="res://Entities/Info/Sprites/chute 2 - dano info.png" id="10_dwvxx"]
 [ext_resource type="Texture2D" uid="uid://btjnussugmuse" path="res://Entities/Info/Sprites/chute 1 info.png" id="11_1h7fa"]
+[ext_resource type="PackedScene" uid="uid://bcpxasb3tv7vs" path="res://Entities/Info/BinaryUltimate.tscn" id="16_bhloe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_7mtff"]
 atlas = ExtResource("2_aba48")
@@ -58,6 +59,18 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0dwmq"]
 atlas = ExtResource("9_u1yr1")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrrxy"]
+atlas = ExtResource("9_u1yr1")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q5vt"]
+atlas = ExtResource("11_1h7fa")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe67n"]
+atlas = ExtResource("10_dwvxx")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dwvxx"]
@@ -149,6 +162,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_rrrxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q5vt")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_xe67n")
+}],
+"loop": 0,
+"name": &"ult",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_dwvxx")
 }, {
 "duration": 0.5,
@@ -197,29 +224,25 @@ size = Vector2(91, 116)
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"idle"
+animation = &"dash"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-1.02, 25.875)
 shape = SubResource("RectangleShape2D_3xxhn")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = false
 position = Vector2(40.625, 13)
 shape = SubResource("RectangleShape2D_4ky1o")
 debug_color = Color(0.994266, 0, 0.19339177, 0.41960785)
 
-[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
-visible = true
-
-[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
 position = Vector2(-3, 25.875)
 shape = SubResource("RectangleShape2D_1x6nw")
 
-[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
-visible = false
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
 position = Vector2(-3.5, 46)
 shape = SubResource("RectangleShape2D_aba48")
 
 [node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("2_urhxr")
+ultimate = ExtResource("16_bhloe")

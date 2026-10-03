@@ -6,13 +6,12 @@ extends Node2D
 var vel = 200
 
 #Isso aq é só pra tornar utilizavel o codigo o valor do path sera alterado via script posteriormente
-var player_1 = "res://Entities/Agro/AgroStudent.tscn"
-var player_2 = "res://Entities/Alim/AlimStudent.tscn"
+var player_1 = "res://Entities/Info/InfoStudent.tscn"
+var player_2 = "res://Entities/Geo/GeoStudent.tscn"
+var p1 = load(player_1).instantiate()
+var p2 = load(player_2).instantiate()
 
-func SpawnPlayers():
-	var p1 = load(player_1).instantiate()
-	var p2 = load(player_2).instantiate()
-	
+func SpawnPlayers():	
 	if player_1 == player_2:
 		p2.modulate = Color(0.6, 0.6, 1)
 		
@@ -29,3 +28,10 @@ func SpawnPlayers():
 	
 func _ready():
 	SpawnPlayers()
+	p1.get_node("Health").healthDepleted.connect(_on_health_depleted)
+	p2.get_node("Health").healthDepleted.connect(_on_health_depleted)
+	
+func _on_health_depleted() -> void:
+	print("Fui chamado")
+	await get_tree().create_timer(2).timeout
+	get_tree().reload_current_scene()

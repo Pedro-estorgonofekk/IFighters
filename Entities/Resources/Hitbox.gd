@@ -1,10 +1,23 @@
 class_name Hitbox
 extends Area2D
 
-@export var damage := 1: set = SetDmg, get = GetDmg
+var damage := 1: set = SetDmg, get = GetDmg
+
+func _ready() -> void:
+	if not area_entered.is_connected(_on_area_entered):
+		area_entered.connect(_on_area_entered)
 
 func SetDmg(value: int):
 	damage = value
 	
 func GetDmg() -> int:
 	return damage
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == "Hurtbox":
+		var target = area.get_parent()
+		var health_node = target.get_node_or_null("Health")
+		
+		if health_node:
+			health_node.takeDmg(damage)
+			get_node("CSPunchHit").set_deferred("disabled", true)

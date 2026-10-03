@@ -20,7 +20,7 @@ var current_state: State = State.IDLE
 @onready var cs_idle_hurt := $Hurtbox/CSIdleHurt
 @onready var cs_crouch_hurt := $Hurtbox/CSCrouchHurt
 
-@export var player_id: int
+@export_range(1, 2) var player_id: int
 
 # Constantes de Física
 const SPEED = 300.0
@@ -258,7 +258,7 @@ func ChangeState(new_state: State) -> void:
 			cs_idle.visible = true
 			
 			velocity.x = 0
-			anim.play("weak_punch")
+			anim.play("ult")
 		
 
 

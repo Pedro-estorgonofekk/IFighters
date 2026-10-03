@@ -12,3 +12,13 @@ func _process(delta: float) -> void:
 	
 	if global_position.x > 960 or global_position.x < 0:
 		self.queue_free() 
+
+func _on_area_entered(area: Area2D) -> void:
+	print(area)
+	if area.name == "Hurtbox":
+		var target = area.get_parent()
+		var health_node = target.get_node_or_null("Health")
+		
+		if health_node:
+			health_node.takeDmg(damage)
+			get_node("CollisionShape2D").set_deferred("disabled", true)

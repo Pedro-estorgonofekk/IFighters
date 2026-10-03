@@ -11,10 +11,13 @@
 [ext_resource type="Texture2D" uid="uid://76mrjy4fyuw8" path="res://Entities/Geo/Sprites/arremesso 3 geo.png" id="9_ko5q3"]
 [ext_resource type="Texture2D" uid="uid://bwndi2kinbat6" path="res://Entities/Geo/Sprites/indoali 2 geo.png" id="10_b564h"]
 [ext_resource type="Texture2D" uid="uid://c6j57ep0in1nt" path="res://Entities/Geo/Sprites/indoali 1 geo.png" id="11_2fyev"]
+[ext_resource type="Texture2D" uid="uid://byi22mvwl1rbd" path="res://Entities/Geo/Sprites/dano geo.png" id="11_o7fhu"]
 [ext_resource type="Texture2D" uid="uid://08wfup5rtq3" path="res://Entities/Geo/Sprites/soco 2 geo.png" id="12_0qb4x"]
+[ext_resource type="Texture2D" uid="uid://qhbvm5fvqf5f" path="res://Entities/Geo/Sprites/agachado 2 geo.png" id="12_tl4lv"]
 [ext_resource type="Texture2D" uid="uid://cbrt1qgv6dfh5" path="res://Entities/Geo/Sprites/soco 1 geo.png" id="13_01utu"]
 [ext_resource type="Texture2D" uid="uid://nwpy2642pa0k" path="res://Entities/Geo/Sprites/sei la usa pra oq quiser.png" id="14_iiolu"]
 [ext_resource type="PackedScene" uid="uid://diydcyc4c0vn2" path="res://Entities/Geo/DirtProjectile.tscn" id="15_6v3f3"]
+[ext_resource type="PackedScene" uid="uid://62sw05h1qg53" path="res://Entities/Geo/RockUltimate.tscn" id="18_tl4lv"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tcao0"]
 atlas = ExtResource("2_agww1")
@@ -58,6 +61,18 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_exeea"]
 atlas = ExtResource("3_6v3f3")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5qn7"]
+atlas = ExtResource("14_iiolu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxag5"]
+atlas = ExtResource("11_o7fhu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ko5q3"]
+atlas = ExtResource("12_tl4lv")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_x5a7w"]
@@ -149,6 +164,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_a5qn7")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_dxag5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ko5q3")
+}],
+"loop": 0,
+"name": &"ult",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_x5a7w")
 }, {
 "duration": 0.5,
@@ -200,6 +229,9 @@ size = Vector2(104, 96)
 position = Vector2(0, 27.84)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_p376b")
+animation = &"ult"
+frame = 2
+frame_progress = 1.0
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 26.5)
@@ -210,21 +242,17 @@ position = Vector2(-4, 56)
 shape = SubResource("RectangleShape2D_6v3f3")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = false
 position = Vector2(50.5, 17)
 shape = SubResource("RectangleShape2D_tl4lv")
 
-[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
-visible = true
-
-[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
 position = Vector2(-2, 26.5)
 shape = SubResource("RectangleShape2D_rxioh")
 
-[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
-visible = false
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
 position = Vector2(-6, 56)
 shape = SubResource("RectangleShape2D_o7fhu")
 
 [node name="Attacks" parent="." index="6" unique_id=1310549290]
 projectile = ExtResource("15_6v3f3")
+ultimate = ExtResource("18_tl4lv")

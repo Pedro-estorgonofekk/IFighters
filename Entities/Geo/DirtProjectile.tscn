@@ -4,6 +4,9 @@
 [ext_resource type="Texture2D" uid="uid://cn30k1tlewglp" path="res://Entities/Geo/Sprites/terra 1.png" id="2_weujl"]
 [ext_resource type="Texture2D" uid="uid://da3t53o2q8mvn" path="res://Entities/Geo/Sprites/terra 2.png" id="3_pxxjb"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_346vi"]
+radius = 26.172504
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_24elw"]
 atlas = ExtResource("2_weujl")
 region = Rect2(0, 0, 96, 96)
@@ -29,10 +32,11 @@ animations = [{
 [node name="DirtProjectile" unique_id=1901221698 instance=ExtResource("1_dsrgi")]
 spinnable = true
 
-[node name="CollisionShape2D" parent="Hitbox" parent_id_path=PackedInt32Array(327109658) index="0" unique_id=992233991]
-debug_color = Color(0.9882353, 0, 0, 0.41960785)
+[node name="CollisionShape2D" parent="." index="0" unique_id=472614932]
+shape = SubResource("CircleShape2D_346vi")
+debug_color = Color(1, 0, 0, 0.41960785)
 
-[node name="AnimatedSprite2D" parent="." index="2" unique_id=921523398]
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=921523398]
 scale = Vector2(1.43, 1.43)
 sprite_frames = SubResource("SpriteFrames_agww1")
 frame_progress = 0.4560628

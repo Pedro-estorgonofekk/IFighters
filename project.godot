@@ -111,6 +111,13 @@ DashP2={
 ]
 }
 
+[layer_names]
+
+2d_render/layer_1="P1_Hitbox"
+2d_render/layer_2="P1_Hurtbox"
+2d_render/layer_4="P2_Hitbox"
+2d_render/layer_8="P2_Hurtbox"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
