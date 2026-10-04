@@ -14,11 +14,6 @@ extends Node
 @onready var cs_punch_hit := get_parent().get_node("Hitbox/CSPunchHit")
 @onready var anim := get_parent().get_node("AnimatedSprite2D")
 
-#@onready var current_state = get_parent().current_state
-#cs_punch_hit.disabled = false
-#cs_punch_hit.visible = true
-		
-
 func WeakPunch():
 	if cooldown.is_stopped():
 		cs_punch_hit.disabled = false
