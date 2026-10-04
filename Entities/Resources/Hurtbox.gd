@@ -12,3 +12,7 @@ func _on_area_entered(area: Area2D) -> void:
 	if area is Hitbox and health:
 		health.takeDmg(area.damage)
 		receivedDmg.emit(area.damage)
+		
+		var col = area.get_node_or_null("CSPunchHit")
+		if col:
+			col.set_deferred("disavle", true)
