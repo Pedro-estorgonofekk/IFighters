@@ -19,5 +19,5 @@ func _on_area_entered(area: Area2D) -> void:
 		var health_node = target.get_node_or_null("Health")
 		
 		if health_node:
-			health_node.takeDmg(damage)
+			health_node.TakeDmg(damage)
 			get_node("CollisionShape2D").set_deferred("disabled", true)
