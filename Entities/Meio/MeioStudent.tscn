@@ -228,25 +228,18 @@ position = Vector2(0, 19.5)
 shape = SubResource("RectangleShape2D_rujdr")
 
 [node name="CSCrouch" parent="." index="2" unique_id=602869493]
-visible = false
 position = Vector2(1, 30.5)
 shape = SubResource("RectangleShape2D_73wa6")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = false
 position = Vector2(48, 8)
 shape = SubResource("RectangleShape2D_jbvwu")
 
-[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
-visible = true
-
-[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
-visible = false
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
 position = Vector2(-2, 19.5)
 shape = SubResource("RectangleShape2D_rujdr")
 
-[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
-visible = false
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
 position = Vector2(-4.5, 30.5)
 shape = SubResource("RectangleShape2D_02tqh")
 

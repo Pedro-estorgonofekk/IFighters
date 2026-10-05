@@ -8,3 +8,12 @@ func SetDmg(value: int):
 	
 func GetDmg() -> int:
 	return damage
+
+func _on_area_entered(area: Area2D) -> void:
+	if area.name == "Hurtbox":
+		var target = area.get_parent()
+		var health_node = target.get_node_or_null("Health")
+		
+		if health_node:
+			health_node.TakeDmg(damage)
+			get_node("CSPunchHit").set_deferred("disabled", true)

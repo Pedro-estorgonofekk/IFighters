@@ -7,7 +7,7 @@ var vel = 200
 
 #Isso aq é só pra tornar utilizavel o codigo o valor do path sera alterado via script posteriormente
 var player_1 = "res://Entities/Info/InfoStudent.tscn"
-var player_2 = "res://Entities/Geo/GeoStudent.tscn"
+var player_2 = "res://Entities/Info/InfoStudent.tscn"
 var p1 = load(player_1).instantiate()
 var p2 = load(player_2).instantiate()
 
@@ -34,4 +34,12 @@ func _ready():
 func _on_health_depleted() -> void:
 	print("Fui chamado")
 	await get_tree().create_timer(2).timeout
+	
+	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
+		print("Player 1 Ganhou")
+	elif p1.get_node("Health").playerHealth < p2.get_node("Health").playerHealth:
+		print("Plyer 2 Ganhou")
+	else:
+		print("Empate")
+		
 	get_tree().reload_current_scene()
