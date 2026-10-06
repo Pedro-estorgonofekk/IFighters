@@ -8,6 +8,7 @@ var vel = 200
 #Isso aq é só pra tornar utilizavel o codigo o valor do path sera alterado via script posteriormente
 var player_1 = "res://Entities/Meio/MeioStudent.tscn"
 var player_2 = "res://Entities/Info/InfoStudent.tscn"
+
 var p1 = load(player_1).instantiate()
 var p2 = load(player_2).instantiate()
 

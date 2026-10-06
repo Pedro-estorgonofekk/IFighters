@@ -12,7 +12,9 @@
 [ext_resource type="Texture2D" uid="uid://de3if01hq4nbc" path="res://Entities/Meio/Sprites/indoali 2 meio.png" id="8_vha84"]
 [ext_resource type="Texture2D" uid="uid://den3xqnh7p8yf" path="res://Entities/Meio/Sprites/soco 2 meio.png" id="9_73wa6"]
 [ext_resource type="Texture2D" uid="uid://ti8qru01pxba" path="res://Entities/Meio/Sprites/soco 1 meio.png" id="10_02tqh"]
+[ext_resource type="Texture2D" uid="uid://1a1aih1jmde6" path="res://Entities/Meio/Sprites/ultmeio1.png" id="11_oa1b6"]
 [ext_resource type="PackedScene" uid="uid://b3in5q5qg7udc" path="res://Entities/Meio/HerbProjectile.tscn" id="11_vha84"]
+[ext_resource type="Texture2D" uid="uid://bbbjv676yc3y4" path="res://Entities/Meio/Sprites/ultmeio2.png" id="12_dcfdf"]
 [ext_resource type="PackedScene" uid="uid://xhc4o86a8dra" path="res://Entities/Meio/SunUltimate.tscn" id="14_q78rh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mk68q"]
@@ -63,16 +65,16 @@ region = Rect2(0, 0, 92, 92)
 atlas = ExtResource("9_73wa6")
 region = Rect2(0, 0, 92, 92)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ctdme"]
+atlas = ExtResource("5_knfvt")
+region = Rect2(0, 0, 92, 84)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pajhv"]
-atlas = ExtResource("2_y7loo")
+atlas = ExtResource("11_oa1b6")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxpin"]
-atlas = ExtResource("5_knfvt")
-region = Rect2(0, 0, 92, 92)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ctdme"]
-atlas = ExtResource("5_knfvt")
+atlas = ExtResource("12_dcfdf")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_q78rh"]
@@ -162,16 +164,16 @@ animations = [{
 "speed": 5.0
 }, {
 "frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_ctdme")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pajhv")
 }, {
-"duration": 1.5,
-"texture": SubResource("AtlasTexture_sxpin")
-}, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_ctdme")
+"texture": SubResource("AtlasTexture_sxpin")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"ult",
 "speed": 5.0
 }, {
@@ -223,6 +225,8 @@ position = Vector2(0, 8.165)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_7rtbg")
 animation = &"ult"
+frame = 2
+frame_progress = 1.0
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 19.5)
@@ -245,6 +249,6 @@ position = Vector2(-4.5, 30.5)
 shape = SubResource("RectangleShape2D_02tqh")
 
 [node name="Attacks" parent="." index="6" unique_id=1310549290]
-ult_dmg = 10
+ult_dmg = 1
 projectile = ExtResource("11_vha84")
 ultimate = ExtResource("14_q78rh")

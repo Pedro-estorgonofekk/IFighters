@@ -21,4 +21,5 @@ func TakeDmg(damage: int):
 		print("Emiti")
 
 func Heal(amount: int):
-	return amount
+	playerHealth += amount
+	playerHealth = clampi(playerHealth, 0, maxHealth)
