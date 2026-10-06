@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		self.queue_free() 
 
 func _on_area_entered(area: Area2D) -> void:
-	print(area)
 	if area.name == "Hurtbox":
 		var target = area.get_parent()
 		var health_node = target.get_node_or_null("Health")

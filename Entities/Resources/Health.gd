@@ -11,13 +11,14 @@ func _ready() -> void:
 	playerHealth = maxHealth
 	print(playerHealth)
 	
-func TakeDmg(damage: int) -> void:
+func TakeDmg(damage: int):
 	playerHealth -= damage
-	playerHealth = clampi(playerHealth, 0, maxHealth) 
-	
-	print(playerHealth)
+	playerHealth = clampi(playerHealth, 0, maxHealth)
 	tookDmg.emit(damage, playerHealth) 
 	
 	if playerHealth <= 0:
 		healthDepleted.emit()
 		print("Emiti")
+
+func Heal(amount: int):
+	return amount

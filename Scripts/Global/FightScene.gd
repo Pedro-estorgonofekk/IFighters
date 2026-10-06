@@ -6,7 +6,7 @@ extends Node2D
 var vel = 200
 
 #Isso aq é só pra tornar utilizavel o codigo o valor do path sera alterado via script posteriormente
-var player_1 = "res://Entities/Info/InfoStudent.tscn"
+var player_1 = "res://Entities/Meio/MeioStudent.tscn"
 var player_2 = "res://Entities/Info/InfoStudent.tscn"
 var p1 = load(player_1).instantiate()
 var p2 = load(player_2).instantiate()
@@ -23,7 +23,6 @@ func SpawnPlayers():
 	p2.global_position = P2Spawn.global_position
 	p2.get_node("AnimatedSprite2D").flip_h = true
 		
-	
 	add_child(p2)
 	
 func _ready():

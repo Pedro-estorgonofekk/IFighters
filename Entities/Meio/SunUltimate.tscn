@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://xhc4o86a8dra"]
+
+[ext_resource type="Texture2D" uid="uid://cre2n3e0jvm6u" path="res://Entities/Meio/Sprites/sol 2.png" id="1_lj6t0"]
+[ext_resource type="Texture2D" uid="uid://dkgkmixi7jabr" path="res://Entities/Meio/Sprites/sol 1.png" id="2_dmv6n"]
+[ext_resource type="Texture2D" uid="uid://btkgybsj22wcf" path="res://Entities/Meio/Sprites/sol 3.png" id="3_dicki"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g4u7h"]
+atlas = ExtResource("1_lj6t0")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdhsu"]
+atlas = ExtResource("2_dmv6n")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xihp8"]
+atlas = ExtResource("3_dicki")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 2.0,
+"texture": SubResource("AtlasTexture_g4u7h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdhsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xihp8")
+}],
+"loop": 2,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="Node2D" unique_id=868950534]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=506727540]
+position = Vector2(480, 349)
+scale = Vector2(7.2708335, 7.2708335)
+sprite_frames = SubResource("SpriteFrames_g4v7s")
+autoplay = "default"
+frame_progress = 0.12691544

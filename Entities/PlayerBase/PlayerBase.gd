@@ -8,6 +8,7 @@ var current_state: State = State.IDLE
 @onready var anim := $AnimatedSprite2D
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
+@onready var stamina := $Attacks/Stamina
 
 # Collision Shapes do Corpo
 @onready var cs_idle := $CSIdle
@@ -266,17 +267,23 @@ func ChangeState(new_state: State) -> void:
 
 func CheckAttacks() -> bool:
 	if Input.is_action_just_pressed(action_strong):
-		ChangeState(State.THROW)
-		return true
+		if stamina and stamina.Consume(50):
+			ChangeState(State.THROW)
+			return true
+		else:
+			return false
 		
 	if Input.is_action_just_pressed(action_weak):
 		ChangeState(State.PUNCH)	
 		return true
 
 	if Input.is_action_just_pressed(action_ult):
-		ChangeState(State.ULT)
-		return true
-		
+		if stamina and stamina.Consume(100):
+			ChangeState(State.ULT)
+			return true
+		else:
+			return false
+			
 	return false
 
 
