@@ -11,8 +11,7 @@ size = Vector2(20, 540)
 [node name="Stage" type="Node2D" unique_id=716982872]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=503197157]
-position = Vector2(0, -4)
-scale = Vector2(0.6915629, 0.63178474)
+scale = Vector2(0.664, 0.664)
 texture = ExtResource("1_htk83")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1251637829]

@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bj6yuwfof6df7"]
 
-[ext_resource type="Texture2D" uid="uid://brydunm5wkrs5" path="res://Assets/Sprites/StageBackground.png" id="1_mjmdf"]
+[ext_resource type="Texture2D" uid="uid://b5mr0rk5psjky" path="res://Assets/Sprites/StageBackground.png" id="1_mjmdf"]
 [ext_resource type="Script" uid="uid://ccyta7rk7puvd" path="res://Scripts/Global/MainMenu.gd" id="2_k8um8"]
 [ext_resource type="Texture2D" uid="uid://0ksl1s4un3ea" path="res://Assets/Sprites/IFighters.png" id="3_72sra"]
 [ext_resource type="Texture2D" uid="uid://b17rlkg55s18t" path="res://Assets/Sprites/btn-versus.png" id="4_744d7"]
