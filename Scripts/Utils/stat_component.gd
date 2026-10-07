@@ -13,5 +13,5 @@ func _ready():
 		
 func update_health_bar(current, max_health):
 	if health_bar:
-		health_bar.update_bar(current, max_health)
+		health_bar.update_bar(current, max_health)	
 		get_parent().health = current
