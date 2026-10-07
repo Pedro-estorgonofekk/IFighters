@@ -5,7 +5,6 @@ extends Area2D
 @export var damage: int
 @export var direction := 1
 @export var spinnable: bool
-var caster: CharacterBody2D
 
 func _process(delta: float) -> void:
 	self.global_position.x += (delta * speed) * direction
@@ -15,6 +14,7 @@ func _process(delta: float) -> void:
 		self.queue_free()
 
 func _on_area_entered(area: Area2D) -> void:
+	print()
 	if area.name == "Hurtbox":
 		var target = area.get_parent()
 		var health_node = target.get_node_or_null("Health")

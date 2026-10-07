@@ -1,7 +1,7 @@
 extends Node2D
 
-@export var life_regen = 10
-@export var amount := 10
+@export var life_ticks = 10
+@export var life_regen := 10
 
 @onready var caster: CharacterBody2D
 @onready var health = caster.get_node("Health")
@@ -12,12 +12,10 @@ func _ready() -> void:
 	Heal(life_regen)
 	pass
 
-func _process(delta: float) -> void:
-	print(health.playerHealth)
 
 func Heal(amount: int):
-	print(health.playerHealth)
-	
-	for i in range(10):
+	for i in range(life_ticks):
 		health.Heal(amount)
-		await get_tree().create_timer(1).timeout
+		await get_tree().create_timer(1.5).timeout
+	
+	self.queue_free()

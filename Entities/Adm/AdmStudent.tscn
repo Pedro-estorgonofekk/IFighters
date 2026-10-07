@@ -14,6 +14,8 @@
 [ext_resource type="Texture2D" uid="uid://cnxyf40sy6474" path="res://Entities/Adm/Sprites/arremesso 3 adm.png" id="10_gm227"]
 [ext_resource type="Texture2D" uid="uid://bta2mec8tkwj0" path="res://Entities/Adm/Sprites/soco 2 adm.png" id="13_pdmso"]
 [ext_resource type="Texture2D" uid="uid://3kefexilpinj" path="res://Entities/Adm/Sprites/soco 1 adm.png" id="14_qj5qt"]
+[ext_resource type="PackedScene" uid="uid://da2pqrr41jb3c" path="res://Entities/Adm/CoinProjectile.tscn" id="15_xpgbf"]
+[ext_resource type="PackedScene" uid="uid://cikjx4cqmdvej" path="res://Entities/Adm/AdmUltimate.tscn" id="16_fwmun"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5vus5"]
 atlas = ExtResource("2_rpnus")
@@ -141,12 +143,9 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_b6c0i")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_t15pv")
 }, {
-"duration": 1.0,
+"duration": 2.0,
 "texture": SubResource("AtlasTexture_tc30l")
 }],
 "loop": 0,
@@ -197,6 +196,8 @@ size = Vector2(112, 128)
 position = Vector2(0, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_3nryf")
+animation = &"ult"
+frame = 1
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 12)
@@ -205,9 +206,6 @@ position = Vector2(0, 12)
 position = Vector2(-8, 32)
 shape = SubResource("RectangleShape2D_p5tru")
 disabled = false
-
-[node name="Hitbox" parent="." index="4" unique_id=789786805]
-visible = true
 
 [node name="Hurtbox" parent="." index="5" unique_id=2042549355]
 position = Vector2(0, 0)
@@ -219,3 +217,7 @@ shape = SubResource("RectangleShape2D_b6c0i")
 [node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
 position = Vector2(-8, 32)
 shape = SubResource("RectangleShape2D_lj4yd")
+
+[node name="Attacks" parent="." index="6" unique_id=1310549290]
+projectile = ExtResource("15_xpgbf")
+ultimate = ExtResource("16_fwmun")

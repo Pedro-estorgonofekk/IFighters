@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://sfyi27up4ynv"]
+
+[ext_resource type="Texture2D" uid="uid://cbjakf4mbharm" path="res://Entities/Adm/Sprites/cufre.png" id="1_l2ixe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
+size = Vector2(121, 147)
+
+[node name="Vault" type="Area2D" unique_id=958295443]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023469941]
+position = Vector2(1, -0.5)
+shape = SubResource("RectangleShape2D_yf5fn")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1825480279]
+position = Vector2(2.3841858e-07, -4.7683716e-07)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_l2ixe")

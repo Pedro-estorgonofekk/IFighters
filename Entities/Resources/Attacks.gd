@@ -32,14 +32,20 @@ func Ult():
 		var ult = ultimate.instantiate()
 		var player = get_parent() as CharacterBody2D
 		
-		if "damage" in ult:
+		if ult is Area2D:
 			ult.collision_layer = hitbox.collision_layer
 			ult.collision_mask = hitbox.collision_mask
+		else:
+			if "ult_layer" in ult:
+				ult.ult_layer = hitbox.collision_layer
+				ult.ult_mask = hitbox.collision_mask
+				
+		if "damage" in ult:
 			ult.damage = ult_dmg
 		
 		if "caster" in ult:
 			ult.caster = player
-			
+		
 		if "direction" in ult:
 			if anim.flip_h == true:
 				ult.direction = -1

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://7hv38eq3fx2i"]
+
+[ext_resource type="Texture2D" uid="uid://c8b0wo6thyssl" path="res://Entities/Adm/Sprites/kys.png" id="1_g14pe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g14pe"]
+atlas = ExtResource("1_g14pe")
+region = Rect2(0, 0, 192, 508)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_g4v7s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g14pe")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="HopeUltimate" type="Node2D" unique_id=1630156997]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1982025203]
+sprite_frames = SubResource("SpriteFrames_g4v7s")

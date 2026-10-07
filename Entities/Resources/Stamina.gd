@@ -4,7 +4,7 @@ extends Node
 signal StaminaChanged(current: float, max_stamina: float)
 signal StaminaExhausted
 
-@export var max_stamina: float = 100.0
+@export var max_stamina: float = 500.0
 @export var regen_rate: float
 var current_stamina: float
 
