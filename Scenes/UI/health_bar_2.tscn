@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cp23uh2gdsytd"]
+
+[ext_resource type="Texture2D" uid="uid://clcdlo8pnha0c" path="res://Assets/Sprites/UnderHB.png" id="1_aggs6"]
+[ext_resource type="Script" uid="uid://djh8cqt12ssex" path="res://Entities/Resources/health_bar_2.gd" id="1_crt8c"]
+[ext_resource type="Texture2D" uid="uid://d334c6wtkome7" path="res://Assets/Sprites/BorderHB2.png" id="2_crt8c"]
+[ext_resource type="Texture2D" uid="uid://lb3cenyr63lq" path="res://Assets/Sprites/FrontProgressHB.png" id="3_f43u7"]
+[ext_resource type="Texture2D" uid="uid://bbr7r8lur8bin" path="res://Assets/Sprites/ProgressHB.png" id="4_ivbrk"]
+
+[node name="HealthBar2" type="Control" unique_id=1356863043]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_crt8c")
+
+[node name="backBar" type="TextureProgressBar" parent="." unique_id=148292760]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 60.0
+texture_under = ExtResource("1_aggs6")
+texture_over = ExtResource("2_crt8c")
+texture_progress = ExtResource("3_f43u7")
+
+[node name="frontBar" type="TextureProgressBar" parent="." unique_id=224072160]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+value = 50.0
+texture_progress = ExtResource("4_ivbrk")
