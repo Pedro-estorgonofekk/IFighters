@@ -47,6 +47,7 @@ func update_bar(current: float, max_value: float):
 		front_tween = create_tween().set_parallel()
 		front_tween.tween_property(front_bar, "value", current, 0.25)
 		front_tween.tween_property(back_bar, "value", current, 0.25)
+		_on_heal()
 		
 	current_pct = pct
 
@@ -58,3 +59,6 @@ func _flash(flash_color: Color):
 	
 func _on_damage():
 	_flash(Color(1,0.3,0.3))
+
+func _on_heal():
+	_flash(Color(0.0, 1.0, 0.145, 1.0))
