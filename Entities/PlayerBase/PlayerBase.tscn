@@ -91,6 +91,7 @@ size = Vector2(97, 183.75)
 size = Vector2(120.5, 131)
 
 [node name="Player" type="CharacterBody2D" unique_id=1496453183 groups=["Player"]]
+z_index = 2
 script = ExtResource("1_8k1wt")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860600443]
@@ -140,15 +141,14 @@ shape = SubResource("RectangleShape2D_oxc2s")
 debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
 
 [node name="CSCrouchHurt" type="CollisionShape2D" parent="Hurtbox" unique_id=1837800697]
-visible = false
 position = Vector2(3.75, 38.25)
 shape = SubResource("RectangleShape2D_3xxhn")
 debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
 
 [node name="Attacks" type="Node" parent="." unique_id=1310549290]
 script = ExtResource("9_3xxhn")
-weak_dmg = 10
-ult_dmg = 50
+weak_dmg = 6
+ult_dmg = 38
 projectile_dmg = 25
 metadata/_custom_type_script = "uid://c1x2uj6c5k00t"
 
@@ -158,6 +158,7 @@ one_shot = true
 
 [node name="Stamina" type="Node" parent="Attacks" unique_id=849922446]
 script = ExtResource("10_bahen")
+regen_rate = 9.0
 metadata/_custom_type_script = "uid://uknl82lbobdf"
 
 [connection signal="area_entered" from="Hitbox" to="Hitbox" method="_on_area_entered"]

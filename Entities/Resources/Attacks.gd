@@ -22,7 +22,6 @@ func WeakPunch():
 		cs_punch_hit.visible = true
 		hitbox.damage = weak_dmg
 		cooldown.start()
-		stamina.Increase(10)
 		
 func StrgPunch():
 	pass

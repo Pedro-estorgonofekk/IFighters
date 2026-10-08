@@ -4,12 +4,12 @@ extends Node
 signal StaminaChanged(current: float, max_stamina: float)
 signal StaminaExhausted
 
-@export var max_stamina: float = 0.0
+@export var max_stamina: float = 100.0
 @export var regen_rate: float
 var current_stamina: float
 
 func _ready() -> void:
-	current_stamina = max_stamina
+	current_stamina = 0
 	
 func HasStamina(amount: float):
 	return current_stamina >= amount
