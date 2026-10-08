@@ -30,4 +30,6 @@ func Increase(amount: float):
 	current_stamina += amount
 	current_stamina = clampf(current_stamina, 0, max_stamina)
 	
+	StaminaChanged.emit(current_stamina, max_stamina)
+	
 	return current_stamina

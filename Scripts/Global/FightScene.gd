@@ -6,14 +6,18 @@ extends Node2D
 @export var HealthBar1: Control
 @export var HealthBar2: Control
 
+@onready var stamina_p1: TextureProgressBar = $StaminaBar
+@onready var stamina_p2: TextureProgressBar = $StaminaBar2
+
 var vel = 200
 
-#Isso aq é só pra tornar utilizavel o codigo o valor do path sera alterado via script posteriormente
+# Valor do path que será alterado via script posteriormente
 var player_1 = "res://Entities/Adm/AdmStudent.tscn"
 var player_2 = "res://Entities/Info/InfoStudent.tscn"
 
 var p1 = load(player_1).instantiate()
 var p2 = load(player_2).instantiate()
+
 
 func SpawnPlayers():	
 	if player_1 == player_2:
@@ -28,10 +32,23 @@ func SpawnPlayers():
 	p2.get_node("AnimatedSprite2D").flip_h = true
 		
 	add_child(p2)
-	
+
+
 func _ready():
 	SpawnPlayers()
-	
+
+	if p1 and p1.stamina and stamina_p1:
+		stamina_p1.max_value = p1.stamina.max_stamina
+		stamina_p1.value = p1.stamina.current_stamina
+		p1.stamina.StaminaChanged.connect(func(current: float, _max: float):
+			stamina_p1.value = current
+		)
+	if p2 and p2.stamina and stamina_p2:
+		stamina_p2.max_value = p2.stamina.max_stamina
+		stamina_p2.value = p2.stamina.current_stamina
+		p2.stamina.StaminaChanged.connect(func(current: float, _max: float):
+			stamina_p2.value = current
+		)
 	var p1_health = p1.get_node("Health")
 	var p2_health = p2.get_node("Health")
 	
@@ -46,14 +63,17 @@ func _ready():
 		HealthBar2.update_bar(p2_health.playerHealth, p2_health.maxHealth)
 		p2_health.healthMudou.connect(_on_p2_health_changed)
 
+
 func _on_p1_health_changed(currentHealth):
 	if HealthBar1:
 		HealthBar1.update_bar(currentHealth, p1.get_node("Health").maxHealth)
 
+
 func _on_p2_health_changed(currentHealth):
 	if HealthBar2:
 		HealthBar2.update_bar(currentHealth, p2.get_node("Health").maxHealth)
-		
+
+
 func _on_health_depleted() -> void:
 	print("Fui chamado")
 	await get_tree().create_timer(2).timeout
