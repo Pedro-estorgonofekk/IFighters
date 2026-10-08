@@ -1,17 +1,18 @@
 [gd_scene format=3 uid="uid://dgbhhlfqmotfp"]
 
-[ext_resource type="Texture2D" uid="uid://mr7mmh3wko4t" path="res://Assets/Sprites/bg.png" id="1_65koc"]
+[ext_resource type="Texture2D" uid="uid://b5mr0rk5psjky" path="res://Assets/Sprites/StageBackground.png" id="1_htk83"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbvaf"]
 size = Vector2(960, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htk83"]
-size = Vector2(20, 504)
+size = Vector2(20, 540)
 
 [node name="Stage" type="Node2D" unique_id=716982872]
 
 [node name="Background" type="Sprite2D" parent="." unique_id=503197157]
-texture = ExtResource("1_65koc")
+scale = Vector2(0.664, 0.664)
+texture = ExtResource("1_htk83")
 
 [node name="Floor" type="StaticBody2D" parent="." unique_id=1251637829]
 position = Vector2(0, 260)
@@ -36,5 +37,5 @@ shape = SubResource("RectangleShape2D_htk83")
 position = Vector2(-490, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound" unique_id=246031787]
-position = Vector2(0, -2)
+position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_htk83")

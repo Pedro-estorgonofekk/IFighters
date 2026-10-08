@@ -1,0 +1,41 @@
+[gd_scene format=3 uid="uid://b3in5q5qg7udc"]
+
+[ext_resource type="PackedScene" uid="uid://b3n3s7e3pq6fr" path="res://Entities/PlayerBase/ProjectileBase.tscn" id="1_vkkbn"]
+[ext_resource type="Texture2D" uid="uid://b2jfv32alrjji" path="res://Entities/Meio/Sprites/projervas.png" id="2_ungsc"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_dsrgi"]
+height = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pvtd3"]
+atlas = ExtResource("2_ungsc")
+region = Rect2(0, 0, 96, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2vim"]
+atlas = ExtResource("2_ungsc")
+region = Rect2(0, 48, 96, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ungsc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pvtd3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2vim")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="ProjectileBase" unique_id=1901221698 instance=ExtResource("1_vkkbn")]
+
+[node name="CollisionShape2D" parent="." index="0" unique_id=472614932]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_dsrgi")
+debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=921523398]
+sprite_frames = SubResource("SpriteFrames_ungsc")
+frame = 1
+frame_progress = 0.034746435

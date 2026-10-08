@@ -1,5 +1,248 @@
-[gd_scene format=3 uid="uid://bmeo1jae1iqmx"]
+[gd_scene format=3 uid="uid://m2s3ck4jmqq"]
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_55si0"]
+[ext_resource type="Texture2D" uid="uid://dv63armypegu3" path="res://Entities/Info/Sprites/agachado 1 info.png" id="2_aba48"]
+[ext_resource type="PackedScene" uid="uid://rl77oxuc1o6w" path="res://Entities/Info/PythonProjectile.tscn" id="2_urhxr"]
+[ext_resource type="Texture2D" uid="uid://dnvmsdtjycgi0" path="res://Entities/Info/Sprites/paradinho info.png" id="3_7mtff"]
+[ext_resource type="Texture2D" uid="uid://b8f0qbi5savqw" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
+[ext_resource type="Texture2D" uid="uid://b2fr5mltueyhg" path="res://Entities/Info/Sprites/pulo 2 info.png" id="5_43yv6"]
+[ext_resource type="Texture2D" uid="uid://bierlojqme0iy" path="res://Entities/Info/Sprites/dash info.png" id="6_xpidu"]
+[ext_resource type="Texture2D" uid="uid://cxckqtxcgphjm" path="res://Entities/Info/Sprites/arremesso 2 info.png" id="7_gxhch"]
+[ext_resource type="Texture2D" uid="uid://dgakx207fx817" path="res://Entities/Info/Sprites/indoali 1 info.png" id="7_x1gql"]
+[ext_resource type="Texture2D" uid="uid://d1stffq33hjtd" path="res://Entities/Info/Sprites/arremesso 1 info.png" id="8_bhloe"]
+[ext_resource type="Texture2D" uid="uid://het0r1tepy6l" path="res://Entities/Info/Sprites/indoali 2 info.png" id="8_p316y"]
+[ext_resource type="Texture2D" uid="uid://ws0lrofu26c4" path="res://Entities/Info/Sprites/chute 3 info.png" id="9_p316y"]
+[ext_resource type="Texture2D" uid="uid://cpce4inrjxelf" path="res://Entities/Info/Sprites/arremesso 3 info.png" id="9_u1yr1"]
+[ext_resource type="Texture2D" uid="uid://cy5veu7xcsw45" path="res://Entities/Info/Sprites/chute 2 - dano info.png" id="10_dwvxx"]
+[ext_resource type="Texture2D" uid="uid://btjnussugmuse" path="res://Entities/Info/Sprites/chute 1 info.png" id="11_1h7fa"]
+[ext_resource type="PackedScene" uid="uid://bcpxasb3tv7vs" path="res://Entities/Info/BinaryUltimate.tscn" id="16_bhloe"]
 
-[node name="Player" unique_id=1496453183 instance=ExtResource("1_55si0")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7mtff"]
+atlas = ExtResource("2_aba48")
+region = Rect2(0, 0, 92, 72)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6r3v"]
+atlas = ExtResource("3_srl3b")
+region = Rect2(0, 0, 92, 104)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m06ba"]
+atlas = ExtResource("6_xpidu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1x6nw"]
+atlas = ExtResource("3_7mtff")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1gql"]
+atlas = ExtResource("3_srl3b")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p316y"]
+atlas = ExtResource("5_43yv6")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gxhch"]
+atlas = ExtResource("3_7mtff")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3jh4"]
+atlas = ExtResource("6_xpidu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4acw1"]
+atlas = ExtResource("7_gxhch")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6eu0w"]
+atlas = ExtResource("8_bhloe")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0dwmq"]
+atlas = ExtResource("9_u1yr1")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrrxy"]
+atlas = ExtResource("9_u1yr1")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4q5vt"]
+atlas = ExtResource("11_1h7fa")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe67n"]
+atlas = ExtResource("10_dwvxx")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwvxx"]
+atlas = ExtResource("7_x1gql")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1h7fa"]
+atlas = ExtResource("3_7mtff")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kawd6"]
+atlas = ExtResource("8_p316y")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhloe"]
+atlas = ExtResource("9_p316y")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u1yr1"]
+atlas = ExtResource("10_dwvxx")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_474vm"]
+atlas = ExtResource("11_1h7fa")
+region = Rect2(0, 0, 92, 83)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ltjo1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7mtff")
+}],
+"loop": 1,
+"name": &"crouch",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_i6r3v")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m06ba")
+}],
+"loop": 1,
+"name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1x6nw")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_x1gql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p316y")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_gxhch")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_x1gql")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3jh4")
+}],
+"loop": 0,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4acw1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6eu0w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0dwmq")
+}],
+"loop": 0,
+"name": &"throw",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrrxy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4q5vt")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_xe67n")
+}],
+"loop": 0,
+"name": &"ult",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwvxx")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1h7fa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kawd6")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_1h7fa")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhloe")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_u1yr1")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_474vm")
+}],
+"loop": 0,
+"name": &"weak_punch",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3xxhn"]
+size = Vector2(50, 155.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ky1o"]
+size = Vector2(23.25, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6nw"]
+size = Vector2(50, 155.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aba48"]
+size = Vector2(91, 116)
+
+[node name="InfoStudent" unique_id=1496453183 instance=ExtResource("1_55si0")]
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
+position = Vector2(0, 29.999998)
+scale = Vector2(2.457, 2.457)
+sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"dash"
+
+[node name="CSIdle" parent="." index="1" unique_id=929478290]
+position = Vector2(-1.02, 25.875)
+shape = SubResource("RectangleShape2D_3xxhn")
+
+[node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
+position = Vector2(40.625, 13)
+shape = SubResource("RectangleShape2D_4ky1o")
+debug_color = Color(0.994266, 0, 0.19339177, 0.41960785)
+
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
+position = Vector2(-3, 25.875)
+shape = SubResource("RectangleShape2D_1x6nw")
+
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
+position = Vector2(-3.5, 46)
+shape = SubResource("RectangleShape2D_aba48")
+
+[node name="Attacks" parent="." index="6" unique_id=1310549290]
+projectile = ExtResource("2_urhxr")
+ultimate = ExtResource("16_bhloe")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://cikjx4cqmdvej"]
+
+[ext_resource type="PackedScene" uid="uid://7hv38eq3fx2i" path="res://Entities/Adm/HopeUltimate.tscn" id="1_j5kf0"]
+[ext_resource type="Script" uid="uid://bt6gq6soiaqew" path="res://Entities/Adm/AdmUltimate.gd" id="1_u0hvd"]
+[ext_resource type="PackedScene" uid="uid://sfyi27up4ynv" path="res://Entities/Adm/VaultUltimate.tscn" id="2_u0hvd"]
+
+[node name="AdmUltimate" type="Node2D" unique_id=2060498121]
+script = ExtResource("1_u0hvd")
+
+[node name="HopeUltimate" parent="." unique_id=1630156997 instance=ExtResource("1_j5kf0")]
+
+[node name="Vault" parent="." unique_id=958295443 instance=ExtResource("2_u0hvd")]
+
+[connection signal="area_entered" from="Vault" to="." method="_on_vault_area_entered"]

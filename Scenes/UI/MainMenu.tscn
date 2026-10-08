@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://bj6yuwfof6df7"]
 
-[ext_resource type="Texture2D" uid="uid://bxhjelwwinad6" path="res://Assets/Sprites/background.png" id="1_t6w0q"]
+[ext_resource type="Texture2D" uid="uid://brydunm5wkrs5" path="res://Assets/Sprites/StageBackground.png" id="1_mjmdf"]
 [ext_resource type="Script" uid="uid://ccyta7rk7puvd" path="res://Scripts/Global/MainMenu.gd" id="2_k8um8"]
-[ext_resource type="Texture2D" uid="uid://cw54typ3x67er" path="res://Assets/Sprites/versusBtn.png" id="2_mjmdf"]
-[ext_resource type="PackedScene" uid="uid://bpjau1ax54yd6" path="res://Scenes/UI/botoes.tscn" id="2_t6w0q"]
-[ext_resource type="Texture2D" uid="uid://oomjqcfudyq5" path="res://Assets/Sprites/opcoesBtn.png" id="3_72sra"]
+[ext_resource type="Texture2D" uid="uid://0ksl1s4un3ea" path="res://Assets/Sprites/IFighters.png" id="3_72sra"]
+[ext_resource type="Texture2D" uid="uid://b17rlkg55s18t" path="res://Assets/Sprites/btn-versus.png" id="4_744d7"]
+[ext_resource type="Texture2D" uid="uid://chih24mitwx6p" path="res://Assets/Sprites/btn-creditos.png" id="5_kl3t2"]
+[ext_resource type="Texture2D" uid="uid://bvmgbd5jn0d8r" path="res://Assets/Sprites/btn-ajustes 1.png" id="6_ynupv"]
+[ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="7_m48tj"]
 
 [node name="Control" type="TextureRect" unique_id=2512954]
 anchors_preset = 15
@@ -12,10 +14,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-texture = ExtResource("1_t6w0q")
+texture = ExtResource("1_mjmdf")
 expand_mode = 1
+stretch_mode = 6
 script = ExtResource("2_k8um8")
 metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1373103216]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 49.0
+offset_right = 205.0
+offset_bottom = 206.0
+grow_horizontal = 2
+texture = ExtResource("3_72sra")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1205284464]
 light_mask = 31
@@ -32,19 +47,57 @@ offset_right = 102.0
 offset_bottom = 244.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
-alignment = 1
+offset_transform_position = Vector2(2, 0)
+theme_override_constants/separation = 38
 
-[node name="Story" parent="VBoxContainer" unique_id=1487168696 instance=ExtResource("2_t6w0q")]
+[node name="Versus" type="Button" parent="VBoxContainer" unique_id=1117130529]
 layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("4_744d7")
+flat = true
+icon_alignment = 1
+vertical_icon_alignment = 2
 
-[node name="versus" parent="VBoxContainer" unique_id=1978648003 instance=ExtResource("2_t6w0q")]
+[node name="Creditos" type="Button" parent="VBoxContainer" unique_id=169871429]
 layout_mode = 2
-texture_normal = ExtResource("2_mjmdf")
+size_flags_horizontal = 4
+icon = ExtResource("5_kl3t2")
+flat = true
 
-[node name="opcoes" parent="VBoxContainer" unique_id=84119034 instance=ExtResource("2_t6w0q")]
+[node name="Opcoes" type="Button" parent="VBoxContainer" unique_id=564734951]
 layout_mode = 2
-texture_normal = ExtResource("3_72sra")
+size_flags_horizontal = 4
+icon = ExtResource("6_ynupv")
+flat = true
 
-[connection signal="pressed" from="VBoxContainer/Story" to="." method="_on_story_pressed"]
-[connection signal="pressed" from="VBoxContainer/opcoes" to="." method="_on_opcoes_pressed"]
+[node name="Label" type="Label" parent="." unique_id=1841751018]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 9.0
+offset_top = -22.0
+offset_right = 230.0
+offset_bottom = -4.0
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.59313357, 0.5931336, 0.5931334, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("7_m48tj")
+theme_override_font_sizes/font_size = 13
+text = "Pressione  ESC  para  fechar"
+clip_text = true
+
+[connection signal="focus_entered" from="VBoxContainer/Versus" to="." method="_on_versus_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Versus" to="." method="_on_versus_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/Versus" to="." method="_on_versus_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Versus" to="." method="_on_versus_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Versus" to="." method="_on_versus_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Creditos" to="." method="_on_creditos_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Creditos" to="." method="_on_creditos_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/Creditos" to="." method="_on_creditos_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Creditos" to="." method="_on_creditos_mouse_exited"]
+[connection signal="focus_entered" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_mouse_exited"]
