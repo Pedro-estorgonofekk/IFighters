@@ -5,7 +5,7 @@ func _on_story_pressed() -> void:
 
 func _ready() -> void:
 	$VBoxContainer/Versus.grab_focus()
-
+	
 func _on_opcoes_pressed():
 	get_tree().change_scene_to_file("res://Scenes/UI/Config.tscn")
 
@@ -41,3 +41,9 @@ func _on_opcoes_mouse_exited() -> void:
 
 func _on_versus_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Scenarios/FightScene.tscn")
+	
+var exit_screen_scene = preload("res://Scenes/UI/ExitScreen.tscn")
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Sair"):
+		add_child(exit_screen_scene.instantiate())
+		get_tree().paused = true
