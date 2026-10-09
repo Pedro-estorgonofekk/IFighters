@@ -9,10 +9,10 @@
 [ext_resource type="Texture2D" uid="uid://dydqkpinxusvn" path="res://Assets/Sprites/StaminaSprites/BorderSTM2.png" id="7_sukrm"]
 [ext_resource type="Texture2D" uid="uid://3f2irgjxwqm1" path="res://Assets/Sprites/StaminaSprites/FillSTM2.png" id="8_pv6jf"]
 
-[node name="FightScene" type="Node2D" unique_id=546099236 node_paths=PackedStringArray("HealthBar1", "HealthBar2")]
+[node name="FightScene" type="Node2D" unique_id=546099236 node_paths=PackedStringArray("health_bar1", "health_bar2")]
 script = ExtResource("1_7jb6k")
-HealthBar1 = NodePath("HealthBar1")
-HealthBar2 = NodePath("HealthBar2")
+health_bar1 = NodePath("HealthBar1")
+health_bar2 = NodePath("HealthBar2")
 
 [node name="Stage" parent="." unique_id=716982872 instance=ExtResource("1_th3ru")]
 position = Vector2(480, 270)

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dv63armypegu3" path="res://Entities/Info/Sprites/agachado 1 info.png" id="2_aba48"]
 [ext_resource type="PackedScene" uid="uid://rl77oxuc1o6w" path="res://Entities/Info/PythonProjectile.tscn" id="2_urhxr"]
 [ext_resource type="Texture2D" uid="uid://dnvmsdtjycgi0" path="res://Entities/Info/Sprites/paradinho info.png" id="3_7mtff"]
-[ext_resource type="Texture2D" uid="uid://b8f0qbi5savqw" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
+[ext_resource type="Texture2D" uid="uid://b8wfouknnr87j" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
 [ext_resource type="Texture2D" uid="uid://b2fr5mltueyhg" path="res://Entities/Info/Sprites/pulo 2 info.png" id="5_43yv6"]
 [ext_resource type="Texture2D" uid="uid://bierlojqme0iy" path="res://Entities/Info/Sprites/dash info.png" id="6_xpidu"]
 [ext_resource type="Texture2D" uid="uid://cxckqtxcgphjm" path="res://Entities/Info/Sprites/arremesso 2 info.png" id="7_gxhch"]
@@ -27,6 +27,10 @@ region = Rect2(0, 0, 92, 104)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_m06ba"]
 atlas = ExtResource("6_xpidu")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hguid"]
+atlas = ExtResource("7_gxhch")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1x6nw"]
@@ -116,6 +120,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hguid")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -219,12 +231,13 @@ size = Vector2(50, 155.75)
 size = Vector2(91, 116)
 
 [node name="InfoStudent" unique_id=1496453183 instance=ExtResource("1_55si0")]
+player_id = null
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"dash"
+animation = &"hurt"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-1.02, 25.875)

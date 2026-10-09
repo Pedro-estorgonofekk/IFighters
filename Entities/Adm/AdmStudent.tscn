@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://blcvr1egnamhq" path="res://Entities/Adm/Sprites/parado adm.png" id="3_d7vnd"]
 [ext_resource type="Texture2D" uid="uid://cm1kei1w3iuxr" path="res://Entities/Adm/Sprites/indoali 2 adm.png" id="4_3or1k"]
 [ext_resource type="Texture2D" uid="uid://drso0krqpife3" path="res://Entities/Adm/Sprites/dash adm.png" id="4_5vus5"]
+[ext_resource type="Texture2D" uid="uid://dj8m87papuwr7" path="res://Entities/Adm/Sprites/dano adm.png" id="5_72ywe"]
 [ext_resource type="Texture2D" uid="uid://bjcyt5bq6ww5u" path="res://Entities/Adm/Sprites/indoali 1 adm.png" id="5_fjuxt"]
 [ext_resource type="Texture2D" uid="uid://cs41dmllw11f3" path="res://Entities/Adm/Sprites/pulo 1 adm.png" id="6_rjmmn"]
 [ext_resource type="Texture2D" uid="uid://b8gfpl2rt28rb" path="res://Entities/Adm/Sprites/pulo 3 adm.png" id="7_p0xvs"]
@@ -27,6 +28,10 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0mfq1"]
 atlas = ExtResource("4_5vus5")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ikse0"]
+atlas = ExtResource("5_72ywe")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rjmmn"]
@@ -100,6 +105,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ikse0")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -198,6 +211,7 @@ scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_3nryf")
 animation = &"ult"
 frame = 1
+flip_h = true
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 12)

@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # 1. Definição dos Estados
-enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, PUNCH, ULT, THROW }
+enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, HURT, PUNCH, ULT, THROW }
 var current_state: State = State.IDLE
 
 # Referências de Nós
@@ -59,6 +59,8 @@ func _ready() -> void:
 	if anim and not anim.frame_changed.is_connected(_on_frame_changed):
 		anim.frame_changed.connect(_on_frame_changed)
 	
+	hurtbox.receivedDmg.connect(_on_received_damage)
+	
 	ChangeState(State.IDLE)
 	call_deferred("FindOpponent")
 
@@ -88,6 +90,8 @@ func _physics_process(delta: float) -> void:
 			StateFall()
 		State.DASH:
 			StateDash(delta)
+		State.HURT:
+			StateHurt()
 		State.PUNCH:
 			StatePunch()
 		State.THROW:
@@ -156,27 +160,27 @@ func FaceDirection() -> void:
 
 func DisableCollision() -> void:
 	# Hitboxes de Ataque
-	cs_punch_hit.disabled = true
+	cs_punch_hit.set_deferred("disabled", true)
 	cs_punch_hit.visible = false
 	
 	# Hurtboxes de Dano
-	cs_idle_hurt.disabled = true
+	cs_idle_hurt.set_deferred("disabled", true)
 	cs_idle_hurt.visible = false
-	cs_crouch_hurt.disabled = true
+	cs_crouch_hurt.set_deferred("disabled", true)
 	cs_crouch_hurt.visible = false
 
 	# Hitbox player
-	cs_idle.disabled = true
+	cs_idle.set_deferred("disabled", true)
 	cs_idle.visible = false
 	
-	cs_crouch.disabled = true
+	cs_crouch.set_deferred("disabled", true)
 	cs_crouch.visible = false
 
 # --- GERENCIADOR DE TRANSIÇÃO DE ESTADOS ---
 
 func ChangeState(new_state: State) -> void:
 	# Se estiver executando o soco, impede a troca de estado até finalizar
-	if current_state == State.PUNCH and new_state != State.IDLE:
+	if current_state == State.PUNCH and new_state != State.IDLE and new_state != State.HURT:
 		return
 
 	current_state = new_state
@@ -184,56 +188,74 @@ func ChangeState(new_state: State) -> void:
 	match current_state:
 		State.IDLE:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
-			cs_idle_hurt.disabled = false
+			
+			cs_idle_hurt.set_deferred("disabled", false)
 			cs_idle_hurt.visible = true
 			anim.play("idle")
 
 		State.MOVE:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
-			cs_idle_hurt.disabled = false
+			
+			cs_idle_hurt.set_deferred("disabled", false)
 			cs_idle_hurt.visible = true
 			anim.play("walk")
 
 		State.CROUCH:
 			DisableCollision()
 			velocity.x = 0
-			cs_crouch.disabled = false
+			cs_crouch.set_deferred("disabled", false)
 			cs_crouch.visible = true
-			cs_crouch_hurt.disabled = false
+			
+			cs_crouch_hurt.set_deferred("disabled", false)
 			cs_crouch_hurt.visible = true
 			anim.play("crouch")
 
 		State.JUMP:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
-			cs_idle_hurt.disabled = false
+			
+			cs_idle_hurt.set_deferred("disabled", false)
 			cs_idle_hurt.visible = true
 			velocity.y = JUMP_VELOCITY
 			anim.play("jump")
 
 		State.FALL:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
-			cs_idle_hurt.disabled = false
+			
+			cs_idle_hurt.set_deferred("disabled", false)
 			cs_idle_hurt.visible = true
 
 		State.DASH:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
-			cs_idle_hurt.disabled = false
+			
+			cs_idle_hurt.set_deferred("disabled", false)
 			cs_idle_hurt.visible = true
+			
 			dash_timer = DASH_DURATION
 			dash_cooldown_timer = DASH_COOLDOWN
 			velocity.y = 0
 			anim.play("dash")
 
+		State.HURT:
+			DisableCollision()
+			cs_idle.set_deferred("disabled", false)
+			cs_idle.visible = true
+			
+			var knockback = 200
+			var dir = 1 if anim.flip_h else -1
+			velocity.x = knockback * dir
+			
+			anim.play("hurt")
+			
 		State.PUNCH:
 			velocity.x = 0
 			$Attacks.WeakPunch()
@@ -247,7 +269,7 @@ func ChangeState(new_state: State) -> void:
 			
 		State.THROW:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
 			
 			velocity.x = 0
@@ -255,7 +277,7 @@ func ChangeState(new_state: State) -> void:
 			
 		State.ULT:
 			DisableCollision()
-			cs_idle.disabled = false
+			cs_idle.set_deferred("disabled", false)
 			cs_idle.visible = true
 			
 			velocity.x = 0
@@ -267,7 +289,7 @@ func ChangeState(new_state: State) -> void:
 
 func CheckAttacks() -> bool:
 	if Input.is_action_just_pressed(action_strong):
-		if stamina and stamina.Consume(50):
+		if stamina and stamina.Consume(25):
 			ChangeState(State.THROW)
 			return true
 		else:
@@ -370,9 +392,12 @@ func StateDash(delta: float) -> void:
 		else:
 			ChangeState(State.FALL)
 
+func StateHurt() -> void:
+	var atrito_knockback = 10
+	velocity.x = move_toward(velocity.x, 0, atrito_knockback)
 
 func StatePunch() -> void:
-	velocity.x = move_toward(velocity.x, 0, SPEED)
+	velocity.x = 0
 
 func StateThrow() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
@@ -383,7 +408,7 @@ func StateUlt() -> void:
 # --- CALLBACKS E SISTEMAS AUXILIARES ---
 
 func _on_animation_finished() -> void:
-	if current_state in [State.PUNCH, State.THROW, State.ULT]:
+	if current_state in [State.PUNCH, State.THROW, State.ULT, State.HURT]:
 		ChangeState(State.IDLE)
 
 	elif anim.animation == "weak_punch" or anim.animation == "crouch" or anim.animation == "dash":
@@ -400,6 +425,24 @@ func _on_frame_changed() -> void:
 		if anim.frame == last_frame:
 			$Attacks.Ult()
 
+func _on_received_damage(_damage):
+	if stamina:
+		stamina.Increase(stamina.regen_rate - 2)
+	
+	ApplyHitstop(0.08)	
+	ApplyHitflash()
+	ChangeState(State.HURT)
+	
+
+func ApplyHitstop(duration: float = 0.08):
+	Engine.time_scale = 0.0
+	await get_tree().create_timer(duration, true, false, true).timeout
+	Engine.time_scale = 1.0
+
+func ApplyHitflash():
+	var tween = create_tween()
+	anim.modulate = Color(10, 10, 10, 1)
+	tween.tween_property(anim, "modulate", Color.WHITE, 0.1)
 
 func TryDash() -> bool:
 	var direction := Input.get_axis(action_left, action_right)

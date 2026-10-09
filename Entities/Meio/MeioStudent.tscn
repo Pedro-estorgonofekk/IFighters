@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://2o0n0uoipie5" path="res://Entities/Meio/Sprites/agachada meio.png" id="2_4odi4"]
 [ext_resource type="Texture2D" uid="uid://hpmvrejigqgt" path="res://Entities/Meio/Sprites/parada meio.png" id="2_y7loo"]
 [ext_resource type="Texture2D" uid="uid://uu5aejeojdrw" path="res://Entities/Meio/Sprites/pulo 1 meio.png" id="3_a32pu"]
+[ext_resource type="Texture2D" uid="uid://c8illx8dnaf36" path="res://Entities/Meio/Sprites/dano meio.png" id="5_dcfdf"]
 [ext_resource type="Texture2D" uid="uid://ddravesn7dynb" path="res://Entities/Meio/Sprites/pulo 2 meio.png" id="5_knfvt"]
 [ext_resource type="Texture2D" uid="uid://b45x8gs5nb0rl" path="res://Entities/Meio/Sprites/dash meio.png" id="6_r4gro"]
 [ext_resource type="Texture2D" uid="uid://by6dh8s8fljn" path="res://Entities/Meio/Sprites/plantando 2 meio.png" id="7_02tqh"]
@@ -27,6 +28,10 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_54vi6"]
 atlas = ExtResource("6_r4gro")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd87x"]
+atlas = ExtResource("5_dcfdf")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4odi4"]
@@ -116,6 +121,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd87x")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -224,9 +237,7 @@ size = Vector2(117, 121)
 position = Vector2(0, 8.165)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_7rtbg")
-animation = &"ult"
-frame = 2
-frame_progress = 1.0
+animation = &"hurt"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 19.5)

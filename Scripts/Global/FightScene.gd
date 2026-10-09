@@ -3,8 +3,8 @@ extends Node2D
 @onready var P1Spawn: Marker2D = $Stage/P1Spawn
 @onready var P2Spawn: Marker2D = $Stage/P2Spawn
 
-@export var HealthBar1: Control
-@export var HealthBar2: Control
+@export var health_bar1: Control
+@export var health_bar2: Control
 
 @onready var stamina_p1: TextureProgressBar = $StaminaBar
 @onready var stamina_p2: TextureProgressBar = $StaminaBar2
@@ -55,28 +55,31 @@ func _ready():
 	p1_health.healthCabo.connect(_on_health_depleted)
 	p2_health.healthCabo.connect(_on_health_depleted)
 	
-	if HealthBar1:
-		HealthBar1.update_bar(p1_health.playerHealth, p1_health.maxHealth)
+	if health_bar1:
+		health_bar1.update_bar(p1_health.playerHealth, p1_health.maxHealth)
 		p1_health.healthMudou.connect(_on_p1_health_changed)
 		
-	if HealthBar2:
-		HealthBar2.update_bar(p2_health.playerHealth, p2_health.maxHealth)
+	if health_bar2:
+		health_bar2.update_bar(p2_health.playerHealth, p2_health.maxHealth)
 		p2_health.healthMudou.connect(_on_p2_health_changed)
 
 
 func _on_p1_health_changed(currentHealth):
-	if HealthBar1:
-		HealthBar1.update_bar(currentHealth, p1.get_node("Health").maxHealth)
+	if health_bar1:
+		health_bar1.update_bar(currentHealth, p1.get_node("Health").maxHealth)
 
 
 func _on_p2_health_changed(currentHealth):
-	if HealthBar2:
-		HealthBar2.update_bar(currentHealth, p2.get_node("Health").maxHealth)
+	if health_bar2:
+		health_bar2.update_bar(currentHealth, p2.get_node("Health").maxHealth)
 
 
 func _on_health_depleted() -> void:
 	print("Fui chamado")
 	await get_tree().create_timer(2).timeout
+	
+	if get_tree() == null:
+		return
 	
 	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
 		print("Player 1 Ganhou")
