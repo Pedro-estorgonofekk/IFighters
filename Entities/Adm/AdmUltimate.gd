@@ -12,8 +12,13 @@ var ult_layer
 var ult_mask
 
 func _ready() -> void:
-	hope.global_position = caster.global_position + Vector2(44, -254)
+	if caster.get_node("AnimatedSprite2D").flip_h:
+		hope.global_position = caster.global_position + Vector2(-44, -254)
+	else:
+		hope.global_position = caster.global_position + Vector2(44, -254)
+		
 	vault.global_position = enemy.global_position + Vector2(0, -467)
+	
 	vault.collision_layer = ult_layer
 	vault.collision_mask = ult_mask
 	

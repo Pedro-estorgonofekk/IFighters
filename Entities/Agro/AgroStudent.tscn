@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://bm7t26q45mgf2" path="res://Entities/Agro/Sprites/forte agro.png" id="3_xpygc"]
 [ext_resource type="Texture2D" uid="uid://dneomwwt3m6w3" path="res://Entities/Agro/Sprites/paradinho agro.png" id="4_o0cf6"]
 [ext_resource type="Texture2D" uid="uid://dkrioji5tip75" path="res://Entities/Agro/Sprites/dash agro.png" id="4_src17"]
+[ext_resource type="Texture2D" uid="uid://f2ew5h15xwrq" path="res://Entities/Agro/Sprites/dano agro.png" id="5_cftox"]
 [ext_resource type="Texture2D" uid="uid://dadu2yp83gti" path="res://Entities/Agro/Sprites/agachado agro.png" id="5_t3fsa"]
 [ext_resource type="Texture2D" uid="uid://jbophwf3mi58" path="res://Entities/Agro/Sprites/pulo 1 agro.png" id="6_bjgs6"]
 [ext_resource type="Texture2D" uid="uid://by77mnx6talps" path="res://Entities/Agro/Sprites/pulo 2 agro.png" id="7_jbvwu"]
@@ -27,6 +28,10 @@ region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6nee"]
 atlas = ExtResource("4_src17")
+region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y4hjw"]
+atlas = ExtResource("5_cftox")
 region = Rect2(0, 0, 92, 92)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xnikx"]
@@ -104,6 +109,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y4hjw")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -203,6 +216,7 @@ size = Vector2(102, 156)
 position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"hurt"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 10.71)
@@ -213,16 +227,13 @@ position = Vector2(0, 26)
 shape = SubResource("RectangleShape2D_1h7fa")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = false
 position = Vector2(56.5, 7.75)
 shape = SubResource("RectangleShape2D_dwvxx")
 
 [node name="Hurtbox" parent="." index="5" unique_id=2042549355]
-visible = true
 position = Vector2(0, 0)
 
 [node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
-visible = false
 position = Vector2(0, 10.71)
 shape = SubResource("RectangleShape2D_d3n1g")
 

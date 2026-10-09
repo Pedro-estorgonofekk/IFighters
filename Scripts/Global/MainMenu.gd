@@ -38,12 +38,12 @@ func _on_opcoes_focus_exited() -> void:
 func _on_opcoes_mouse_exited() -> void:
 	$VBoxContainer/Opcoes.modulate.a = 1
 
-
 func _on_versus_pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Scenarios/FightScene.tscn")
 	
 var exit_screen_scene = preload("res://Scenes/UI/ExitScreen.tscn")
-func _process(delta: float) -> void:
+
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Sair"):
 		add_child(exit_screen_scene.instantiate())
 		get_tree().paused = true

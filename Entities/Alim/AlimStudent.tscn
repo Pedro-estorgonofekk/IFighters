@@ -31,6 +31,10 @@ region = Rect2(0, 0, 92, 92)
 atlas = ExtResource("4_hta1d")
 region = Rect2(0, 0, 92, 92)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_qj4l4"]
+atlas = ExtResource("10_qj4l4")
+region = Rect2(0, 0, 92, 92)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_k1ax1"]
 atlas = ExtResource("4_hta1d")
 region = Rect2(0, 0, 92, 92)
@@ -98,6 +102,14 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qj4l4")
+}],
+"loop": 0,
+"name": &"hurt",
 "speed": 5.0
 }, {
 "frames": [{
@@ -200,30 +212,25 @@ size = Vector2(113, 129.21)
 position = Vector2(2.999998, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_h68ok")
+animation = &"hurt"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(1.5, 12.82)
 shape = SubResource("RectangleShape2D_tumsx")
 
 [node name="CSCrouch" parent="." index="2" unique_id=602869493]
-visible = false
 position = Vector2(0, 39)
 shape = SubResource("RectangleShape2D_xnikx")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = false
 position = Vector2(51, 13.5)
 shape = SubResource("RectangleShape2D_bahen")
 
-[node name="Hurtbox" parent="." index="5" unique_id=2042549355]
-visible = true
-
-[node name="CSIdleHurt" parent="Hurtbox" index="0" unique_id=1767047065]
-visible = false
+[node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
 position = Vector2(-0.5, 12.82)
 shape = SubResource("RectangleShape2D_dwvxx")
 
-[node name="CSCrouchHurt" parent="Hurtbox" index="1" unique_id=1837800697]
+[node name="CSCrouchHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="1" unique_id=1837800697]
 visible = false
 position = Vector2(-1.5, 39)
 shape = SubResource("RectangleShape2D_3xxhn")

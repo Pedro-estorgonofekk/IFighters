@@ -18,14 +18,12 @@ extends Node
 
 func WeakPunch():
 	if cooldown.is_stopped():
-		cs_punch_hit.disabled = false
+		cs_punch_hit.set_deferred("disabled", false)
 		cs_punch_hit.visible = true
+		
 		hitbox.damage = weak_dmg
 		cooldown.start()
 		
-func StrgPunch():
-	pass
-
 func Ult():
 	if ultimate != null and cooldown.is_stopped():
 		var ult = ultimate.instantiate()

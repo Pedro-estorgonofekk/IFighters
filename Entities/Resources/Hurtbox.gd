@@ -15,4 +15,4 @@ func _on_area_entered(area: Area2D) -> void:
 		
 		var col = area.get_node_or_null("CSPunchHit")
 		if col:
-			col.set_deferred("disavle", true)
+			col.set_deferred("disabled", true)
