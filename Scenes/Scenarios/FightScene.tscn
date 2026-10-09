@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://bmc2x4fkowfkx" path="res://Assets/Sprites/StaminaSprites/FillSTM.png" id="6_q3lrc"]
 [ext_resource type="Texture2D" uid="uid://dydqkpinxusvn" path="res://Assets/Sprites/StaminaSprites/BorderSTM2.png" id="7_sukrm"]
 [ext_resource type="Texture2D" uid="uid://3f2irgjxwqm1" path="res://Assets/Sprites/StaminaSprites/FillSTM2.png" id="8_pv6jf"]
+[ext_resource type="PackedScene" uid="uid://r15no8k2q6im" path="res://Scenes/UI/ponto.tscn" id="9_pv6jf"]
+[ext_resource type="PackedScene" uid="uid://x2t3l5i5trv2" path="res://Scenes/UI/ponto_2.tscn" id="10_srljh"]
 
 [node name="FightScene" type="Node2D" unique_id=546099236 node_paths=PackedStringArray("HealthBar1", "HealthBar2")]
 script = ExtResource("1_7jb6k")
@@ -63,3 +65,11 @@ value = 50.0
 fill_mode = 1
 texture_under = ExtResource("7_sukrm")
 texture_progress = ExtResource("8_pv6jf")
+
+[node name="Ponto" parent="." unique_id=1156504210 instance=ExtResource("9_pv6jf")]
+offset = Vector2(330.005, 54)
+transform = Transform2D(0.5, 0, 0, 0.5, 330.005, 54)
+
+[node name="Ponto2" parent="." unique_id=2049317761 instance=ExtResource("10_srljh")]
+offset = Vector2(592.795, 54)
+transform = Transform2D(0.5, 0, 0, 0.5, 592.795, 54)

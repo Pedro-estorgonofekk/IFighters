@@ -11,6 +11,7 @@ extends Node2D
 
 var vel = 200
 
+signal round_ended
 # Valor do path que será alterado via script posteriormente
 var player_1 = "res://Entities/Adm/AdmStudent.tscn"
 var player_2 = "res://Entities/Info/InfoStudent.tscn"
@@ -36,7 +37,9 @@ func SpawnPlayers():
 
 func _ready():
 	SpawnPlayers()
-
+	round_ended.connect($Ponto.att_points)
+	round_ended.connect($Ponto2.att_points)
+#Stamina dos players
 	if p1 and p1.stamina and stamina_p1:
 		stamina_p1.max_value = p1.stamina.max_stamina
 		stamina_p1.value = p1.stamina.current_stamina
@@ -49,6 +52,8 @@ func _ready():
 		p2.stamina.StaminaChanged.connect(func(current: float, _max: float):
 			stamina_p2.value = current
 		)
+		
+#Vida dos players
 	var p1_health = p1.get_node("Health")
 	var p2_health = p2.get_node("Health")
 	
@@ -76,13 +81,16 @@ func _on_p2_health_changed(currentHealth):
 
 func _on_health_depleted() -> void:
 	print("Fui chamado")
-	await get_tree().create_timer(2).timeout
+	await get_tree().create_timer(1).timeout
 	
 	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
 		print("Player 1 Ganhou")
+		Global.points_p1 +=1
 	elif p1.get_node("Health").playerHealth < p2.get_node("Health").playerHealth:
 		print("Player 2 Ganhou")
+		Global.points_p2 +=1
 	else:
 		print("Empate")
-		
+	round_ended.emit()
+	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()

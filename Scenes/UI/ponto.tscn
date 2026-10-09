@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://r15no8k2q6im"]
+
+[ext_resource type="Script" uid="uid://bl6llykwca86c" path="res://Scripts/Utils/ponto.gd" id="1_gkgqt"]
+[ext_resource type="Texture2D" uid="uid://b5yqbk3klethf" path="res://Assets/Sprites/StaminaSprites/Pontos P1.png" id="2_vf1jc"]
+
+[node name="Ponto" type="CanvasLayer" unique_id=1156504210]
+scale = Vector2(0.5, 0.5)
+transform = Transform2D(0.5, 0, 0, 0.5, 0, 0)
+script = ExtResource("1_gkgqt")
+
+[node name="PontoFundo1" type="Polygon2D" parent="." unique_id=401365542]
+color = Color(0.13725491, 0.84313726, 0.49411765, 1)
+polygon = PackedVector2Array(14, 3, 26, 3, 30, 5, 37, 11, 38, 16, 39, 20, 37, 27, 29, 35, 24, 37, 16, 37, 11, 35, 7, 31, 3, 26, 3, 13, 8, 7)
+
+[node name="PontoFundo2" type="Polygon2D" parent="." unique_id=711342000]
+position = Vector2(45, 0)
+color = Color(0.13725491, 0.84313726, 0.49411765, 1)
+polygon = PackedVector2Array(14, 3, 26, 3, 30, 5, 37, 11, 38, 17, 39, 21, 37, 27, 29, 35, 24, 37, 16, 37, 11, 35, 7, 31, 3, 26, 3, 13, 8, 7)
+
+[node name="Ponto1" type="TextureRect" parent="." unique_id=2075191799]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vf1jc")
+
+[node name="Ponto2" type="TextureRect" parent="." unique_id=1706289509]
+offset_left = 45.0
+offset_right = 85.0
+offset_bottom = 40.0
+texture = ExtResource("2_vf1jc")
