@@ -28,6 +28,7 @@ func _process(delta: float) -> void:
 	
 	if vault.global_position.y >= 440:
 		speed = 0
+		get_tree().call_group("Camera", "ApplyShake", 5)
 		
 		await get_tree().create_timer(1).timeout
 		self.queue_free()

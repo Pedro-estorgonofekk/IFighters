@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://duy4nv3fxaa14"]
 
 [ext_resource type="PackedScene" uid="uid://bo5betn06i467" path="res://Entities/PlayerBase/UltimateBase.tscn" id="1_mbht0"]
-[ext_resource type="Texture2D" uid="uid://c40d78nb4kq1n" path="res://Entities/Agro/Sprites/touro1.png" id="2_1vc1c"]
-[ext_resource type="Texture2D" uid="uid://bi04gnc11rfr3" path="res://Entities/Agro/Sprites/touro2.png" id="3_4mv3o"]
+[ext_resource type="Texture2D" uid="uid://ft6ovrcofvly" path="res://Entities/Agro/Sprites/touro1.png" id="2_1vc1c"]
+[ext_resource type="Texture2D" uid="uid://caxql8cch7a7f" path="res://Entities/Agro/Sprites/touro2.png" id="3_4mv3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1tb7"]
 atlas = ExtResource("2_1vc1c")

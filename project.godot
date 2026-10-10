@@ -23,6 +23,7 @@ window/size/viewport_height=540
 [global_group]
 
 Player=""
+Camera=""
 
 [input]
 

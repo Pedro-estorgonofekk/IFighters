@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dgbhhlfqmotfp"]
 
-[ext_resource type="Texture2D" uid="uid://b5mr0rk5psjky" path="res://Assets/Sprites/StageBackground.png" id="1_htk83"]
+[ext_resource type="Texture2D" uid="uid://brydunm5wkrs5" path="res://Assets/Sprites/StageBackground.png" id="1_htk83"]
+[ext_resource type="Script" uid="uid://pkxs7c2efs16" path="res://Scenes/Scenarios/Stages/CameraShake.gd" id="2_2exak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tbvaf"]
 size = Vector2(960, 20)
@@ -39,3 +40,6 @@ position = Vector2(-490, 0)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBound" unique_id=246031787]
 position = Vector2(0, -12.5)
 shape = SubResource("RectangleShape2D_htk83")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=2057569338 groups=["Camera"]]
+script = ExtResource("2_2exak")

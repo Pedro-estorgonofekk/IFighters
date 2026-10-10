@@ -10,6 +10,8 @@ func _process(delta: float) -> void:
 	self.global_position.x += (delta * speed) * direction
 	if spinnable: self.rotation += spin
 	
+	get_tree().call_group("Camera", "ApplyShake", 2)
+	
 	if global_position.x > 1100 or global_position.x < -150:
 		self.queue_free()
 

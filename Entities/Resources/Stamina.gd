@@ -9,7 +9,7 @@ signal StaminaExhausted
 var current_stamina: float
 
 func _ready() -> void:
-	current_stamina = 0
+	current_stamina = max_stamina
 	
 func HasStamina(amount: float):
 	return current_stamina >= amount
