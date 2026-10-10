@@ -9,9 +9,8 @@ extends Node2D
 @onready var stamina_p1: TextureProgressBar = $StaminaBar
 @onready var stamina_p2: TextureProgressBar = $StaminaBar2
 
-var vel = 200
-
 signal round_ended
+
 # Valor do path que será alterado via script posteriormente
 var player_1 = "res://Entities/Adm/AdmStudent.tscn"
 var player_2 = "res://Entities/Info/InfoStudent.tscn"
@@ -19,6 +18,7 @@ var player_2 = "res://Entities/Info/InfoStudent.tscn"
 var p1 = load(player_1).instantiate()
 var p2 = load(player_2).instantiate()
 
+var round_over: bool = false
 
 func SpawnPlayers():	
 	if player_1 == player_2:
@@ -39,6 +39,7 @@ func _ready():
 	SpawnPlayers()
 	round_ended.connect($Ponto.att_points)
 	round_ended.connect($Ponto2.att_points)
+	
 #Stamina dos players
 	if p1 and p1.stamina and stamina_p1:
 		stamina_p1.max_value = p1.stamina.max_stamina
@@ -80,17 +81,24 @@ func _on_p2_health_changed(currentHealth):
 
 
 func _on_health_depleted() -> void:
+	
+	if round_over:
+		return
+	
+	round_over = true
+	
 	print("Fui chamado")
 	await get_tree().create_timer(1).timeout
 	
 	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
-		print("Player 1 Ganhou")
 		Global.points_p1 +=1
+		
 	elif p1.get_node("Health").playerHealth < p2.get_node("Health").playerHealth:
-		print("Player 2 Ganhou")
 		Global.points_p2 +=1
+		
 	else:
 		print("Empate")
+	
 	round_ended.emit()
 	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()

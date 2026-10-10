@@ -14,7 +14,3 @@ func att_points():
 		$PontoFundo2.visible = true
 		$PontoFundo1.visible = true
 		get_tree().paused = true
-	
-		
-		
-		
