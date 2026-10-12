@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://sfyi27up4ynv"]
 
-[ext_resource type="Texture2D" uid="uid://cbjakf4mbharm" path="res://Entities/Adm/Sprites/cufre.png" id="1_l2ixe"]
+[ext_resource type="Texture2D" uid="uid://ywktw1iyjmom" path="res://Entities/Adm/Sprites/cufre.png" id="1_l2ixe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(121, 147)

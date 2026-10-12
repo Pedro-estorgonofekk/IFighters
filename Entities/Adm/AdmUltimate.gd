@@ -7,7 +7,8 @@ extends Node2D
 
 @export var damage: int = 100
 
-var speed = 20
+var speed := 20.0
+var ground := false
 var ult_layer
 var ult_mask
 
@@ -23,15 +24,17 @@ func _ready() -> void:
 	vault.collision_mask = ult_mask
 	
 func _process(delta: float) -> void:
-	speed *= 1.1
+	if ground:
+		return
+	
+	speed *= 1.09
 	vault.global_position.y += delta * speed
 	
 	if vault.global_position.y >= 440:
 		speed = 0
+		ground = true
 		get_tree().call_group("Camera", "ApplyShake", 5)
-		
-		await get_tree().create_timer(1).timeout
-		self.queue_free()
+		FadeOut()
 
 
 func _on_vault_area_entered(area: Area2D) -> void:
@@ -42,3 +45,10 @@ func _on_vault_area_entered(area: Area2D) -> void:
 		if health_node:
 			health_node.TakeDmg(damage)
 			get_node("Vault").get_node("CollisionShape2D").set_deferred("disabled", true)
+
+
+func FadeOut():
+	var tween = create_tween()
+	
+	tween.tween_property(self, "modulate:a", 0.0, 1.0)
+	tween.tween_callback(self.queue_free)
