@@ -9,6 +9,7 @@ var current_state: State = State.IDLE
 @onready var hitbox := $Hitbox
 @onready var hurtbox := $Hurtbox
 @onready var stamina := $Attacks/Stamina
+@onready var line := $Line2D
 
 # Collision Shapes do Corpo
 @onready var cs_idle := $CSIdle
@@ -22,6 +23,7 @@ var current_state: State = State.IDLE
 @onready var cs_crouch_hurt := $Hurtbox/CSCrouchHurt
 
 @export_range(1, 2) var player_id: int
+@export var max_point := 20
 
 # Constantes de Física
 const SPEED = 300.0
@@ -53,6 +55,8 @@ func _ready() -> void:
 	SetupPlayer()
 	DisableCollision()
 	
+	line.visible = false
+	
 	if anim and not anim.animation_finished.is_connected(_on_animation_finished):
 		anim.animation_finished.connect(_on_animation_finished)
 		
@@ -75,7 +79,11 @@ func _physics_process(delta: float) -> void:
 	# Gravidade extra no ar
 	if not is_on_floor() and current_state != State.DASH:
 		velocity += get_gravity() * delta * 1.3
-
+	
+	line.add_point(global_position)
+	if line.get_point_count() > max_point:
+		line.remove_point(0)
+	
 	# Lógica dos estados
 	match current_state:
 		State.IDLE:
@@ -385,12 +393,15 @@ func StateFall() -> void:
 func StateDash(delta: float) -> void:
 	velocity.x = dash_direction * DASH_SPEED
 	dash_timer -= delta
-
+	line.visible = true
+	
 	if dash_timer <= 0:
 		if is_on_floor():
 			ChangeState(State.IDLE)
+			line.visible = false
 		else:
 			ChangeState(State.FALL)
+			line.visible = false
 
 func StateHurt() -> void:
 	var atrito_knockback = 10
