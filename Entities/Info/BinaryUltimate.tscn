@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://cj45s2f6m2x1e" path="res://Entities/Info/Sprites/2.png" id="3_xptdl"]
 [ext_resource type="Texture2D" uid="uid://bhcsb1n622um6" path="res://Entities/Info/Sprites/3.png" id="4_80pid"]
 [ext_resource type="Texture2D" uid="uid://dchodl12dq316" path="res://Entities/Info/Sprites/4.png" id="5_jatqs"]
+[ext_resource type="Texture2D" uid="uid://bs8rluanhced3" path="res://Assets/VFX/DigitalParticle.png" id="6_8qp2t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2eynp"]
 atlas = ExtResource("2_vcvv3")
@@ -57,3 +58,7 @@ frame_progress = 0.4317846
 [node name="CollisionShape2D" parent="." index="1" unique_id=902426999]
 shape = SubResource("RectangleShape2D_d0u6y")
 debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="CPUParticles2D" parent="." index="2" unique_id=1970169021]
+texture = ExtResource("6_8qp2t")
+color = Color(1, 1, 1, 0.09803922)

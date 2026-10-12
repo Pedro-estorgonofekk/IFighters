@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5betn06i467" path="res://Entities/PlayerBase/UltimateBase.tscn" id="1_i0uhe"]
 [ext_resource type="Texture2D" uid="uid://dowhtimjimtjm" path="res://Entities/Alim/Sprites/ult.png" id="2_d7wy7"]
+[ext_resource type="Texture2D" uid="uid://ww5vsiursnml" path="res://Assets/VFX/CheeseParticle.png" id="3_ho78l"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bfgo8"]
 atlas = ExtResource("2_d7wy7")
@@ -32,3 +33,7 @@ autoplay = "default"
 [node name="CollisionShape2D" parent="." index="1" unique_id=902426999]
 shape = SubResource("CircleShape2D_qk6b4")
 debug_color = Color(0.99866766, 0, 0.14787182, 0.41960785)
+
+[node name="CPUParticles2D" parent="." index="2" unique_id=1970169021]
+texture = ExtResource("3_ho78l")
+color = Color(1, 1, 1, 0.09803922)

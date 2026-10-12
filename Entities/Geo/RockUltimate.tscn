@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://bo5betn06i467" path="res://Entities/PlayerBase/UltimateBase.tscn" id="1_wbk6i"]
 [ext_resource type="Texture2D" uid="uid://d2ahdplkmfjfy" path="res://Entities/Geo/Sprites/rock.png" id="2_pj5as"]
+[ext_resource type="Texture2D" uid="uid://x0gojpnewuo3" path="res://Assets/VFX/DustParticle.png" id="3_u3m8y"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u3m8y"]
 atlas = ExtResource("2_pj5as")
@@ -31,3 +32,7 @@ sprite_frames = SubResource("SpriteFrames_pj5as")
 [node name="CollisionShape2D" parent="." index="1" unique_id=902426999]
 shape = SubResource("CircleShape2D_adv4k")
 debug_color = Color(1, 0, 0, 0.41960785)
+
+[node name="CPUParticles2D" parent="." index="2" unique_id=1970169021]
+texture = ExtResource("3_u3m8y")
+color = Color(1, 1, 1, 0.19607843)

@@ -46,12 +46,12 @@ func Ult():
 		if "direction" in ult:
 			if anim.flip_h == true:
 				ult.direction = -1
-				ult.global_position = Vector2(1100, 415)
+				ult.global_position = Vector2(1200, 415)
 				ult.get_node("AnimatedSprite2D").flip_h = true
 			
 			else:
 				ult.direction = 1
-				ult.global_position = Vector2(-100, 415)
+				ult.global_position = Vector2(-200, 415)
 		
 		get_tree().current_scene.add_child(ult)
 

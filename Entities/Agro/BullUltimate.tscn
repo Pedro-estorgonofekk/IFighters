@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bo5betn06i467" path="res://Entities/PlayerBase/UltimateBase.tscn" id="1_mbht0"]
 [ext_resource type="Texture2D" uid="uid://ft6ovrcofvly" path="res://Entities/Agro/Sprites/touro1.png" id="2_1vc1c"]
 [ext_resource type="Texture2D" uid="uid://caxql8cch7a7f" path="res://Entities/Agro/Sprites/touro2.png" id="3_4mv3o"]
+[ext_resource type="Texture2D" uid="uid://x0gojpnewuo3" path="res://Assets/VFX/DustParticle.png" id="4_4mv3o"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r1tb7"]
 atlas = ExtResource("2_1vc1c")
@@ -39,3 +40,7 @@ autoplay = "default"
 [node name="CollisionShape2D" parent="." index="1" unique_id=902426999]
 shape = SubResource("RectangleShape2D_4c0rj")
 debug_color = Color(0.99999994, 0.019067021, 0.0029600412, 0.41960785)
+
+[node name="CPUParticles2D" parent="." index="2" unique_id=1970169021]
+texture = ExtResource("4_4mv3o")
+color = Color(1, 1, 1, 0.19607843)

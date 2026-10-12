@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 	if vault.global_position.y >= 440:
 		speed = 0
 		ground = true
+		vault.get_node("CPUParticles2D").emitting = true
 		get_tree().call_group("Camera", "ApplyShake", 5)
 		FadeOut()
 
