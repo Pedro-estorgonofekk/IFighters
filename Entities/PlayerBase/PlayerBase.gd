@@ -24,6 +24,7 @@ var current_state: State = State.IDLE
 
 @export_range(1, 2) var player_id: int
 @export var max_point := 20
+@export var ghost_trail: PackedScene
 
 # Constantes de Física
 const SPEED = 300.0
@@ -49,7 +50,8 @@ var action_ult: String
 
 # Variáveis Auxiliares
 var opponent: CharacterBody2D 
-
+var ghost_timer := 0.0
+var ghost_interval := 0.03
 
 func _ready() -> void:
 	SetupPlayer()
@@ -393,7 +395,12 @@ func StateFall() -> void:
 func StateDash(delta: float) -> void:
 	velocity.x = dash_direction * DASH_SPEED
 	dash_timer -= delta
+	ghost_timer -= delta
 	line.visible = true
+	
+	if ghost_timer <= 0:
+		ghost_timer = ghost_interval
+		GhostTrail()
 	
 	if dash_timer <= 0:
 		if is_on_floor():
@@ -447,13 +454,25 @@ func _on_received_damage(_damage):
 
 func ApplyHitstop(duration: float = 0.08):
 	Engine.time_scale = 0.0
+	
 	await get_tree().create_timer(duration, true, false, true).timeout
+	
 	Engine.time_scale = 1.0
 
 func ApplyHitflash():
 	var tween = create_tween()
+	
 	anim.modulate = Color(10, 10, 10, 1)
 	tween.tween_property(anim, "modulate", Color.WHITE, 0.1)
+	
+func GhostTrail():
+	var ghost = ghost_trail.instantiate()
+	
+	ghost.global_position = self.global_position
+	ghost.scale = self.scale
+	
+	get_parent().add_child(ghost)
+	ghost.SetupSprite(anim)
 
 func TryDash() -> bool:
 	var direction := Input.get_axis(action_left, action_right)

@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b7n05g1p1j3vs" path="res://Entities/PlayerBase/PlayerBase.gd" id="1_8k1wt"]
 [ext_resource type="Texture2D" uid="uid://cmg86u6k82akq" path="res://Entities/PlayerBase/Sprites/idle2.png" id="2_f2ued"]
 [ext_resource type="Texture2D" uid="uid://ujbfl3w1r426" path="res://Entities/PlayerBase/Sprites/soco.png" id="2_t3wls"]
+[ext_resource type="PackedScene" uid="uid://k6e183p2ulib" path="res://Entities/Resources/GhostTrail.tscn" id="2_tumsx"]
 [ext_resource type="Texture2D" uid="uid://bfbo3qnkanhpl" path="res://Entities/PlayerBase/Sprites/preparando.png" id="3_3xxhn"]
 [ext_resource type="Script" uid="uid://mptunu8jnbkm" path="res://Entities/Resources/Health.gd" id="4_rdwt8"]
 [ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="5_0qbsp"]
@@ -97,12 +98,13 @@ point_count = 2
 [node name="Player" type="CharacterBody2D" unique_id=1496453183 groups=["Player"]]
 z_index = 2
 script = ExtResource("1_8k1wt")
+ghost_trail = ExtResource("2_tumsx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1860600443]
 position = Vector2(9.536743e-07, 1.1920929e-07)
 scale = Vector2(0.16210938, 0.16210938)
 sprite_frames = SubResource("SpriteFrames_f2ued")
-animation = &"idle"
+animation = &"weak_punch"
 autoplay = "idle"
 
 [node name="CSIdle" type="CollisionShape2D" parent="." unique_id=929478290]

@@ -209,9 +209,6 @@ size = Vector2(112, 128)
 position = Vector2(0, 15)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_3nryf")
-animation = &"ult"
-frame = 1
-flip_h = true
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 12)
@@ -220,6 +217,10 @@ position = Vector2(0, 12)
 position = Vector2(-8, 32)
 shape = SubResource("RectangleShape2D_p5tru")
 disabled = false
+
+[node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
+visible = true
+position = Vector2(39.75, 7.015)
 
 [node name="Hurtbox" parent="." index="5" unique_id=2042549355]
 position = Vector2(0, 0)

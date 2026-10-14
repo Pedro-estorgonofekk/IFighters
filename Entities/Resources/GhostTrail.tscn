@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://k6e183p2ulib"]
+
+[ext_resource type="Script" uid="uid://dd6msgvbufyh1" path="res://Entities/Resources/GhostTrail.gd" id="1_r7r3m"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r7r3m"]
+
+[node name="GhostTrail" type="Node2D" unique_id=1743581818]
+script = ExtResource("1_r7r3m")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=378661265]
+sprite_frames = SubResource("SpriteFrames_r7r3m")

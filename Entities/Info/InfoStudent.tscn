@@ -221,9 +221,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xxhn"]
 size = Vector2(50, 155.75)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_4ky1o"]
-size = Vector2(23.25, 20)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1x6nw"]
 size = Vector2(50, 155.75)
 
@@ -237,7 +234,6 @@ player_id = null
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
-animation = &"hurt"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-1.02, 25.875)
@@ -245,7 +241,6 @@ shape = SubResource("RectangleShape2D_3xxhn")
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
 position = Vector2(40.625, 13)
-shape = SubResource("RectangleShape2D_4ky1o")
 debug_color = Color(0.994266, 0, 0.19339177, 0.41960785)
 
 [node name="CSIdleHurt" parent="Hurtbox" parent_id_path=PackedInt32Array(2042549355) index="0" unique_id=1767047065]
