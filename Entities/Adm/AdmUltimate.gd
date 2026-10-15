@@ -43,6 +43,8 @@ func _on_vault_area_entered(area: Area2D) -> void:
 		var target = area.get_parent()
 		var health_node = target.get_node_or_null("Health")
 		
+		target.ApplyHitstop(0.2)
+		
 		if health_node:
 			health_node.TakeDmg(damage)
 			get_node("Vault").get_node("CollisionShape2D").set_deferred("disabled", true)

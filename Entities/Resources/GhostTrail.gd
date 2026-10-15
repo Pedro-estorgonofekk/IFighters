@@ -21,3 +21,4 @@ func FadeOut():
 	
 	tween.tween_property(self, "modulate", Color(10.0, 10.0, 10.0, 1.0), 0.1)
 	tween.tween_property(self, "modulate:a", 0.0, 0.1)
+	tween.tween_callback(self.queue_free)

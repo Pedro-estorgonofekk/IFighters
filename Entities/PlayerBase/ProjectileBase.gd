@@ -17,6 +17,8 @@ func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
 		var target = area.get_parent()
 		var health_node = target.get_node_or_null("Health")
+		get_tree().call_group("Camera", "ApplyShake", 0.8)
+		target.ApplyHitstop(0.2)
 		
 		if health_node:
 			health_node.TakeDmg(damage)

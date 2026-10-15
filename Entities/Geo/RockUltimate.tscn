@@ -23,6 +23,7 @@ animations = [{
 radius = 114.0
 
 [node name="Ultimate" unique_id=1919238557 instance=ExtResource("1_wbk6i")]
+ult_color = Color(0.78039217, 0.43137255, 0, 1)
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=712295857]
 rotation = -1.5707964

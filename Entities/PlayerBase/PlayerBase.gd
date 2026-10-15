@@ -165,6 +165,7 @@ func FaceDirection() -> void:
 	var dir = -1.0 if mirando_esquerda else 1.0
 	hitbox.scale.x = dir
 	hurtbox.scale.x = dir
+	
 	cs_idle.scale.x = dir
 	cs_crouch.scale.x = dir
 

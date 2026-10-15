@@ -31,6 +31,7 @@ animations = [{
 size = Vector2(310, 176)
 
 [node name="Ultimate" unique_id=1919238557 instance=ExtResource("1_mbht0")]
+ult_color = Color(0.7764706, 0.4745098, 0, 1)
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=712295857]
 scale = Vector2(2.8697913, 2.8697913)

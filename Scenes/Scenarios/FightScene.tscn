@@ -8,6 +8,15 @@
 [ext_resource type="Texture2D" uid="uid://bmc2x4fkowfkx" path="res://Assets/Sprites/StaminaSprites/FillSTM.png" id="6_q3lrc"]
 [ext_resource type="Texture2D" uid="uid://dydqkpinxusvn" path="res://Assets/Sprites/StaminaSprites/BorderSTM2.png" id="7_sukrm"]
 [ext_resource type="Texture2D" uid="uid://3f2irgjxwqm1" path="res://Assets/Sprites/StaminaSprites/FillSTM2.png" id="8_pv6jf"]
+[ext_resource type="Shader" uid="uid://dp3u4mu6mx7ml" path="res://Entities/Resources/Vignette.gdshader" id="9_pv6jf"]
+[ext_resource type="Script" uid="uid://ddlcq877htq32" path="res://Scripts/Utils/DynamicVignette.gd" id="10_srljh"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
+shader = ExtResource("9_pv6jf")
+shader_parameter/alpha = 1.0
+shader_parameter/inner_radius = 0.330000015675
+shader_parameter/outer_radius = 0.90000004275
+shader_parameter/vignette_color = Color(0, 0, 0, 1)
 
 [node name="FightScene" type="Node2D" unique_id=546099236 node_paths=PackedStringArray("health_bar1", "health_bar2")]
 script = ExtResource("1_7jb6k")
@@ -63,3 +72,15 @@ value = 50.0
 fill_mode = 1
 texture_under = ExtResource("7_sukrm")
 texture_progress = ExtResource("8_pv6jf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=672027135]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1894381811 groups=["Vignette"]]
+material = SubResource("ShaderMaterial_g4v7s")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("10_srljh")

@@ -24,6 +24,7 @@ radius = 135.9
 
 [node name="Ultimate" unique_id=1919238557 instance=ExtResource("1_i0uhe")]
 spinnable = true
+ult_color = Color(1, 1, 0, 1)
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=712295857]
 scale = Vector2(4, 4)
