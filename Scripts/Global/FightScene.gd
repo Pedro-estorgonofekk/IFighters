@@ -12,7 +12,7 @@ extends Node2D
 var vel = 200
 
 # Valor do path que será alterado via script posteriormente
-var player_1 = "res://Entities/Agro/AgroStudent.tscn"
+var player_1 = "res://Entities/Adm/AdmStudent.tscn"
 var player_2 = "res://Entities/Info/InfoStudent.tscn"
 
 var p1 = load(player_1).instantiate()

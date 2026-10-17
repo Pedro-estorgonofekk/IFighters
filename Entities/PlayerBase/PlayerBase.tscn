@@ -155,9 +155,9 @@ debug_color = Color(1.540184e-06, 0.64459455, 0.28394067, 0.41960785)
 
 [node name="Attacks" type="Node" parent="." unique_id=1310549290]
 script = ExtResource("9_3xxhn")
-weak_dmg = 3
+weak_dmg = 2
 ult_dmg = 38
-projectile_dmg = 25
+projectile_dmg = 10
 metadata/_custom_type_script = "uid://c1x2uj6c5k00t"
 
 [node name="Cooldown" type="Timer" parent="Attacks" unique_id=2021702805]

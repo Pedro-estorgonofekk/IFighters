@@ -20,6 +20,7 @@ func WeakPunch():
 	if cooldown.is_stopped():
 		cs_punch_hit.set_deferred("disabled", false)
 		cs_punch_hit.visible = true
+		stamina.Increase(stamina.regen_rate)
 		
 		hitbox.damage = weak_dmg
 		cooldown.start()

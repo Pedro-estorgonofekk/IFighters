@@ -1,33 +1,36 @@
 extends Node2D
 
-@onready var caster: CharacterBody2D
 @onready var hope := $HopeUltimate
 @onready var vault := $Vault
-@onready var enemy = caster.opponent
 
-@export var damage: int = 100
+@export var vault_damage = 43
 
+var caster: CharacterBody2D
 var speed := 20.0
 var ground := false
 var ult_layer
 var ult_mask
 
 func _ready() -> void:
+	var enemy = caster.opponent
+	
 	if caster.get_node("AnimatedSprite2D").flip_h:
 		hope.global_position = caster.global_position + Vector2(-44, -254)
 	else:
 		hope.global_position = caster.global_position + Vector2(44, -254)
 		
-	vault.global_position = enemy.global_position + Vector2(0, -467)
+	vault.global_position = enemy.global_position + Vector2(0, -487)
 	
 	vault.collision_layer = ult_layer
 	vault.collision_mask = ult_mask
-	
+
+	vault.damage = vault_damage
+
 func _process(delta: float) -> void:
 	if ground:
 		return
 	
-	speed *= 1.09
+	speed *= 1.11
 	vault.global_position.y += delta * speed
 	
 	if vault.global_position.y >= 440:
@@ -41,13 +44,10 @@ func _process(delta: float) -> void:
 func _on_vault_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
 		var target = area.get_parent()
-		var health_node = target.get_node_or_null("Health")
 		
 		target.ApplyHitstop(0.2)
 		
-		if health_node:
-			health_node.TakeDmg(damage)
-			get_node("Vault").get_node("CollisionShape2D").set_deferred("disabled", true)
+		vault.get_node("CollisionShape2D").set_deferred("disabled", true)
 
 
 func FadeOut():

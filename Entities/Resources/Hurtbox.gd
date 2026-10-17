@@ -9,10 +9,12 @@ func _ready() -> void:
 	area_entered.connect(_on_area_entered)
 
 func _on_area_entered(area: Area2D) -> void:
-	if area is Hitbox and health or area is Area2D:
+	if area is Hitbox and health:
 		health.TakeDmg(area.damage)
 		receivedDmg.emit(area.damage)
 		
 		var col = area.get_node_or_null("CSPunchHit")
 		if col:
 			col.set_deferred("disabled", true)
+	
+	get_tree().call_group("Camera", "ApplyShake", 0.8)

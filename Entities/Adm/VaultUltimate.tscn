@@ -1,12 +1,15 @@
 [gd_scene format=3 uid="uid://sfyi27up4ynv"]
 
+[ext_resource type="Script" uid="uid://drtjci2lya2yr" path="res://Entities/Resources/Hitbox.gd" id="1_2osl0"]
 [ext_resource type="Texture2D" uid="uid://ywktw1iyjmom" path="res://Entities/Adm/Sprites/cufre.png" id="1_l2ixe"]
 [ext_resource type="Texture2D" uid="uid://b4gtdd3dh5wdi" path="res://Assets/VFX/Pebble.png" id="2_fc6si"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_yf5fn"]
 size = Vector2(121, 147)
 
-[node name="Vault" type="Area2D" unique_id=958295443]
+[node name="Hitbox" type="Area2D" unique_id=1802584646]
+script = ExtResource("1_2osl0")
+metadata/_custom_type_script = "uid://drtjci2lya2yr"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023469941]
 position = Vector2(1, -0.5)

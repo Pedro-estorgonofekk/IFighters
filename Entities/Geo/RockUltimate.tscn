@@ -35,5 +35,6 @@ shape = SubResource("CircleShape2D_adv4k")
 debug_color = Color(1, 0, 0, 0.41960785)
 
 [node name="CPUParticles2D" parent="." index="2" unique_id=1970169021]
+amount = 9
 texture = ExtResource("3_u3m8y")
 color = Color(1, 1, 1, 0.19607843)
