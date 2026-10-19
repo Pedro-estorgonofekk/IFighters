@@ -17,7 +17,8 @@ func _process(delta: float) -> void:
 	
 	if global_position.x > 1600 or global_position.x < -650:
 		self.queue_free()
-
+		get_tree().call_group("Vignette", "PlayVignette", false, ult_color)
+		
 func _on_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
 		var target = area.get_parent()

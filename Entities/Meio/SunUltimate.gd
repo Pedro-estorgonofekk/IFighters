@@ -16,13 +16,13 @@ func SunMovement(spawn):
 	if spawn:
 		tween.tween_property(self, "global_position:y", 95, 0.5)
 		get_tree().call_group("Camera", "ApplyShake", 1)
-		get_tree().call_group("Vignette", "PlayVignette", spawn, Color.GREEN_YELLOW)
+		get_tree().call_group("Vignette", "PlayVignette", spawn, Color.GREEN)
 		
 	else:
 		tween.tween_property(self, "global_position:y", -95, 0.5)
 		
 		get_tree().call_group("Camera", "ApplyShake", 1)
-		get_tree().call_group("Vignette", "PlayVignette", spawn, Color.GREEN_YELLOW)
+		get_tree().call_group("Vignette", "PlayVignette", spawn, Color.GREEN)
 		
 		await tween.finished
 		
