@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # 1. Definição dos Estados
-enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, HURT, PUNCH, ULT, THROW }
+enum State { IDLE, MOVE, CROUCH, JUMP, FALL, LAND, DASH, HURT, PUNCH, ULT, THROW }
 var current_state: State = State.IDLE
 
 # Referências de Nós
@@ -52,12 +52,14 @@ var action_ult: String
 var opponent: CharacterBody2D 
 var ghost_timer := 0.0
 var ghost_interval := 0.03
+var base_scale: Vector2
 
 func _ready() -> void:
 	SetupPlayer()
 	DisableCollision()
 	
 	line.visible = false
+	base_scale = anim.scale
 	
 	if anim and not anim.animation_finished.is_connected(_on_animation_finished):
 		anim.animation_finished.connect(_on_animation_finished)
@@ -234,6 +236,7 @@ func ChangeState(new_state: State) -> void:
 			cs_idle_hurt.visible = true
 			velocity.y = JUMP_VELOCITY
 			anim.play("jump")
+			SquashStretch(Vector2(0.7, 1.3))
 
 		State.FALL:
 			DisableCollision()
@@ -474,6 +477,14 @@ func GhostTrail():
 	
 	get_parent().add_child(ghost)
 	ghost.SetupSprite(anim)
+	
+func SquashStretch(anim_scale: Vector2, duration: float = 0.15):
+	var tween = create_tween()
+	var target_scale = Vector2(base_scale.x * anim_scale.x, base_scale.y * anim_scale.y)
+	
+	tween.tween_property(anim, "scale", target_scale, duration* 0.4)\
+	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(anim, "scale", base_scale, duration * 0.6)
 
 func TryDash() -> bool:
 	var direction := Input.get_axis(action_left, action_right)
