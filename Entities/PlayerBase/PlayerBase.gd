@@ -390,6 +390,7 @@ func StateFall() -> void:
 	if CheckAttacks(): return
 	
 	if is_on_floor():
+		SquashStretch(Vector2(1.3, 0.8))
 		if direction != 0:
 			ChangeState(State.MOVE)
 		else:
