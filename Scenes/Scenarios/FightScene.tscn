@@ -10,6 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://3f2irgjxwqm1" path="res://Assets/Sprites/StaminaSprites/FillSTM2.png" id="8_pv6jf"]
 [ext_resource type="Shader" uid="uid://dp3u4mu6mx7ml" path="res://Entities/Resources/Vignette.gdshader" id="9_pv6jf"]
 [ext_resource type="Script" uid="uid://ddlcq877htq32" path="res://Scripts/Utils/DynamicVignette.gd" id="10_srljh"]
+[ext_resource type="PackedScene" uid="uid://r15no8k2q6im" path="res://Scenes/UI/ponto.tscn" id="11_g3dba"]
+[ext_resource type="PackedScene" uid="uid://x2t3l5i5trv2" path="res://Scenes/UI/ponto_2.tscn" id="12_uxghj"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("9_pv6jf")
@@ -84,3 +86,11 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("10_srljh")
+
+[node name="Ponto" parent="." unique_id=1156504210 instance=ExtResource("11_g3dba")]
+offset = Vector2(330.005, 54)
+transform = Transform2D(0.5, 0, 0, 0.5, 330.005, 54)
+
+[node name="Ponto2" parent="." unique_id=876738557 instance=ExtResource("12_uxghj")]
+offset = Vector2(592.795, 54)
+transform = Transform2D(0.5, 0, 0, 0.5, 592.795, 54)
