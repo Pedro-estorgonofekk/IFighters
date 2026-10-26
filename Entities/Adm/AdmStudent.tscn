@@ -221,7 +221,6 @@ shape = SubResource("RectangleShape2D_p5tru")
 disabled = false
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = true
 position = Vector2(39.75, 7.015)
 
 [node name="Hurtbox" parent="." index="5" unique_id=2042549355]

@@ -238,6 +238,7 @@ func ChangeState(new_state: State) -> void:
 			velocity.y = JUMP_VELOCITY
 			anim.play("jump")
 			SquashStretch(Vector2(0.7, 1.3))
+			SpawnDust()
 
 		State.FALL:
 			DisableCollision()
@@ -391,7 +392,7 @@ func StateFall() -> void:
 	if CheckAttacks(): return
 	
 	if is_on_floor():
-		SquashStretch(Vector2(1.3, 0.8))
+		SquashStretch(Vector2(1.1, 0.9))
 		SpawnDust()
 		
 		if direction != 0:
@@ -487,7 +488,13 @@ func SpawnDust():
 		var d = dust.instantiate()
 		
 		d.global_position = self.global_position
+		d.global_position.y = self.global_position.y + 100
 		get_parent().add_child(d)
+		FadeDust(d)
+
+func FadeDust(d):
+	var tween = create_tween()
+	tween.tween_property(d, "modulate:a", 0, 0.5)
 
 func SquashStretch(anim_scale: Vector2, duration: float = 0.15):
 	var tween = create_tween()
