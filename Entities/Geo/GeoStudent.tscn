@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dy2r6y76ldiom"]
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_rd8a8"]
+[ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_a5qn7"]
 [ext_resource type="Texture2D" uid="uid://buvwhofi6cw62" path="res://Entities/Geo/Sprites/agachado 1 geo.png" id="2_agww1"]
 [ext_resource type="Texture2D" uid="uid://do3ld872kie4p" path="res://Entities/Geo/Sprites/arremesso 4 geo.png" id="3_6v3f3"]
 [ext_resource type="Texture2D" uid="uid://bdrtpl2aqq6qg" path="res://Entities/Geo/Sprites/paradinho geo.png" id="4_rxioh"]
@@ -233,6 +234,7 @@ size = Vector2(54, 155)
 size = Vector2(104, 96)
 
 [node name="GeoStudent" unique_id=1496453183 instance=ExtResource("1_rd8a8")]
+dust = ExtResource("2_a5qn7")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(0, 27.84)

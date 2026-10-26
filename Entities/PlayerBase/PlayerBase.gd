@@ -25,6 +25,7 @@ var current_state: State = State.IDLE
 @export_range(1, 2) var player_id: int
 @export var max_point := 20
 @export var ghost_trail: PackedScene
+@export var dust: PackedScene
 
 # Constantes de Física
 const SPEED = 300.0
@@ -391,6 +392,8 @@ func StateFall() -> void:
 	
 	if is_on_floor():
 		SquashStretch(Vector2(1.3, 0.8))
+		SpawnDust()
+		
 		if direction != 0:
 			ChangeState(State.MOVE)
 		else:
@@ -478,7 +481,14 @@ func GhostTrail():
 	
 	get_parent().add_child(ghost)
 	ghost.SetupSprite(anim)
-	
+
+func SpawnDust():
+	if dust:
+		var d = dust.instantiate()
+		
+		d.global_position = self.global_position
+		get_parent().add_child(d)
+
 func SquashStretch(anim_scale: Vector2, duration: float = 0.15):
 	var tween = create_tween()
 	var target_scale = Vector2(base_scale.x * anim_scale.x, base_scale.y * anim_scale.y)

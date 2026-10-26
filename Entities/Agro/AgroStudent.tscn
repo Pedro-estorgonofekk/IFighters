@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_c2ov0"]
 [ext_resource type="Texture2D" uid="uid://y1oq6jkharbw" path="res://Entities/Agro/Sprites/agachado 1 agro.png" id="2_8rgri"]
+[ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_afxfs"]
 [ext_resource type="PackedScene" uid="uid://dhm4xb60pjqf2" path="res://Entities/Agro/ChickenProjectile.tscn" id="2_mxowb"]
 [ext_resource type="Texture2D" uid="uid://bm7t26q45mgf2" path="res://Entities/Agro/Sprites/forte agro.png" id="3_xpygc"]
 [ext_resource type="Texture2D" uid="uid://dneomwwt3m6w3" path="res://Entities/Agro/Sprites/paradinho agro.png" id="4_o0cf6"]
@@ -208,6 +209,7 @@ size = Vector2(84, 186.495)
 size = Vector2(102, 156)
 
 [node name="AgroStudent" unique_id=1496453183 instance=ExtResource("1_c2ov0")]
+dust = ExtResource("2_afxfs")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(0, 13.29)

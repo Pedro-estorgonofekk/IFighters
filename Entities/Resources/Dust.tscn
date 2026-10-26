@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://b74105w3wn25c"]
+
+[ext_resource type="Texture2D" uid="uid://b66ddlvaonrjy" path="res://Assets/VFX/Dust.png" id="1_86co2"]
+
+[node name="Dust" type="Node2D" unique_id=1189410317]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=516027724]
+modulate = Color(1, 1, 1, 0.19607843)
+emitting = false
+amount = 2
+texture = ExtResource("1_86co2")
+lifetime = 0.3
+one_shot = true
