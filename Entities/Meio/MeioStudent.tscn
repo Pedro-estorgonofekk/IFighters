@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_7rtbg"]
 [ext_resource type="Texture2D" uid="uid://2o0n0uoipie5" path="res://Entities/Meio/Sprites/agachada meio.png" id="2_4odi4"]
+[ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_iatj2"]
 [ext_resource type="Texture2D" uid="uid://hpmvrejigqgt" path="res://Entities/Meio/Sprites/parada meio.png" id="2_y7loo"]
 [ext_resource type="Texture2D" uid="uid://uu5aejeojdrw" path="res://Entities/Meio/Sprites/pulo 1 meio.png" id="3_a32pu"]
 [ext_resource type="Texture2D" uid="uid://c8illx8dnaf36" path="res://Entities/Meio/Sprites/dano meio.png" id="5_dcfdf"]
@@ -229,6 +230,7 @@ size = Vector2(72, 121)
 size = Vector2(117, 121)
 
 [node name="MeioStudent" unique_id=1496453183 instance=ExtResource("1_7rtbg")]
+dust = ExtResource("2_iatj2")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(0, 8.165)

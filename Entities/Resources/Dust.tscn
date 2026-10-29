@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b74105w3wn25c"]
+
+[ext_resource type="Script" uid="uid://diiakryia27k3" path="res://Entities/Resources/Dust.gd" id="1_8mlgt"]
+[ext_resource type="Texture2D" uid="uid://v4711cj2kvbx" path="res://Assets/VFX/Dust.png" id="1_86co2"]
+
+[node name="CPUParticles2D" type="CPUParticles2D" unique_id=516027724]
+modulate = Color(1, 1, 1, 0.09803922)
+emitting = false
+amount = 2
+texture = ExtResource("1_86co2")
+lifetime = 0.5
+one_shot = true
+emission_shape = 3
+emission_rect_extents = Vector2(1, 1)
+direction = Vector2(0, -1)
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angular_velocity_min = -360.0
+angular_velocity_max = 360.0
+damping_min = 100.0
+damping_max = 100.0
+angle_min = -360.0
+angle_max = 360.0
+script = ExtResource("1_8mlgt")

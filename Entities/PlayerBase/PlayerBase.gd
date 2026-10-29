@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # 1. Definição dos Estados
-enum State { IDLE, MOVE, CROUCH, JUMP, FALL, DASH, HURT, PUNCH, ULT, THROW }
+enum State { IDLE, MOVE, CROUCH, JUMP, FALL, LAND, DASH, HURT, PUNCH, ULT, THROW }
 var current_state: State = State.IDLE
 
 # Referências de Nós
@@ -25,6 +25,7 @@ var current_state: State = State.IDLE
 @export_range(1, 2) var player_id: int
 @export var max_point := 20
 @export var ghost_trail: PackedScene
+@export var dust: PackedScene
 
 # Constantes de Física
 const SPEED = 300.0
@@ -52,12 +53,14 @@ var action_ult: String
 var opponent: CharacterBody2D 
 var ghost_timer := 0.0
 var ghost_interval := 0.03
+var base_scale: Vector2
 
 func _ready() -> void:
 	SetupPlayer()
 	DisableCollision()
 	
 	line.visible = false
+	base_scale = anim.scale
 	
 	if anim and not anim.animation_finished.is_connected(_on_animation_finished):
 		anim.animation_finished.connect(_on_animation_finished)
@@ -234,6 +237,8 @@ func ChangeState(new_state: State) -> void:
 			cs_idle_hurt.visible = true
 			velocity.y = JUMP_VELOCITY
 			anim.play("jump")
+			SquashStretch(Vector2(0.7, 1.3))
+			SpawnDust()
 
 		State.FALL:
 			DisableCollision()
@@ -387,6 +392,9 @@ func StateFall() -> void:
 	if CheckAttacks(): return
 	
 	if is_on_floor():
+		SquashStretch(Vector2(1.1, 0.9))
+		SpawnDust()
+		
 		if direction != 0:
 			ChangeState(State.MOVE)
 		else:
@@ -474,6 +482,27 @@ func GhostTrail():
 	
 	get_parent().add_child(ghost)
 	ghost.SetupSprite(anim)
+
+func SpawnDust():
+	if dust:
+		var d = dust.instantiate()
+		
+		d.global_position = self.global_position
+		d.global_position.y = self.global_position.y + 100
+		get_parent().add_child(d)
+		FadeDust(d)
+
+func FadeDust(d):
+	var tween = create_tween()
+	tween.tween_property(d, "modulate:a", 0, 0.5)
+
+func SquashStretch(anim_scale: Vector2, duration: float = 0.15):
+	var tween = create_tween()
+	var target_scale = Vector2(base_scale.x * anim_scale.x, base_scale.y * anim_scale.y)
+	
+	tween.tween_property(anim, "scale", target_scale, duration* 0.4)\
+	.set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	tween.tween_property(anim, "scale", base_scale, duration * 0.6)
 
 func TryDash() -> bool:
 	var direction := Input.get_axis(action_left, action_right)

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://cy61lac3af64x"]
 
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_iuenc"]
+[ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_ikse0"]
 [ext_resource type="Texture2D" uid="uid://bny3wmxe3ak0y" path="res://Entities/Adm/Sprites/agachado 1 adm.png" id="2_rpnus"]
 [ext_resource type="Texture2D" uid="uid://b5jwse75dujhr" path="res://Entities/Adm/Sprites/pulo 2 adm.png" id="3_3or1k"]
 [ext_resource type="Texture2D" uid="uid://blcvr1egnamhq" path="res://Entities/Adm/Sprites/parado adm.png" id="3_d7vnd"]
@@ -204,6 +205,7 @@ size = Vector2(56, 184)
 size = Vector2(112, 128)
 
 [node name="Adm" unique_id=1496453183 instance=ExtResource("1_iuenc")]
+dust = ExtResource("2_ikse0")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(0, 15)
@@ -219,7 +221,6 @@ shape = SubResource("RectangleShape2D_p5tru")
 disabled = false
 
 [node name="CSPunchHit" parent="Hitbox" parent_id_path=PackedInt32Array(789786805) index="0" unique_id=1831418601]
-visible = true
 position = Vector2(39.75, 7.015)
 
 [node name="Hurtbox" parent="." index="5" unique_id=2042549355]

@@ -7,8 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://cc7hlxucwpsuk" path="res://Assets/Sprites/ENTER.png" id="4_yvisi"]
 [ext_resource type="Texture2D" uid="uid://cj5l0p1ejypaj" path="res://Assets/Sprites/VOLTAR.png" id="5_wi4oh"]
 [ext_resource type="Texture2D" uid="uid://16qyfpwfsllx" path="res://Assets/Sprites/AgroIcone.png" id="7_qmssh"]
+[ext_resource type="Texture2D" uid="uid://d3ee7e7clenem" path="res://Assets/Sprites/RandomButton.png" id="7_u3d3j"]
+[ext_resource type="Texture2D" uid="uid://csjpt85xwuyjl" path="res://Assets/Sprites/FundoRandom.png" id="8_idin7"]
 [ext_resource type="Texture2D" uid="uid://c2ii7nyugxrq8" path="res://Assets/Sprites/InfoIcone.png" id="8_u3d3j"]
+[ext_resource type="Script" uid="uid://c3r7h4q5cys7b" path="res://Scripts/Utils/botoesSelection.gd" id="9_6d0h3"]
 [ext_resource type="Texture2D" uid="uid://cwhof2q50scrb" path="res://Assets/Sprites/AlimIcone.png" id="9_idin7"]
+[ext_resource type="Texture2D" uid="uid://bajdhys2sfs86" path="res://Assets/Sprites/MolduraP1.png" id="9_u3d3j"]
 [ext_resource type="Texture2D" uid="uid://d0a6mdpilwqo3" path="res://Assets/Sprites/meioIcone.png" id="10_6d0h3"]
 [ext_resource type="Texture2D" uid="uid://cneat31634rr2" path="res://Assets/Sprites/geoIcone.png" id="11_4fxaf"]
 [ext_resource type="Texture2D" uid="uid://c3kvhnyc05gdv" path="res://Assets/Sprites/admIcone.png" id="12_q8s6r"]
@@ -28,7 +32,6 @@ texture = ExtResource("1_yw2kv")
 expand_mode = 5
 
 [node name="BarControl" type="TextureRect" parent="." unique_id=901542529]
-visible = false
 layout_mode = 0
 offset_top = 479.0
 offset_right = 960.0
@@ -68,100 +71,146 @@ offset_bottom = 41.0
 texture = ExtResource("5_wi4oh")
 expand_mode = 3
 
+[node name="RandomButton" type="TextureButton" parent="." unique_id=751975053]
+layout_mode = 0
+offset_left = 355.00003
+offset_top = 108.000046
+offset_right = 855.0
+offset_bottom = 608.00006
+scale = Vector2(0.21, 0.21)
+texture_normal = ExtResource("7_u3d3j")
+texture_focused = ExtResource("8_idin7")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
 [node name="AgroButton" type="TextureButton" parent="." unique_id=1059883896]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 140.0
-offset_right = 964.0
-offset_bottom = 640.0
-scale = Vector2(0.08, 0.08)
+offset_left = 443.00003
+offset_top = 122.00003
+offset_right = 943.0
+offset_bottom = 622.00006
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("7_qmssh")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="InfoButton" type="TextureButton" parent="." unique_id=476158155]
 layout_mode = 0
-offset_left = 502.0
-offset_top = 140.0
-offset_right = 1002.0
-offset_bottom = 640.0
-scale = Vector2(0.08, 0.08)
+offset_left = 518.0
+offset_top = 122.00003
+offset_right = 1018.0
+offset_bottom = 622.00006
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("8_u3d3j")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="AlimButton" type="TextureButton" parent="." unique_id=1765905952]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 177.0
-offset_right = 964.0
-offset_bottom = 677.0
-scale = Vector2(0.08, 0.08)
+offset_left = 443.00003
+offset_top = 194.00003
+offset_right = 943.0
+offset_bottom = 694.0
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("9_idin7")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="MeioButton" type="TextureButton" parent="." unique_id=550664480]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 214.0
-offset_right = 964.0
-offset_bottom = 714.0
-scale = Vector2(0.08, 0.08)
+offset_left = 443.00003
+offset_top = 267.0
+offset_right = 943.0
+offset_bottom = 767.0
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("10_6d0h3")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="GeoButton" type="TextureButton" parent="." unique_id=213126494]
 layout_mode = 0
-offset_left = 464.0
-offset_top = 251.0
-offset_right = 964.0
-offset_bottom = 751.0
-scale = Vector2(0.08, 0.08)
+offset_left = 443.00003
+offset_top = 338.0
+offset_right = 943.0
+offset_bottom = 838.0
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("11_4fxaf")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="AdmButton" type="TextureButton" parent="." unique_id=49341750]
 layout_mode = 0
-offset_left = 502.0
-offset_top = 214.0
-offset_right = 1002.0
-offset_bottom = 714.0
-scale = Vector2(0.08, 0.08)
+offset_left = 518.0
+offset_top = 267.0
+offset_right = 1018.0
+offset_bottom = 767.0
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("12_q8s6r")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="EmptyButton" type="TextureButton" parent="." unique_id=404822433]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 251.0
-offset_right = 926.0
-offset_bottom = 751.0
-scale = Vector2(0.08, 0.08)
+offset_left = 369.00003
+offset_top = 338.0
+offset_right = 869.0
+offset_bottom = 838.0
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("13_eq144")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="EmptyButton2" type="TextureButton" parent="." unique_id=95418231]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 214.0
-offset_right = 926.0
-offset_bottom = 714.0
-scale = Vector2(0.08, 0.08)
+offset_left = 369.00003
+offset_top = 267.00006
+offset_right = 910.9353
+offset_bottom = 767.0001
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("13_eq144")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="EmptyButton3" type="TextureButton" parent="." unique_id=226256743]
 layout_mode = 0
-offset_left = 426.0
-offset_top = 177.0
-offset_right = 926.0
-offset_bottom = 677.0
-scale = Vector2(0.08, 0.08)
+offset_left = 369.00003
+offset_top = 194.00003
+offset_right = 869.0
+offset_bottom = 694.0
+scale = Vector2(0.155, 0.155)
 texture_normal = ExtResource("13_eq144")
+texture_focused = ExtResource("9_u3d3j")
 stretch_mode = 4
+script = ExtResource("9_6d0h3")
 
 [node name="Regua" type="ColorRect" parent="." unique_id=392649121]
-layout_mode = 0
-offset_left = 564.0
-offset_top = 152.0
-offset_right = 589.0
-offset_bottom = 313.0
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -465.0
+offset_top = -232.0
+offset_right = 350.0
+offset_bottom = -182.0
+grow_horizontal = 2
+grow_vertical = 2
 color = Color(0, 1, 0, 1)
+
+[connection signal="pressed" from="RandomButton" to="." method="_on_random_button_pressed"]
+[connection signal="pressed" from="AgroButton" to="." method="_on_agro_button_pressed"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="pressed" from="AlimButton" to="." method="_on_alim_button_pressed"]
+[connection signal="pressed" from="MeioButton" to="." method="_on_meio_button_pressed"]
+[connection signal="pressed" from="GeoButton" to="." method="_on_geo_button_pressed"]
+[connection signal="pressed" from="AdmButton" to="." method="_on_adm_button_pressed"]

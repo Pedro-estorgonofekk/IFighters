@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://cgxtdwxpkgkyd" path="res://Entities/PlayerBase/PlayerBase.tscn" id="1_h68ok"]
 [ext_resource type="Texture2D" uid="uid://n4t6lgh7ydkw" path="res://Entities/Alim/Sprites/em pé.png" id="2_47mw1"]
 [ext_resource type="Texture2D" uid="uid://64ulotpn6o5v" path="res://Entities/Alim/Sprites/agachado1.png" id="2_ewn6j"]
+[ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_obwro"]
 [ext_resource type="Texture2D" uid="uid://isdtuc251k54" path="res://Entities/Alim/Sprites/pulo2.png" id="3_hta1d"]
 [ext_resource type="Texture2D" uid="uid://dc0u5r4h8mmbu" path="res://Entities/Alim/Sprites/dashreserva.png" id="4_hta1d"]
 [ext_resource type="Texture2D" uid="uid://dbf3c48ecttjo" path="res://Entities/Alim/Sprites/pulo1-3.png" id="5_k1ax1"]
@@ -204,6 +205,7 @@ size = Vector2(67, 182.36)
 size = Vector2(113, 129.21)
 
 [node name="AlimStudent" unique_id=1496453183 instance=ExtResource("1_h68ok")]
+dust = ExtResource("2_obwro")
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=1860600443]
 position = Vector2(2.999998, 15)
