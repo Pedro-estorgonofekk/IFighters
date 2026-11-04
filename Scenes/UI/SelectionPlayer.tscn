@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cneat31634rr2" path="res://Assets/Sprites/geoIcone.png" id="11_4fxaf"]
 [ext_resource type="Texture2D" uid="uid://c3kvhnyc05gdv" path="res://Assets/Sprites/admIcone.png" id="12_q8s6r"]
 [ext_resource type="Texture2D" uid="uid://c2q7rps4n4mac" path="res://Assets/Sprites/IconEmpty.png" id="13_eq144"]
+[ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="18_4fxaf"]
 
 [node name="SelectionScreen" type="ColorRect" unique_id=516342070]
 offset_right = 960.0
@@ -199,18 +200,65 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -465.0
-offset_top = -232.0
-offset_right = 350.0
-offset_bottom = -182.0
+offset_left = 269.0
+offset_top = 298.0
+offset_right = 278.0
+offset_bottom = 348.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 1, 0, 1)
 
+[node name="Personagem1" type="TextureRect" parent="." unique_id=657572400]
+layout_mode = 0
+offset_left = -110.0
+offset_top = 11.0
+offset_right = 398.0
+offset_bottom = 516.0
+expand_mode = 1
+flip_h = true
+
+[node name="Personagem2" type="TextureRect" parent="." unique_id=1007931092]
+layout_mode = 0
+offset_left = 560.0
+offset_top = 11.0
+offset_right = 1068.0
+offset_bottom = 516.0
+expand_mode = 1
+flip_h = true
+
+[node name="Nome1" type="Label" parent="." unique_id=942869014]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 406.0
+offset_right = 332.0
+offset_bottom = 463.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("18_4fxaf")
+theme_override_font_sizes/font_size = 37
+horizontal_alignment = 1
+
+[node name="Nome2" type="Label" parent="." unique_id=1829262403]
+layout_mode = 0
+offset_left = 636.0
+offset_top = 406.0
+offset_right = 951.0
+offset_bottom = 463.0
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("18_4fxaf")
+theme_override_font_sizes/font_size = 37
+horizontal_alignment = 1
+
+[connection signal="focus_entered" from="RandomButton" to="." method="_on_random_button_focus_entered"]
 [connection signal="pressed" from="RandomButton" to="." method="_on_random_button_pressed"]
+[connection signal="focus_entered" from="AgroButton" to="." method="_on_agro_button_focus_entered"]
 [connection signal="pressed" from="AgroButton" to="." method="_on_agro_button_pressed"]
+[connection signal="focus_entered" from="InfoButton" to="." method="_on_info_button_focus_entered"]
 [connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="focus_entered" from="AlimButton" to="." method="_on_alim_button_focus_entered"]
 [connection signal="pressed" from="AlimButton" to="." method="_on_alim_button_pressed"]
+[connection signal="focus_entered" from="MeioButton" to="." method="_on_meio_button_focus_entered"]
 [connection signal="pressed" from="MeioButton" to="." method="_on_meio_button_pressed"]
+[connection signal="focus_entered" from="GeoButton" to="." method="_on_geo_button_focus_entered"]
 [connection signal="pressed" from="GeoButton" to="." method="_on_geo_button_pressed"]
+[connection signal="focus_entered" from="AdmButton" to="." method="_on_adm_button_focus_entered"]
 [connection signal="pressed" from="AdmButton" to="." method="_on_adm_button_pressed"]
