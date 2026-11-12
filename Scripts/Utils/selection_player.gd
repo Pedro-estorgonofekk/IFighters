@@ -15,17 +15,22 @@ var geo = preload("res://Entities/Geo/Sprites/paradinho geo.png")
 var adm = preload("res://Entities/Adm/Sprites/parado adm.png")
 var meio = preload("res://Entities/Meio/Sprites/parada meio.png")
 var random = preload("res://Assets/Sprites/RandomSprite.png")
+var randomp2 = preload("res://Assets/Sprites/RandomSprite2.png")
+
 func _ready() -> void:
 	$RandomButton.grab_focus()
 
 
 
 func _process(delta: float) -> void:
+	var focus = get_viewport().gui_get_focus_owner()
 	if Global.Player2 != null:
 		get_viewport().gui_release_focus()
 	if Global.Player1 != null and Global.Player2 != null and Input.is_action_just_pressed("ui_accept"):
 		get_tree().change_scene_to_file("res://Scenes/Scenarios/FightScene.tscn")
 	if Input.is_action_just_pressed("Voltar"):
+		if Global.Player1 == null and Global.Player2 == null:
+			get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
 		if Global.Player2 == null:
 			Global.Player1 = null
 			$Personagem2.texture = null
@@ -33,8 +38,11 @@ func _process(delta: float) -> void:
 		else:
 			Global.Player2 = null
 			$RandomButton.grab_focus()
-		if Global.Player1 == null and Global.Player2 == null:
-			get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
+	if "RandomButton"  in str(focus):
+		$Personagem2.flip_h = false
+	else:
+		$Personagem2.flip_h = true
+	print(str(focus))
 
 
 
@@ -179,7 +187,7 @@ func _on_adm_button_focus_entered() -> void:
 
 func _on_random_button_focus_entered() -> void:
 	if Global.Player1 == null:
-		$Personagem1.texture = random
+		$Personagem1.texture = randomp2
 		$Personagem1.scale = Vector2(0.9, 0.9)
 		$Nome1.text = "Aleatorio"
 	else:

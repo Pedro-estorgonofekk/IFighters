@@ -215,7 +215,6 @@ offset_top = 11.0
 offset_right = 398.0
 offset_bottom = 516.0
 expand_mode = 1
-flip_h = true
 
 [node name="Personagem2" type="TextureRect" parent="." unique_id=1007931092]
 layout_mode = 0
@@ -224,7 +223,6 @@ offset_top = 11.0
 offset_right = 1068.0
 offset_bottom = 516.0
 expand_mode = 1
-flip_h = true
 
 [node name="Nome1" type="Label" parent="." unique_id=942869014]
 layout_mode = 0
