@@ -39,7 +39,7 @@ func _on_opcoes_mouse_exited() -> void:
 	$VBoxContainer/Opcoes.modulate.a = 1
 
 func _on_versus_pressed() -> void:
-	get_tree().change_scene_to_file("res://Scenes/Scenarios/FightScene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/UI/SelectionPlayer.tscn")
 	
 var exit_screen_scene = preload("res://Scenes/UI/ExitScreen.tscn")
 

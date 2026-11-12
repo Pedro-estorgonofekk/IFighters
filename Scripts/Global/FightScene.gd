@@ -1,3 +1,4 @@
+
 extends Node2D
 
 @onready var P1Spawn: Marker2D = $Stage/P1Spawn
@@ -20,7 +21,7 @@ var p2 = load(player_2).instantiate()
 
 var round_over: bool = false
 
-func SpawnPlayers():	
+func SpawnPlayers():
 	if player_1 == player_2:
 		p2.modulate = Color(0.6, 0.6, 1)
 		
@@ -40,13 +41,14 @@ func _ready():
 	round_ended.connect($Ponto.att_points)
 	round_ended.connect($Ponto2.att_points)
 	
-#Stamina dos players
+	# Stamina dos players
 	if p1 and p1.stamina and stamina_p1:
 		stamina_p1.max_value = p1.stamina.max_stamina
 		stamina_p1.value = p1.stamina.current_stamina
 		p1.stamina.StaminaChanged.connect(func(current: float, _max: float):
 			stamina_p1.value = current
 		)
+
 	if p2 and p2.stamina and stamina_p2:
 		stamina_p2.max_value = p2.stamina.max_stamina
 		stamina_p2.value = p2.stamina.current_stamina
@@ -54,7 +56,7 @@ func _ready():
 			stamina_p2.value = current
 		)
 		
-#Vida dos players
+	# Vida dos players
 	var p1_health = p1.get_node("Health")
 	var p2_health = p2.get_node("Health")
 	
@@ -81,7 +83,6 @@ func _on_p2_health_changed(currentHealth):
 
 
 func _on_health_depleted() -> void:
-	
 	if round_over:
 		return
 	
@@ -94,10 +95,10 @@ func _on_health_depleted() -> void:
 		return
 	
 	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
-		Global.points_p1 +=1
+		Global.points_p1 += 1
 		
 	elif p1.get_node("Health").playerHealth < p2.get_node("Health").playerHealth:
-		Global.points_p2 +=1
+		Global.points_p2 += 1
 		
 	else:
 		print("Empate")
