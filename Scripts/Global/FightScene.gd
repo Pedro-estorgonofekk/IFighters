@@ -12,9 +12,8 @@ extends Node2D
 
 signal round_ended
 
-# Valor do path que será alterado via script posteriormente
-var player_1 = "res://Entities/Meio/MeioStudent.tscn"
-var player_2 = "res://Entities/Info/InfoStudent.tscn"
+var player_1 = Global.Player1
+var player_2 = Global.Player2
 
 var p1 = load(player_1).instantiate()
 var p2 = load(player_2).instantiate()

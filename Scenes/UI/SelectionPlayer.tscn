@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cj5l0p1ejypaj" path="res://Assets/Sprites/VOLTAR.png" id="5_wi4oh"]
 [ext_resource type="Texture2D" uid="uid://16qyfpwfsllx" path="res://Assets/Sprites/AgroIcone.png" id="7_qmssh"]
 [ext_resource type="Texture2D" uid="uid://d3ee7e7clenem" path="res://Assets/Sprites/RandomButton.png" id="7_u3d3j"]
-[ext_resource type="Texture2D" uid="uid://csjpt85xwuyjl" path="res://Assets/Sprites/FundoRandom.png" id="8_idin7"]
+[ext_resource type="Texture2D" uid="uid://ce3g3hjhtrebi" path="res://Assets/Sprites/FundoRandom.png" id="8_idin7"]
 [ext_resource type="Texture2D" uid="uid://c2ii7nyugxrq8" path="res://Assets/Sprites/InfoIcone.png" id="8_u3d3j"]
 [ext_resource type="Script" uid="uid://c3r7h4q5cys7b" path="res://Scripts/Utils/botoesSelection.gd" id="9_6d0h3"]
 [ext_resource type="Texture2D" uid="uid://cwhof2q50scrb" path="res://Assets/Sprites/AlimIcone.png" id="9_idin7"]
@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d0a6mdpilwqo3" path="res://Assets/Sprites/meioIcone.png" id="10_6d0h3"]
 [ext_resource type="Texture2D" uid="uid://cneat31634rr2" path="res://Assets/Sprites/geoIcone.png" id="11_4fxaf"]
 [ext_resource type="Texture2D" uid="uid://c3kvhnyc05gdv" path="res://Assets/Sprites/admIcone.png" id="12_q8s6r"]
-[ext_resource type="Texture2D" uid="uid://c2q7rps4n4mac" path="res://Assets/Sprites/IconEmpty.png" id="13_eq144"]
+[ext_resource type="Texture2D" uid="uid://bdloore0yrnbx" path="res://Assets/Sprites/IconEmpty.png" id="13_eq144"]
 [ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="18_4fxaf"]
 
 [node name="SelectionScreen" type="ColorRect" unique_id=516342070]
