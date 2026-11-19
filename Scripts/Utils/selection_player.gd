@@ -44,7 +44,6 @@ func _ready() -> void:
 	$RandomButton.grab_focus()
 
 func _process(_delta: float) -> void:
-	var focus = get_viewport().gui_get_focus_owner()
 	
 	if Global.Player2:
 		get_viewport().gui_release_focus()
@@ -65,11 +64,7 @@ func _process(_delta: float) -> void:
 			$Personagem2.texture = null
 			$Nome2.text = ""
 			$RandomButton.grab_focus()
-			
-	if "RandomButton" in str(focus):
-		$Personagem2.flip_h = false
-	else:
-		$Personagem2.flip_h = true
+
 
 func SelectCharacter(character: String) -> void:
 	var personagem = personagens[character]
@@ -113,7 +108,7 @@ func SelectRandomCharacter(obj: TextureRect) -> void:
 			Global.Player2 = sorteado["Cena"]
 	)
 
-func _SetTexture(obj: TextureRect, sprite) -> void: 
+func _SetTexture(obj: TextureRect, sprite) -> void:
 	obj.texture = sprite
 
 func Slide(obj, plr: int, dir := 1) -> void:
