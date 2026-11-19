@@ -38,6 +38,8 @@ var personagens = {
 	},
 }
 
+@onready var personagem_position = [$Personagem1.position.x, $Personagem2.position.x]
+
 func _ready() -> void:
 	$RandomButton.grab_focus()
 
@@ -54,49 +56,73 @@ func _process(_delta: float) -> void:
 		if !Global.Player1 and !Global.Player2:
 			get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
 			
-		if !Global.Player2:
+		else:
 			Global.Player1 = null
+			$Personagem1.texture = null
+			$Nome1.text = ""
+			
+			Global.Player2 = null
 			$Personagem2.texture = null
 			$Nome2.text = ""
-		else:
-			Global.Player2 = null
 			$RandomButton.grab_focus()
 			
 	if "RandomButton" in str(focus):
 		$Personagem2.flip_h = false
 	else:
 		$Personagem2.flip_h = true
-	print(str(focus))
 
 func SelectCharacter(character: String) -> void:
 	var personagem = personagens[character]
+	UpdatePreview(personagem["Sprite"], personagem["Nome"])
 	
 	if !Global.Player1:
 		Global.Player1 = personagem["Cena"]
 	else:
 		Global.Player2 = personagem["Cena"]
 
-	UpdatePreview(personagem["Sprite"], personagem["Nome"])
 
 func UpdatePreview(sprite: Texture2D, nome: String) -> void:
 	if !Global.Player1:
 		$Personagem1.texture = sprite
+		Slide($Personagem1, 0)
 		$Nome1.text = nome
 		$Personagem1.scale = Vector2(1, 1)
+		
 	else:
 		$Personagem2.texture = sprite
+		Slide($Personagem2, 1, -1)
 		$Nome2.text = nome
 		$Personagem2.scale = Vector2(1, 1)
 
-func SelectRandomCharacter() -> void:
-	var personagem = personagens.values().pick_random()
+func SelectRandomCharacter(obj: TextureRect) -> void:
+	var valid_keys = personagens.keys().filter(func(k): return k != "Random")
+	var sorteado = personagens[valid_keys.pick_random()]
 	
-	if !Global.Player1:
-		Global.Player1 = personagem["Cena"]
-	else:
-		Global.Player2 = personagem["Cena"]
-		
-	UpdatePreview(personagem["Sprite"], personagem["Nome"])
+	var tween = create_tween()
+	
+	for personagem in personagens:
+		if personagens[personagem].has("Sprite"):
+			tween.tween_callback(_SetTexture.bind(obj, personagens[personagem]["Sprite"]))
+			tween.tween_interval(0.05)
+
+	tween.tween_callback(func():
+		UpdatePreview(sorteado["Sprite"], sorteado["Nome"])
+		if !Global.Player1:
+			Global.Player1 = sorteado["Cena"]
+		else:
+			Global.Player2 = sorteado["Cena"]
+	)
+
+func _SetTexture(obj: TextureRect, sprite) -> void: 
+	obj.texture = sprite
+
+func Slide(obj, plr: int, dir := 1) -> void:
+	var tween = create_tween()
+	obj.position.x = personagem_position[plr]
+	obj.modulate.a = 0
+	
+	tween.tween_property(obj, "modulate:a", 1, 0.15)
+	tween.tween_property(obj, "position:x", personagem_position[plr] + 10 * dir, 0.25)
 
 func UpdateFocus(character: String) -> void:
 	var personagem = personagens[character]
@@ -121,8 +147,7 @@ func _on_adm_button_pressed() -> void:
 	SelectCharacter("Adm")
 
 func _on_random_button_pressed() -> void:
-	SelectRandomCharacter()
-	
+	SelectRandomCharacter($Personagem1 if !Global.Player1 else $Personagem2)
 
 #Imagem interativa com selecao
 func _on_agro_button_focus_entered() -> void:
@@ -149,6 +174,6 @@ func _on_random_button_focus_entered() -> void:
 		$Personagem1.scale = Vector2(0.9, 0.9)
 		$Nome1.text = personagens["Random"]["Nome"]
 	else:
-		$Personagem2.texture = personagens["Random"]["Sprite_P1"]
+		$Personagem2.texture = personagens["Random"]["Sprite_P2"]
 		$Personagem2.scale = Vector2(0.9, 0.9)
 		$Nome2.text = personagens["Random"]["Nome"]
