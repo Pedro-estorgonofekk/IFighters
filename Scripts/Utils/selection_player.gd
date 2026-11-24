@@ -54,16 +54,23 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Voltar"):
 		if !Global.Player1 and !Global.Player2:
 			get_tree().change_scene_to_file("res://Scenes/UI/MainMenu.tscn")
-			
-		else:
+		if Global.Player1 != null and Global.Player2 == null:
 			Global.Player1 = null
-			$Personagem1.texture = null
-			$Nome1.text = ""
-			
+			$Personagem1.texture = personagens["Random"]["Sprite_P1"]
+			$Nome1.text = "Aleatorio"
+			Global.Player2 = null
+			$Personagem2.texture = null
+			$Nome2.text = ""
+			$Personagem1.scale = Vector2(0.9,0.9)
+			$RandomButton.grab_focus()
+		elif Global.Player2 != null:
 			Global.Player2 = null
 			$Personagem2.texture = null
 			$Nome2.text = ""
 			$RandomButton.grab_focus()
+
+
+	
 
 
 func SelectCharacter(character: String) -> void:
