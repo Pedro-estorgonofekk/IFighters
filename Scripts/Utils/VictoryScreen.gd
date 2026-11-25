@@ -21,12 +21,12 @@ func _ready() -> void:
 	confetti.play("default")
 	
 	if winner == 1:
-		character_p2.anim.play("defeat")
+		character_p2.ChangeState(character_p2.State.DEFEAT)
 		PlayerJump(character_p1)
 		SlideLabel(lbl_player1)
 		
 	elif winner == 2:
-		character_p1.anim.play("defeat")
+		character_p1.ChangeState(character_p1.State.DEFEAT)
 		PlayerJump(character_p2)
 		SlideLabel(lbl_player2)
 		

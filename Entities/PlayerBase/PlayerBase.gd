@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # 1. Definição dos Estados
-enum State { IDLE, MOVE, CROUCH, JUMP, FALL, LAND, DASH, HURT, PUNCH, ULT, THROW }
+enum State { IDLE, MOVE, CROUCH, JUMP, FALL, LAND, DASH, HURT, PUNCH, ULT, THROW, DEFEAT }
 var current_state: State = State.IDLE
 
 # Referências de Nós
@@ -113,6 +113,8 @@ func _physics_process(delta: float) -> void:
 			StateThrow()
 		State.ULT:
 			StateUlt()
+		State.DEFEAT:
+			StateDefeat()
 		
 	OpponentCollision()
 	move_and_slide()
@@ -195,7 +197,7 @@ func DisableCollision() -> void:
 
 func ChangeState(new_state: State) -> void:
 	# Se estiver executando o soco, impede a troca de estado até finalizar
-	if current_state == State.PUNCH and new_state != State.IDLE and new_state != State.HURT:
+	if current_state == State.PUNCH and current_state == State.DEFEAT and new_state != State.IDLE and new_state != State.HURT:
 		return
 
 	current_state = new_state
@@ -300,7 +302,12 @@ func ChangeState(new_state: State) -> void:
 			velocity.x = 0
 			anim.play("ult")
 		
-
+		State.DEFEAT:
+			DisableCollision()
+			cs_idle.set_deferred("disabled", false)
+			cs_idle.visible = true
+			
+			anim.play("defeat")
 
 # --- CHECAGEM DE ATAQUES E COMPORTAMENTO ---
 
@@ -443,6 +450,9 @@ func StateThrow() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 	
 func StateUlt() -> void:
+	velocity.x = move_toward(velocity.x, 0, SPEED)
+
+func StateDefeat() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
 
 # --- CALLBACKS E SISTEMAS AUXILIARES ---

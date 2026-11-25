@@ -119,6 +119,7 @@ disabled = true
 
 [node name="Health" type="Node" parent="." unique_id=905551826]
 script = ExtResource("4_rdwt8")
+maxHealth = 10
 metadata/_custom_type_script = "uid://mptunu8jnbkm"
 
 [node name="Hitbox" type="Area2D" parent="." unique_id=789786805]
