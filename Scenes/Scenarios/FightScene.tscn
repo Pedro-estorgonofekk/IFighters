@@ -14,7 +14,10 @@
 [ext_resource type="Script" uid="uid://ddlcq877htq32" path="res://Scripts/Utils/DynamicVignette.gd" id="10_srljh"]
 [ext_resource type="PackedScene" uid="uid://r15no8k2q6im" path="res://Scenes/UI/ponto.tscn" id="11_g3dba"]
 [ext_resource type="PackedScene" uid="uid://x2t3l5i5trv2" path="res://Scenes/UI/ponto_2.tscn" id="12_uxghj"]
+[ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="13_rtiid"]
 [ext_resource type="AudioStream" uid="uid://cocg7geb8qggf" path="res://Assets/Audios/IFighters-tema-de-luta.wav" id="13_uxghj"]
+[ext_resource type="Texture2D" uid="uid://dcybbefy2o1sr" path="res://Entities/Alim/Sprites/soco1.png" id="14_x461h"]
+[ext_resource type="Texture2D" uid="uid://blcvr1egnamhq" path="res://Entities/Adm/Sprites/parado adm.png" id="15_x461h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_g4v7s"]
 shader = ExtResource("9_pv6jf")
@@ -94,6 +97,51 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("10_srljh")
 
+[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1132256848]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_top = 14.0
+offset_right = 21.0
+offset_bottom = 57.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("13_rtiid")
+theme_override_font_sizes/font_size = 28
+text = "00"
+horizontal_alignment = 1
+
+[node name="P2Icon" type="ColorRect" parent="." unique_id=1240820648]
+clip_children = 1
+offset_left = 909.92
+offset_top = 3.0
+offset_right = 959.92
+offset_bottom = 53.0
+
+[node name="TextureRect" type="TextureRect" parent="P2Icon" unique_id=565303428]
+layout_mode = 0
+offset_left = -26.919983
+offset_top = -11.0
+offset_right = 89.08002
+offset_bottom = 93.0
+texture = ExtResource("14_x461h")
+flip_h = true
+
+[node name="P1Icon" type="ColorRect" parent="." unique_id=1960647195]
+clip_children = 1
+offset_left = -1.0
+offset_top = -10.0
+offset_right = 49.0
+offset_bottom = 53.0
+
+[node name="TextureRect" type="TextureRect" parent="P1Icon" unique_id=1324304732]
+layout_mode = 0
+offset_left = -35.0
+offset_top = 5.0
+offset_right = 81.0
+offset_bottom = 109.0
+texture = ExtResource("15_x461h")
+
 [node name="Ponto" parent="." unique_id=1156504210 instance=ExtResource("11_g3dba")]
 offset = Vector2(330.005, 54)
 transform = Transform2D(0.5, 0, 0, 0.5, 330.005, 54)
@@ -114,3 +162,9 @@ bus = &"SFX"
 [node name="ImpactSFX" type="AudioStreamPlayer" parent="." unique_id=1688602744]
 autoplay = true
 bus = &"SFX"
+
+[node name="Timer" type="Timer" parent="." unique_id=1973942709]
+wait_time = 14.049
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

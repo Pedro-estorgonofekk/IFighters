@@ -45,5 +45,8 @@ var exit_screen_scene = preload("res://Scenes/UI/ExitScreen.tscn")
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("Sair"):
-		add_child(exit_screen_scene.instantiate())
-		get_tree().paused = true
+		if not has_node("ExitScreen"):
+			var tela = preload("res://Scenes/UI/ExitScreen.tscn").instantiate()
+			add_child(tela)
+		else:
+			get_node("ExitScreen").queue_free()

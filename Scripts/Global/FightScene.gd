@@ -34,8 +34,12 @@ func SpawnPlayers():
 		
 	add_child(p2)
 
-
+func _process(delta: float) -> void:
+	$CanvasLayer/TimerLabel.text = str(int($Timer.time_left))
+	
 func _ready():
+	$P1Icon/TextureRect.texture = pegar_sprite_personagem(Global.Player1)
+	$P2Icon/TextureRect.texture = pegar_sprite_personagem(Global.Player2)
 	SpawnPlayers()
 	round_ended.connect($Ponto.att_points)
 	round_ended.connect($Ponto2.att_points)
@@ -105,3 +109,32 @@ func _on_health_depleted() -> void:
 	round_ended.emit()
 	await get_tree().create_timer(1).timeout
 	get_tree().reload_current_scene()
+
+
+func _on_timer_timeout() -> void:
+	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
+		Global.points_p1 += 1
+		
+	elif p1.get_node("Health").playerHealth < p2.get_node("Health").playerHealth:
+		Global.points_p2 += 1
+	get_tree().reload_current_scene()
+	
+func pegar_sprite_personagem(personagem) -> Texture2D:
+	# Garante que funciona tanto se Global.player1/player2 for String quanto PackedScene
+	var caminho: String = personagem if personagem is String else personagem.resource_path
+
+	if caminho.ends_with("InfoStudent.tscn"):
+		return load("res://Entities/Info/Sprites/paradinho info.png")
+	elif caminho.ends_with("AdmStudent.tscn"):
+		return load("res://Entities/Adm/Sprites/parado adm.png")
+	elif caminho.ends_with("AgroStudent.tscn"):
+		return load("res://Entities/Agro/Sprites/paradinho agro.png")
+	elif caminho.ends_with("AlimStudent.tscn"):
+		return load("res://Entities/Alim/Sprites/paradinho.png")
+	elif caminho.ends_with("GeoStudent.tscn"):
+		return load("res://Entities/Geo/Sprites/paradinho geo.png")
+	elif caminho.ends_with("MeioStudent.tscn"):
+		return load("res://Entities/Meio/Sprites/parada meio.png")
+
+	return null
+	

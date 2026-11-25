@@ -3,6 +3,7 @@ extends ColorRect
 func _ready() -> void:
 	# Anima a entrada assim que o popup surge na tela
 	animate_in()
+	$Sim.grab_focus()
 
 func animate_in() -> void:
 	# Prepara o estado inicial (transparente e ligeiramente menor)
