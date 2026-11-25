@@ -54,7 +54,10 @@ animations = [{
 "speed": 6.0
 }]
 
-[node name="Control" type="Control" unique_id=2129361522]
+[node name="CanvasLayer" type="CanvasLayer" unique_id=118469846]
+script = ExtResource("1_iyjjx")
+
+[node name="Control" type="Control" parent="." unique_id=2129361522]
 z_index = 4
 layout_mode = 3
 anchors_preset = 15
@@ -64,42 +67,37 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-script = ExtResource("1_iyjjx")
 
-[node name="Player1" type="Label" parent="." unique_id=972264201]
+[node name="Player1" type="Label" parent="Control" unique_id=972264201]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -150.5
+anchors_preset = 10
+anchor_right = 1.0
 offset_top = -47.0
-offset_right = 150.5
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.15686275, 0.09019608, 0, 0.39607844)
 theme_override_fonts/font = ExtResource("2_7trym")
 theme_override_font_sizes/font_size = 37
 text = "Player 1 Wins!"
+horizontal_alignment = 1
 
-[node name="Player2" type="Label" parent="." unique_id=789421120]
+[node name="Player2" type="Label" parent="Control" unique_id=789421120]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -150.5
+anchors_preset = 10
+anchor_right = 1.0
 offset_top = -47.0
-offset_right = 150.5
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.1882353, 0.11372549, 0.39607844)
 theme_override_fonts/font = ExtResource("2_7trym")
 theme_override_font_sizes/font_size = 37
 text = "Player 2 Wins!"
+horizontal_alignment = 1
 
-[node name="Confetti" type="AnimatedSprite2D" parent="." unique_id=2136036374]
-modulate = Color(0.6665689, 0.66656864, 0.66656864, 0.49019608)
+[node name="Confetti" type="AnimatedSprite2D" parent="Control" unique_id=2136036374]
+modulate = Color(0.6666667, 0.6666667, 0.6666667, 0.6666667)
 position = Vector2(480, 270)
 scale = Vector2(5.0000005, 5.625)
 sprite_frames = SubResource("SpriteFrames_llu7j")
 autoplay = "default"
-frame_progress = 0.37838906
+frame = 5
