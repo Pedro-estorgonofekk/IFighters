@@ -156,7 +156,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": 0,
+"loop": 1,
 "name": &"defeat",
 "speed": 5.0
 }, {

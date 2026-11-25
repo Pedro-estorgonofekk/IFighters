@@ -54,6 +54,8 @@ var opponent: CharacterBody2D
 var ghost_timer := 0.0
 var ghost_interval := 0.03
 var base_scale: Vector2
+var control: bool = true
+var win: bool = false
 
 func _ready() -> void:
 	SetupPlayer()
@@ -111,7 +113,7 @@ func _physics_process(delta: float) -> void:
 			StateThrow()
 		State.ULT:
 			StateUlt()
-
+		
 	OpponentCollision()
 	move_and_slide()
 
@@ -148,7 +150,6 @@ func SetupPlayer() -> void:
 		hitbox.collision_mask = 2
 		hurtbox.collision_layer = 8
 		hurtbox.collision_mask = 1
-
 
 func FindOpponent() -> void:
 	var players = get_tree().get_nodes_in_group("Player")
@@ -327,7 +328,12 @@ func CheckAttacks() -> bool:
 
 func StateIdle() -> void:
 	velocity.x = move_toward(velocity.x, 0, SPEED)
-
+	
+	if win:
+		ChangeState(State.JUMP)
+		return
+	
+	if !control: return
 	if CheckAttacks(): return
 	
 	if TryDash(): return
@@ -344,7 +350,7 @@ func StateIdle() -> void:
 func StateMove() -> void:
 	var direction := Input.get_axis(action_left, action_right)
 
-	if direction != 0:
+	if direction != 0 and control:
 		velocity.x = direction * SPEED
 	else:
 		ChangeState(State.IDLE)
@@ -379,6 +385,13 @@ func StateJump() -> void:
 	
 	if TryDash(): return
 	if CheckAttacks(): return
+	
+	if !control:
+		if current_state == State.JUMP and velocity.y > 0:
+			ChangeState(State.FALL)
+		elif current_state == State.FALL and is_on_floor():
+			ChangeState(State.IDLE)
+		return
 	
 	if velocity.y > 0:
 		ChangeState(State.FALL)

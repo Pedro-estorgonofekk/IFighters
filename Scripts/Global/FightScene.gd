@@ -1,4 +1,3 @@
-
 extends Node2D
 
 @onready var P1Spawn: Marker2D = $Stage/P1Spawn
@@ -105,41 +104,50 @@ func _on_p2_health_changed(currentHealth):
 
 
 func _on_health_depleted() -> void:
+	var hp1 = p1.get_node("Health").playerHealth
+	var hp2 = p2.get_node("Health").playerHealth
 	
 	if round_over:
 		return
-
 	round_over = true
-	Engine.time_scale = 0.1
-
-	print(Engine.time_scale)
-
-	var tree = get_tree()
-
-	if tree == null:
+	
+	if get_tree() == null:
 		return
-
-	await tree.create_timer(2.0, true, false, true).timeout
-
-	Engine.time_scale = 1
-
-	if not is_instance_valid(p1) or not is_instance_valid(p2):
-		return
-
-	var hp1 = p1.get_node("Health").playerHealth
-	var hp2 = p2.get_node("Health").playerHealth
-
+	
 	if hp1 > hp2:
 		Global.points_p1 += 1
 	elif hp1 < hp2:
 		Global.points_p2 += 1
 	else:
 		print("Empate")
-
-	await tree.create_timer(0.5, true, false, true).timeout
-
+	
+	Engine.time_scale = 0.1
+	await get_tree().create_timer(2.0, true, false, true).timeout
+	Engine.time_scale = 1
+	
+	if not is_instance_valid(p1) or not is_instance_valid(p2):
+		return
+	
+	round_ended.emit()
+	
+	await get_tree().create_timer(0.5, true, false, true).timeout
+	
 	if not is_inside_tree():
 		return
-
-	tree.reload_current_scene()
 	
+	if Global.points_p1 >= 2:
+		VictoryScene(1)
+	elif Global.points_p2 >= 2:
+		VictoryScene(2)
+	else:
+		get_tree().reload_current_scene()
+	
+
+func VictoryScene(win_id: int):
+	var scene = victory_scene.instantiate()
+	
+	scene.winner = win_id
+	scene.character_p1 = p1
+	scene.character_p2 = p2
+	
+	add_child(scene)

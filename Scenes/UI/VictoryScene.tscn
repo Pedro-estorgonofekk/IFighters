@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bmi6vjwxq0dag"]
 
 [ext_resource type="Script" uid="uid://bdw6pg60jc2yw" path="res://Scripts/Utils/VictoryScreen.gd" id="1_iyjjx"]
+[ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="2_7trym"]
 [ext_resource type="Texture2D" uid="uid://3bylcfs4ux4k" path="res://Assets/Sprites/VictoryScene/confeti1.png" id="2_qgpw0"]
 [ext_resource type="Texture2D" uid="uid://40iyawy03o5v" path="res://Assets/Sprites/VictoryScene/confeti2.png" id="3_eiup3"]
 [ext_resource type="Texture2D" uid="uid://cslrk67ut64lh" path="res://Assets/Sprites/VictoryScene/confeti3.png" id="4_wvdbw"]
@@ -44,6 +45,9 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdg1e")
+}, {
+"duration": 0.5,
+"texture": null
 }],
 "loop": 1,
 "name": &"default",
@@ -51,16 +55,51 @@ animations = [{
 }]
 
 [node name="Control" type="Control" unique_id=2129361522]
+z_index = 4
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 script = ExtResource("1_iyjjx")
 
+[node name="Player1" type="Label" parent="." unique_id=972264201]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.5
+offset_top = -47.0
+offset_right = 150.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.15686275, 0.09019608, 0, 0.39607844)
+theme_override_fonts/font = ExtResource("2_7trym")
+theme_override_font_sizes/font_size = 37
+text = "Player 1 Wins!"
+
+[node name="Player2" type="Label" parent="." unique_id=789421120]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -150.5
+offset_top = -47.0
+offset_right = 150.5
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0.1882353, 0.11372549, 0.39607844)
+theme_override_fonts/font = ExtResource("2_7trym")
+theme_override_font_sizes/font_size = 37
+text = "Player 2 Wins!"
+
 [node name="Confetti" type="AnimatedSprite2D" parent="." unique_id=2136036374]
+modulate = Color(0.6665689, 0.66656864, 0.66656864, 0.49019608)
 position = Vector2(480, 270)
 scale = Vector2(5.0000005, 5.625)
 sprite_frames = SubResource("SpriteFrames_llu7j")
 autoplay = "default"
+frame_progress = 0.37838906

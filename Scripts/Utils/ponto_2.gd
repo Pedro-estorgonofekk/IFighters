@@ -1,7 +1,7 @@
 extends CanvasLayer
 
+signal p2_win
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$PontoFundo1.visible = false
 	$PontoFundo2.visible = false
@@ -13,4 +13,4 @@ func att_points():
 	if Global.points_p2 == 2:
 		$PontoFundo2.visible = true
 		$PontoFundo1.visible = true
-		get_tree().paused = true
+		p2_win.emit()

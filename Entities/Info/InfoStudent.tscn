@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_u1yr1"]
 [ext_resource type="PackedScene" uid="uid://rl77oxuc1o6w" path="res://Entities/Info/PythonProjectile.tscn" id="2_urhxr"]
 [ext_resource type="Texture2D" uid="uid://dnvmsdtjycgi0" path="res://Entities/Info/Sprites/paradinho info.png" id="3_7mtff"]
-[ext_resource type="Texture2D" uid="uid://b8f0qbi5savqw" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
+[ext_resource type="Texture2D" uid="uid://b8wfouknnr87j" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
 [ext_resource type="Texture2D" uid="uid://b2fr5mltueyhg" path="res://Entities/Info/Sprites/pulo 2 info.png" id="5_43yv6"]
 [ext_resource type="Texture2D" uid="uid://dmaqveuxj8pv7" path="res://Assets/Sprites/VictoryScene/isplosão1.png" id="6_6eu0w"]
 [ext_resource type="Texture2D" uid="uid://bierlojqme0iy" path="res://Entities/Info/Sprites/dash info.png" id="6_xpidu"]
@@ -167,7 +167,7 @@ animations = [{
 "duration": 1.0,
 "texture": null
 }],
-"loop": 0,
+"loop": 1,
 "name": &"defeat",
 "speed": 5.0
 }, {
