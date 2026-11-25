@@ -456,17 +456,9 @@ func _on_received_damage(_damage):
 	if stamina:
 		stamina.Increase(stamina.regen_rate - 2)
 	
-	ApplyHitstop(0.08)	
 	ApplyHitflash()
 	ChangeState(State.HURT)
 	
-
-func ApplyHitstop(duration: float = 0.08):
-	Engine.time_scale = 0.0
-	
-	await get_tree().create_timer(duration, true, false, true).timeout
-	
-	Engine.time_scale = 1.0
 
 func ApplyHitflash():
 	var tween = create_tween()

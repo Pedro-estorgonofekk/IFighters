@@ -6,11 +6,16 @@
 [ext_resource type="Texture2D" uid="uid://do3ld872kie4p" path="res://Entities/Geo/Sprites/arremesso 4 geo.png" id="3_6v3f3"]
 [ext_resource type="Texture2D" uid="uid://bdrtpl2aqq6qg" path="res://Entities/Geo/Sprites/paradinho geo.png" id="4_rxioh"]
 [ext_resource type="Texture2D" uid="uid://ccf8i8qskw7kj" path="res://Entities/Geo/Sprites/pulo 1 geo.png" id="5_o7fhu"]
+[ext_resource type="Texture2D" uid="uid://dmaqveuxj8pv7" path="res://Assets/Sprites/VictoryScene/isplosão1.png" id="6_0qb4x"]
 [ext_resource type="Texture2D" uid="uid://xgf62817we8h" path="res://Entities/Geo/Sprites/pulo 2 geo.png" id="6_tl4lv"]
+[ext_resource type="Texture2D" uid="uid://c2rtj4fgelei0" path="res://Assets/Sprites/VictoryScene/isplosão2.png" id="7_01utu"]
 [ext_resource type="Texture2D" uid="uid://dlfphj7upxuxd" path="res://Entities/Geo/Sprites/dash geo.png" id="7_a5qn7"]
 [ext_resource type="Texture2D" uid="uid://bat7q500xb82i" path="res://Entities/Geo/Sprites/arremesso 2 geo.png" id="8_dxag5"]
+[ext_resource type="Texture2D" uid="uid://bynoiyc4ulbgo" path="res://Assets/Sprites/VictoryScene/isplosão3.png" id="8_iiolu"]
 [ext_resource type="Texture2D" uid="uid://76mrjy4fyuw8" path="res://Entities/Geo/Sprites/arremesso 3 geo.png" id="9_ko5q3"]
+[ext_resource type="Texture2D" uid="uid://bjfyj46slrik4" path="res://Assets/Sprites/VictoryScene/isplosão4.png" id="9_tcao0"]
 [ext_resource type="Texture2D" uid="uid://bwndi2kinbat6" path="res://Entities/Geo/Sprites/indoali 2 geo.png" id="10_b564h"]
+[ext_resource type="Texture2D" uid="uid://rjvadvp2ialt" path="res://Assets/Sprites/VictoryScene/isplosão6.png" id="10_fjp6u"]
 [ext_resource type="Texture2D" uid="uid://c6j57ep0in1nt" path="res://Entities/Geo/Sprites/indoali 1 geo.png" id="11_2fyev"]
 [ext_resource type="Texture2D" uid="uid://byi22mvwl1rbd" path="res://Entities/Geo/Sprites/dano geo.png" id="11_o7fhu"]
 [ext_resource type="Texture2D" uid="uid://08wfup5rtq3" path="res://Entities/Geo/Sprites/soco 2 geo.png" id="12_0qb4x"]
@@ -31,6 +36,26 @@ region = Rect2(0, 0, 92, 92)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6v3f3"]
 atlas = ExtResource("7_a5qn7")
 region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtxcl"]
+atlas = ExtResource("6_0qb4x")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dor5l"]
+atlas = ExtResource("7_01utu")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgmvs"]
+atlas = ExtResource("8_iiolu")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7yrn"]
+atlas = ExtResource("9_tcao0")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v27hd"]
+atlas = ExtResource("10_fjp6u")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_tl4lv"]
 atlas = ExtResource("11_o7fhu")
@@ -123,6 +148,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtxcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dor5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgmvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7yrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v27hd")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"defeat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -240,6 +288,7 @@ dust = ExtResource("2_a5qn7")
 position = Vector2(0, 27.84)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_p376b")
+animation = &"defeat"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 26.5)

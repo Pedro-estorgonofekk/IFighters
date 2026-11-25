@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cdaot58sab30j" path="res://Scripts/Global/FightScene.gd" id="1_7jb6k"]
 [ext_resource type="PackedScene" uid="uid://dgbhhlfqmotfp" path="res://Scenes/Scenarios/Stages/StagePlaceholder.tscn" id="1_th3ru"]
 [ext_resource type="PackedScene" uid="uid://cx3qh317w78a6" path="res://Scenes/UI/health_bar_1.tscn" id="3_7jb6k"]
-[ext_resource type="Script" uid="uid://ywfsyxe0x03n" path="res://Scenes/Scenarios/VictoryScene.gd" id="3_16f8t"]
 [ext_resource type="PackedScene" uid="uid://bmi6vjwxq0dag" path="res://Scenes/UI/VictoryScene.tscn" id="4_id2w3"]
 [ext_resource type="PackedScene" uid="uid://cp23uh2gdsytd" path="res://Scenes/UI/health_bar_2.tscn" id="4_m7cwq"]
 [ext_resource type="Texture2D" uid="uid://cv5f050mjt5mg" path="res://Assets/Sprites/StaminaSprites/BorderSTM.png" id="5_60723"]
@@ -27,13 +26,10 @@ shader_parameter/vignette_color = Color(0, 0, 0, 1)
 script = ExtResource("1_7jb6k")
 health_bar1 = NodePath("HealthBar1")
 health_bar2 = NodePath("HealthBar2")
+victory_scene = ExtResource("4_id2w3")
 
 [node name="Stage" parent="." unique_id=716982872 instance=ExtResource("1_th3ru")]
 position = Vector2(480, 270)
-
-[node name="Victory Scene" type="Node2D" parent="." unique_id=1463593029]
-script = ExtResource("3_16f8t")
-victory_scene = ExtResource("4_id2w3")
 
 [node name="HealthBar1" parent="." unique_id=1144344747 instance=ExtResource("3_7jb6k")]
 z_index = 3

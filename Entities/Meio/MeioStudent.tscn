@@ -8,12 +8,17 @@
 [ext_resource type="Texture2D" uid="uid://c8illx8dnaf36" path="res://Entities/Meio/Sprites/dano meio.png" id="5_dcfdf"]
 [ext_resource type="Texture2D" uid="uid://ddravesn7dynb" path="res://Entities/Meio/Sprites/pulo 2 meio.png" id="5_knfvt"]
 [ext_resource type="Texture2D" uid="uid://b45x8gs5nb0rl" path="res://Entities/Meio/Sprites/dash meio.png" id="6_r4gro"]
+[ext_resource type="Texture2D" uid="uid://dmaqveuxj8pv7" path="res://Assets/Sprites/VictoryScene/isplosão1.png" id="6_rf4j5"]
 [ext_resource type="Texture2D" uid="uid://by6dh8s8fljn" path="res://Entities/Meio/Sprites/plantando 2 meio.png" id="7_02tqh"]
+[ext_resource type="Texture2D" uid="uid://c2rtj4fgelei0" path="res://Assets/Sprites/VictoryScene/isplosão2.png" id="7_pajhv"]
 [ext_resource type="Texture2D" uid="uid://c8380frf0lmxr" path="res://Entities/Meio/Sprites/indoali 1 meio.png" id="7_rujdr"]
 [ext_resource type="Texture2D" uid="uid://uurffqft6w73" path="res://Entities/Meio/Sprites/plantando 1 meio.png" id="8_q78rh"]
+[ext_resource type="Texture2D" uid="uid://bynoiyc4ulbgo" path="res://Assets/Sprites/VictoryScene/isplosão3.png" id="8_sxpin"]
 [ext_resource type="Texture2D" uid="uid://de3if01hq4nbc" path="res://Entities/Meio/Sprites/indoali 2 meio.png" id="8_vha84"]
 [ext_resource type="Texture2D" uid="uid://den3xqnh7p8yf" path="res://Entities/Meio/Sprites/soco 2 meio.png" id="9_73wa6"]
+[ext_resource type="Texture2D" uid="uid://bjfyj46slrik4" path="res://Assets/Sprites/VictoryScene/isplosão4.png" id="9_ctdme"]
 [ext_resource type="Texture2D" uid="uid://ti8qru01pxba" path="res://Entities/Meio/Sprites/soco 1 meio.png" id="10_02tqh"]
+[ext_resource type="Texture2D" uid="uid://rjvadvp2ialt" path="res://Assets/Sprites/VictoryScene/isplosão6.png" id="10_yd87x"]
 [ext_resource type="Texture2D" uid="uid://1a1aih1jmde6" path="res://Entities/Meio/Sprites/ultmeio1.png" id="11_oa1b6"]
 [ext_resource type="PackedScene" uid="uid://b3in5q5qg7udc" path="res://Entities/Meio/HerbProjectile.tscn" id="11_vha84"]
 [ext_resource type="Texture2D" uid="uid://bbbjv676yc3y4" path="res://Entities/Meio/Sprites/ultmeio2.png" id="12_dcfdf"]
@@ -30,6 +35,26 @@ region = Rect2(0, 0, 92, 92)
 [sub_resource type="AtlasTexture" id="AtlasTexture_54vi6"]
 atlas = ExtResource("6_r4gro")
 region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtxcl"]
+atlas = ExtResource("6_rf4j5")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dor5l"]
+atlas = ExtResource("7_pajhv")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgmvs"]
+atlas = ExtResource("8_sxpin")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7yrn"]
+atlas = ExtResource("9_ctdme")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v27hd"]
+atlas = ExtResource("10_yd87x")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_yd87x"]
 atlas = ExtResource("5_dcfdf")
@@ -122,6 +147,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtxcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dor5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgmvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7yrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v27hd")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"defeat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -236,6 +284,9 @@ dust = ExtResource("2_iatj2")
 position = Vector2(0, 8.165)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_7rtbg")
+animation = &"defeat"
+frame = 5
+frame_progress = 1.0
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 19.5)

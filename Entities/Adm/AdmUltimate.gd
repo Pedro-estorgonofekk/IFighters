@@ -43,10 +43,6 @@ func _process(delta: float) -> void:
 
 func _on_vault_area_entered(area: Area2D) -> void:
 	if area.name == "Hurtbox":
-		var target = area.get_parent()
-		
-		target.ApplyHitstop(0.2)
-		
 		vault.get_node("CollisionShape2D").set_deferred("disabled", true)
 
 

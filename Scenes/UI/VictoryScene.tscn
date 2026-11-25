@@ -6,11 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://cslrk67ut64lh" path="res://Assets/Sprites/VictoryScene/confeti3.png" id="4_wvdbw"]
 [ext_resource type="Texture2D" uid="uid://dkfg0jdfdnow6" path="res://Assets/Sprites/VictoryScene/confeti4.png" id="5_ay34a"]
 [ext_resource type="Texture2D" uid="uid://mj8ohugsnfcl" path="res://Assets/Sprites/VictoryScene/confeti5.png" id="6_qyj76"]
-[ext_resource type="Texture2D" uid="uid://dmaqveuxj8pv7" path="res://Assets/Sprites/VictoryScene/isplosão1.png" id="7_iw15m"]
-[ext_resource type="Texture2D" uid="uid://c2rtj4fgelei0" path="res://Assets/Sprites/VictoryScene/isplosão2.png" id="8_03vnk"]
-[ext_resource type="Texture2D" uid="uid://bynoiyc4ulbgo" path="res://Assets/Sprites/VictoryScene/isplosão3.png" id="9_vpwce"]
-[ext_resource type="Texture2D" uid="uid://bjfyj46slrik4" path="res://Assets/Sprites/VictoryScene/isplosão4.png" id="10_ila51"]
-[ext_resource type="Texture2D" uid="uid://rjvadvp2ialt" path="res://Assets/Sprites/VictoryScene/isplosão6.png" id="11_2x2mg"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0giqf"]
 atlas = ExtResource("2_qgpw0")
@@ -55,49 +50,6 @@ animations = [{
 "speed": 6.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_v6eob"]
-atlas = ExtResource("7_iw15m")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pr0l7"]
-atlas = ExtResource("8_03vnk")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ey4pd"]
-atlas = ExtResource("9_vpwce")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8yjph"]
-atlas = ExtResource("10_ila51")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bhngk"]
-atlas = ExtResource("11_2x2mg")
-region = Rect2(0, 0, 96, 96)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_7nm44"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_v6eob")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_pr0l7")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ey4pd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_8yjph")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bhngk")
-}],
-"loop": 1,
-"name": &"default",
-"speed": 5.0
-}]
-
 [node name="Control" type="Control" unique_id=2129361522]
 layout_mode = 3
 anchors_preset = 15
@@ -112,8 +64,3 @@ position = Vector2(480, 270)
 scale = Vector2(5.0000005, 5.625)
 sprite_frames = SubResource("SpriteFrames_llu7j")
 autoplay = "default"
-frame = 1
-frame_progress = 0.40419126
-
-[node name="Explosion" type="AnimatedSprite2D" parent="." unique_id=389350391]
-sprite_frames = SubResource("SpriteFrames_7nm44")

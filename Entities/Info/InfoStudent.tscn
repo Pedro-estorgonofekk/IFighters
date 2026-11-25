@@ -5,16 +5,21 @@
 [ext_resource type="PackedScene" uid="uid://b74105w3wn25c" path="res://Entities/Resources/Dust.tscn" id="2_u1yr1"]
 [ext_resource type="PackedScene" uid="uid://rl77oxuc1o6w" path="res://Entities/Info/PythonProjectile.tscn" id="2_urhxr"]
 [ext_resource type="Texture2D" uid="uid://dnvmsdtjycgi0" path="res://Entities/Info/Sprites/paradinho info.png" id="3_7mtff"]
-[ext_resource type="Texture2D" uid="uid://b57no1ayrdswm" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
+[ext_resource type="Texture2D" uid="uid://b8f0qbi5savqw" path="res://Entities/Info/Sprites/pulo 1 info.png" id="3_srl3b"]
 [ext_resource type="Texture2D" uid="uid://b2fr5mltueyhg" path="res://Entities/Info/Sprites/pulo 2 info.png" id="5_43yv6"]
+[ext_resource type="Texture2D" uid="uid://dmaqveuxj8pv7" path="res://Assets/Sprites/VictoryScene/isplosão1.png" id="6_6eu0w"]
 [ext_resource type="Texture2D" uid="uid://bierlojqme0iy" path="res://Entities/Info/Sprites/dash info.png" id="6_xpidu"]
+[ext_resource type="Texture2D" uid="uid://c2rtj4fgelei0" path="res://Assets/Sprites/VictoryScene/isplosão2.png" id="7_0dwmq"]
 [ext_resource type="Texture2D" uid="uid://cxckqtxcgphjm" path="res://Entities/Info/Sprites/arremesso 2 info.png" id="7_gxhch"]
 [ext_resource type="Texture2D" uid="uid://dgakx207fx817" path="res://Entities/Info/Sprites/indoali 1 info.png" id="7_x1gql"]
+[ext_resource type="Texture2D" uid="uid://bynoiyc4ulbgo" path="res://Assets/Sprites/VictoryScene/isplosão3.png" id="8_4q5vt"]
 [ext_resource type="Texture2D" uid="uid://d1stffq33hjtd" path="res://Entities/Info/Sprites/arremesso 1 info.png" id="8_bhloe"]
 [ext_resource type="Texture2D" uid="uid://het0r1tepy6l" path="res://Entities/Info/Sprites/indoali 2 info.png" id="8_p316y"]
 [ext_resource type="Texture2D" uid="uid://ws0lrofu26c4" path="res://Entities/Info/Sprites/chute 3 info.png" id="9_p316y"]
+[ext_resource type="Texture2D" uid="uid://bjfyj46slrik4" path="res://Assets/Sprites/VictoryScene/isplosão4.png" id="9_rrrxy"]
 [ext_resource type="Texture2D" uid="uid://cpce4inrjxelf" path="res://Entities/Info/Sprites/arremesso 3 info.png" id="9_u1yr1"]
 [ext_resource type="Texture2D" uid="uid://cy5veu7xcsw45" path="res://Entities/Info/Sprites/chute 2 - dano info.png" id="10_dwvxx"]
+[ext_resource type="Texture2D" uid="uid://rjvadvp2ialt" path="res://Assets/Sprites/VictoryScene/isplosão6.png" id="10_xe67n"]
 [ext_resource type="Texture2D" uid="uid://btjnussugmuse" path="res://Entities/Info/Sprites/chute 1 info.png" id="11_1h7fa"]
 [ext_resource type="PackedScene" uid="uid://bcpxasb3tv7vs" path="res://Entities/Info/BinaryUltimate.tscn" id="16_bhloe"]
 
@@ -29,6 +34,26 @@ region = Rect2(0, 0, 92, 104)
 [sub_resource type="AtlasTexture" id="AtlasTexture_m06ba"]
 atlas = ExtResource("6_xpidu")
 region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtxcl"]
+atlas = ExtResource("6_6eu0w")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dor5l"]
+atlas = ExtResource("7_0dwmq")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgmvs"]
+atlas = ExtResource("8_4q5vt")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7yrn"]
+atlas = ExtResource("9_rrrxy")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v27hd"]
+atlas = ExtResource("10_xe67n")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hguid"]
 atlas = ExtResource("7_gxhch")
@@ -121,6 +146,29 @@ animations = [{
 }],
 "loop": 1,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtxcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dor5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgmvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7yrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v27hd")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"defeat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -236,6 +284,7 @@ dust = ExtResource("2_u1yr1")
 position = Vector2(0, 29.999998)
 scale = Vector2(2.457, 2.457)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"defeat"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(-1.02, 25.875)
