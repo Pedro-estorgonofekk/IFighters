@@ -10,12 +10,17 @@
 [ext_resource type="Texture2D" uid="uid://f2ew5h15xwrq" path="res://Entities/Agro/Sprites/dano agro.png" id="5_cftox"]
 [ext_resource type="Texture2D" uid="uid://dadu2yp83gti" path="res://Entities/Agro/Sprites/agachado agro.png" id="5_t3fsa"]
 [ext_resource type="Texture2D" uid="uid://jbophwf3mi58" path="res://Entities/Agro/Sprites/pulo 1 agro.png" id="6_bjgs6"]
+[ext_resource type="Texture2D" uid="uid://dmaqveuxj8pv7" path="res://Assets/Sprites/VictoryScene/isplosão1.png" id="6_f6nee"]
+[ext_resource type="Texture2D" uid="uid://c2rtj4fgelei0" path="res://Assets/Sprites/VictoryScene/isplosão2.png" id="7_bgusy"]
 [ext_resource type="Texture2D" uid="uid://by77mnx6talps" path="res://Entities/Agro/Sprites/pulo 2 agro.png" id="7_jbvwu"]
+[ext_resource type="Texture2D" uid="uid://bynoiyc4ulbgo" path="res://Assets/Sprites/VictoryScene/isplosão3.png" id="8_hr06g"]
 [ext_resource type="Texture2D" uid="uid://d4m6mwccy0gvp" path="res://Entities/Agro/Sprites/indoali 1 agro.png" id="8_o0cf6"]
 [ext_resource type="Texture2D" uid="uid://cwgex5qelfpbf" path="res://Entities/Agro/Sprites/indoali 2 agro.png" id="9_t3fsa"]
+[ext_resource type="Texture2D" uid="uid://bjfyj46slrik4" path="res://Assets/Sprites/VictoryScene/isplosão4.png" id="9_t5o62"]
 [ext_resource type="Texture2D" uid="uid://b520djoi3hke5" path="res://Entities/Agro/Sprites/arremesso 1 agro.png" id="9_xnikx"]
 [ext_resource type="Texture2D" uid="uid://rj0mtdiigl7f" path="res://Entities/Agro/Sprites/soco 2 agro.png" id="10_bjgs6"]
 [ext_resource type="Texture2D" uid="uid://dl7ajrguu7dtr" path="res://Entities/Agro/Sprites/arremesso 2 agro.png" id="10_cftox"]
+[ext_resource type="Texture2D" uid="uid://rjvadvp2ialt" path="res://Assets/Sprites/VictoryScene/isplosão6.png" id="10_jeqfa"]
 [ext_resource type="Texture2D" uid="uid://dj2k6grq8a84s" path="res://Entities/Agro/Sprites/soco 1 agro.png" id="11_jbvwu"]
 [ext_resource type="PackedScene" uid="uid://duy4nv3fxaa14" path="res://Entities/Agro/BullUltimate.tscn" id="13_jbvwu"]
 
@@ -30,6 +35,26 @@ region = Rect2(0, 0, 92, 92)
 [sub_resource type="AtlasTexture" id="AtlasTexture_f6nee"]
 atlas = ExtResource("4_src17")
 region = Rect2(0, 0, 92, 92)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wtxcl"]
+atlas = ExtResource("6_f6nee")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dor5l"]
+atlas = ExtResource("7_bgusy")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgmvs"]
+atlas = ExtResource("8_hr06g")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7yrn"]
+atlas = ExtResource("9_t5o62")
+region = Rect2(0, 0, 96, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v27hd"]
+atlas = ExtResource("10_jeqfa")
+region = Rect2(0, 0, 96, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y4hjw"]
 atlas = ExtResource("5_cftox")
@@ -110,6 +135,29 @@ animations = [{
 }],
 "loop": 0,
 "name": &"dash",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wtxcl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dor5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgmvs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7yrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v27hd")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": 0,
+"name": &"defeat",
 "speed": 5.0
 }, {
 "frames": [{
@@ -215,6 +263,7 @@ dust = ExtResource("2_afxfs")
 position = Vector2(0, 13.29)
 scale = Vector2(3.127, 3.127)
 sprite_frames = SubResource("SpriteFrames_ltjo1")
+animation = &"defeat"
 
 [node name="CSIdle" parent="." index="1" unique_id=929478290]
 position = Vector2(0, 10.71)

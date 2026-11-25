@@ -6,6 +6,7 @@ extends Node2D
 
 @export var health_bar1: Control
 @export var health_bar2: Control
+@export var victory_scene: PackedScene
 
 @onready var stamina_p1: TextureProgressBar = $StaminaBar
 @onready var stamina_p2: TextureProgressBar = $StaminaBar2
@@ -75,33 +76,70 @@ func _on_p1_health_changed(currentHealth):
 	if health_bar1:
 		health_bar1.update_bar(currentHealth, p1.get_node("Health").maxHealth)
 
+	if round_over:
+		return
+
+	Engine.time_scale = 0.0
+	await get_tree().create_timer(0.08, true, false, true).timeout
+
+	if round_over:
+		Engine.time_scale = 0.5
+	else:
+		Engine.time_scale = 1.0
+
 
 func _on_p2_health_changed(currentHealth):
 	if health_bar2:
 		health_bar2.update_bar(currentHealth, p2.get_node("Health").maxHealth)
+		
+	if round_over:
+		return
+
+	Engine.time_scale = 0.0
+	await get_tree().create_timer(0.08, true, false, true).timeout
+
+	if round_over:
+		Engine.time_scale = 0.5
+	else:
+		Engine.time_scale = 1.0
 
 
 func _on_health_depleted() -> void:
+	
 	if round_over:
 		return
-	
+
 	round_over = true
-	
-	print("Fui chamado")
-	await get_tree().create_timer(1).timeout
-	
-	if get_tree() == null:
+	Engine.time_scale = 0.1
+
+	print(Engine.time_scale)
+
+	var tree = get_tree()
+
+	if tree == null:
 		return
-	
-	if p1.get_node("Health").playerHealth > p2.get_node("Health").playerHealth:
+
+	await tree.create_timer(2.0, true, false, true).timeout
+
+	Engine.time_scale = 1
+
+	if not is_instance_valid(p1) or not is_instance_valid(p2):
+		return
+
+	var hp1 = p1.get_node("Health").playerHealth
+	var hp2 = p2.get_node("Health").playerHealth
+
+	if hp1 > hp2:
 		Global.points_p1 += 1
-		
-	elif p1.get_node("Health").playerHealth < p2.get_node("Health").playerHealth:
+	elif hp1 < hp2:
 		Global.points_p2 += 1
-		
 	else:
 		print("Empate")
+
+	await tree.create_timer(0.5, true, false, true).timeout
+
+	if not is_inside_tree():
+		return
+
+	tree.reload_current_scene()
 	
-	round_ended.emit()
-	await get_tree().create_timer(1).timeout
-	get_tree().reload_current_scene()
