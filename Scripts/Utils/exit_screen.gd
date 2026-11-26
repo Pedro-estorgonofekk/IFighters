@@ -4,6 +4,8 @@ func _ready() -> void:
 	# Anima a entrada assim que o popup surge na tela
 	animate_in()
 	$Sim.grab_focus()
+	process_mode = Node.PROCESS_MODE_ALWAYS
+
 
 func animate_in() -> void:
 	# Prepara o estado inicial (transparente e ligeiramente menor)
@@ -30,3 +32,5 @@ func _on_nao_pressed() -> void:
 	
 	get_tree().paused = false
 	self.queue_free()
+func _exit_tree() -> void:
+	get_tree().paused = false

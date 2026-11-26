@@ -35,9 +35,12 @@ func SpawnPlayers():
 	add_child(p2)
 
 func _process(delta: float) -> void:
-	$CanvasLayer/TimerLabel.text = str(int($Timer.time_left))
-	
+	$TimerLabel.text = str(int($Timer.time_left))
+
 func _ready():
+	$BGMusic.bus = "Music"
+
+	
 	$P1Icon/TextureRect.texture = pegar_sprite_personagem(Global.Player1)
 	$P2Icon/TextureRect.texture = pegar_sprite_personagem(Global.Player2)
 	SpawnPlayers()

@@ -5,10 +5,16 @@ func _on_story_pressed() -> void:
 
 func _ready() -> void:
 	$VBoxContainer/Versus.grab_focus()
-	
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.7))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(0.6))
+	AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(0.3))
 func _on_opcoes_pressed():
-	get_tree().change_scene_to_file("res://Scenes/UI/Config.tscn")
-
+	if not has_node("Options"):
+		var tela = config.instantiate()
+		tela.name = "Options"
+		add_child(tela)
+		get_tree().paused = true
+const config := preload("res://Scenes/UI/Options.tscn")
 #Botao Versus Shadow
 func _on_versus_focus_entered() -> void:
 	$VBoxContainer/Versus.modulate.a = 0.6

@@ -97,13 +97,13 @@ grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("10_srljh")
 
-[node name="TimerLabel" type="Label" parent="CanvasLayer" unique_id=1132256848]
+[node name="TimerLabel" type="Label" parent="." unique_id=1132256848]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -21.0
+offset_left = 459.0
 offset_top = 14.0
-offset_right = 21.0
+offset_right = 501.0
 offset_bottom = 57.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("13_rtiid")
