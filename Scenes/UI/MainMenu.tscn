@@ -58,16 +58,16 @@ flat = true
 icon_alignment = 1
 vertical_icon_alignment = 2
 
-[node name="Creditos" type="Button" parent="VBoxContainer" unique_id=169871429]
-layout_mode = 2
-size_flags_horizontal = 4
-icon = ExtResource("5_kl3t2")
-flat = true
-
 [node name="Opcoes" type="Button" parent="VBoxContainer" unique_id=564734951]
 layout_mode = 2
 size_flags_horizontal = 4
 icon = ExtResource("6_ynupv")
+flat = true
+
+[node name="Creditos" type="Button" parent="VBoxContainer" unique_id=169871429]
+layout_mode = 2
+size_flags_horizontal = 4
+icon = ExtResource("5_kl3t2")
 flat = true
 
 [node name="Label" type="Label" parent="." unique_id=1841751018]
@@ -93,12 +93,13 @@ clip_text = true
 [connection signal="mouse_entered" from="VBoxContainer/Versus" to="." method="_on_versus_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Versus" to="." method="_on_versus_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Versus" to="." method="_on_versus_pressed"]
-[connection signal="focus_entered" from="VBoxContainer/Creditos" to="." method="_on_creditos_focus_entered"]
-[connection signal="focus_exited" from="VBoxContainer/Creditos" to="." method="_on_creditos_focus_exited"]
-[connection signal="mouse_entered" from="VBoxContainer/Creditos" to="." method="_on_creditos_mouse_entered"]
-[connection signal="mouse_exited" from="VBoxContainer/Creditos" to="." method="_on_creditos_mouse_exited"]
 [connection signal="focus_entered" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_focus_entered"]
 [connection signal="focus_exited" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_focus_exited"]
 [connection signal="mouse_entered" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_mouse_entered"]
 [connection signal="mouse_exited" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_mouse_exited"]
 [connection signal="pressed" from="VBoxContainer/Opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="focus_entered" from="VBoxContainer/Creditos" to="." method="_on_creditos_focus_entered"]
+[connection signal="focus_exited" from="VBoxContainer/Creditos" to="." method="_on_creditos_focus_exited"]
+[connection signal="mouse_entered" from="VBoxContainer/Creditos" to="." method="_on_creditos_mouse_entered"]
+[connection signal="mouse_exited" from="VBoxContainer/Creditos" to="." method="_on_creditos_mouse_exited"]
+[connection signal="pressed" from="VBoxContainer/Creditos" to="." method="_on_creditos_pressed"]

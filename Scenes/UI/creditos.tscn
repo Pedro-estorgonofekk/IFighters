@@ -1,0 +1,184 @@
+[gd_scene format=3 uid="uid://u6ucboeer04c"]
+
+[ext_resource type="Script" uid="uid://cv88fj5l1swis" path="res://Scripts/Utils/creditos.gd" id="1_fktwv"]
+[ext_resource type="Texture2D" uid="uid://c1p8k7faduuax" path="res://Assets/Sprites/backgroudCreditos.png" id="1_xp6jg"]
+[ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="2_fktwv"]
+
+[node name="Creditos" type="ColorRect" unique_id=1109120763]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -779.55554
+offset_top = -438.5
+offset_right = 779.55554
+offset_bottom = 438.5
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.60784316)
+script = ExtResource("1_fktwv")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1691246008]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -212.0
+offset_top = -250.0
+offset_right = 212.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_xp6jg")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=716295641]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 14.0
+offset_right = 203.0
+offset_bottom = 51.0
+grow_horizontal = 2
+theme_override_colors/font_shadow_color = Color(0, 1, 0, 1)
+theme_override_colors/font_outline_color = Color(0.20392157, 0.5921569, 0.1882353, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "Programadores Gerais"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="TextureRect" unique_id=1018332557]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 69.0
+offset_right = 203.0
+offset_bottom = 186.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "Pedro Alvarenga
+e
+Filipe Moterani"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="TextureRect" unique_id=431665419]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 268.0
+offset_right = 203.0
+offset_bottom = 305.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "Matheus Gaspardi"
+horizontal_alignment = 1
+
+[node name="Label8" type="Label" parent="TextureRect" unique_id=1415463028]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 371.0
+offset_right = 203.0
+offset_bottom = 408.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "Lucas Valdeci"
+horizontal_alignment = 1
+
+[node name="Label9" type="Label" parent="TextureRect" unique_id=1498849953]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -166.5
+offset_top = -53.0
+offset_right = 166.5
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.6052743, 0.6052743, 0.6052743, 1)
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 20
+text = "Pressione ESC para fechar"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="TextureRect" unique_id=1151911514]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.5
+offset_top = 190.0
+offset_right = 207.5
+offset_bottom = 227.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "-------------------"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="TextureRect" unique_id=2121086208]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -205.5
+offset_top = 301.0
+offset_right = 207.5
+offset_bottom = 338.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "-------------------"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="TextureRect" unique_id=1870270397]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 223.0
+offset_right = 203.0
+offset_bottom = 260.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.20392157, 0.5921569, 0.1882353, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "Artista Geral"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="TextureRect" unique_id=1071160945]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -203.0
+offset_top = 328.0
+offset_right = 203.0
+offset_bottom = 365.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0.20392157, 0.5921569, 0.1882353, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("2_fktwv")
+theme_override_font_sizes/font_size = 29
+text = "Design Visual"
+horizontal_alignment = 1
