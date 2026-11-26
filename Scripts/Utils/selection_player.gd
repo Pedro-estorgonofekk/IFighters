@@ -41,6 +41,11 @@ var personagens = {
 @onready var personagem_position = [$Personagem1.position.x, $Personagem2.position.x]
 
 func _ready() -> void:
+	Global.Player1 = null
+	Global.Player2 = null
+	
+	Global.points_p1 = 0
+	Global.points_p2 = 0
 	$RandomButton.grab_focus()
 
 func _process(_delta: float) -> void:

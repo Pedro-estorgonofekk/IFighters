@@ -10,6 +10,8 @@ extends Node2D
 @onready var stamina_p1: TextureProgressBar = $StaminaBar
 @onready var stamina_p2: TextureProgressBar = $StaminaBar2
 
+@onready var curtain: AnimatedSprite2D = $Curtain
+
 signal round_ended
 
 var player_1 = Global.Player1
@@ -36,6 +38,9 @@ func SpawnPlayers():
 
 
 func _ready():
+	#curtain.play("default")
+	await curtain.animation_finished
+	
 	SpawnPlayers()
 	round_ended.connect($Ponto.att_points)
 	round_ended.connect($Ponto2.att_points)

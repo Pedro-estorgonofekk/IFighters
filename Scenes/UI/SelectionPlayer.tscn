@@ -72,126 +72,6 @@ offset_bottom = 41.0
 texture = ExtResource("5_wi4oh")
 expand_mode = 3
 
-[node name="RandomButton" type="TextureButton" parent="." unique_id=751975053]
-layout_mode = 0
-offset_left = 355.00003
-offset_top = 108.000046
-offset_right = 855.0
-offset_bottom = 608.00006
-scale = Vector2(0.21, 0.21)
-texture_normal = ExtResource("7_u3d3j")
-texture_focused = ExtResource("8_idin7")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="AgroButton" type="TextureButton" parent="." unique_id=1059883896]
-layout_mode = 0
-offset_left = 443.00003
-offset_top = 122.00003
-offset_right = 943.0
-offset_bottom = 622.00006
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("7_qmssh")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="InfoButton" type="TextureButton" parent="." unique_id=476158155]
-layout_mode = 0
-offset_left = 518.0
-offset_top = 122.00003
-offset_right = 1018.0
-offset_bottom = 622.00006
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("8_u3d3j")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="AlimButton" type="TextureButton" parent="." unique_id=1765905952]
-layout_mode = 0
-offset_left = 443.00003
-offset_top = 194.00003
-offset_right = 943.0
-offset_bottom = 694.0
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("9_idin7")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="MeioButton" type="TextureButton" parent="." unique_id=550664480]
-layout_mode = 0
-offset_left = 443.00003
-offset_top = 267.0
-offset_right = 943.0
-offset_bottom = 767.0
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("10_6d0h3")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="GeoButton" type="TextureButton" parent="." unique_id=213126494]
-layout_mode = 0
-offset_left = 443.00003
-offset_top = 338.0
-offset_right = 943.0
-offset_bottom = 838.0
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("11_4fxaf")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="AdmButton" type="TextureButton" parent="." unique_id=49341750]
-layout_mode = 0
-offset_left = 518.0
-offset_top = 267.0
-offset_right = 1018.0
-offset_bottom = 767.0
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("12_q8s6r")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="EmptyButton" type="TextureButton" parent="." unique_id=404822433]
-layout_mode = 0
-offset_left = 369.00003
-offset_top = 338.0
-offset_right = 869.0
-offset_bottom = 838.0
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("13_eq144")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="EmptyButton2" type="TextureButton" parent="." unique_id=95418231]
-layout_mode = 0
-offset_left = 369.00003
-offset_top = 267.00006
-offset_right = 910.9353
-offset_bottom = 767.0001
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("13_eq144")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
-[node name="EmptyButton3" type="TextureButton" parent="." unique_id=226256743]
-layout_mode = 0
-offset_left = 369.00003
-offset_top = 194.00003
-offset_right = 869.0
-offset_bottom = 694.0
-scale = Vector2(0.155, 0.155)
-texture_normal = ExtResource("13_eq144")
-texture_focused = ExtResource("9_u3d3j")
-stretch_mode = 4
-script = ExtResource("9_6d0h3")
-
 [node name="Regua" type="ColorRect" parent="." unique_id=392649121]
 visible = false
 layout_mode = 1
@@ -247,17 +127,159 @@ theme_override_fonts/font = ExtResource("18_4fxaf")
 theme_override_font_sizes/font_size = 37
 horizontal_alignment = 1
 
-[connection signal="focus_entered" from="RandomButton" to="." method="_on_random_button_focus_entered"]
-[connection signal="pressed" from="RandomButton" to="." method="_on_random_button_pressed"]
-[connection signal="focus_entered" from="AgroButton" to="." method="_on_agro_button_focus_entered"]
-[connection signal="pressed" from="AgroButton" to="." method="_on_agro_button_pressed"]
-[connection signal="focus_entered" from="InfoButton" to="." method="_on_info_button_focus_entered"]
-[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]
-[connection signal="focus_entered" from="AlimButton" to="." method="_on_alim_button_focus_entered"]
-[connection signal="pressed" from="AlimButton" to="." method="_on_alim_button_pressed"]
-[connection signal="focus_entered" from="MeioButton" to="." method="_on_meio_button_focus_entered"]
-[connection signal="pressed" from="MeioButton" to="." method="_on_meio_button_pressed"]
-[connection signal="focus_entered" from="GeoButton" to="." method="_on_geo_button_focus_entered"]
-[connection signal="pressed" from="GeoButton" to="." method="_on_geo_button_pressed"]
-[connection signal="focus_entered" from="AdmButton" to="." method="_on_adm_button_focus_entered"]
-[connection signal="pressed" from="AdmButton" to="." method="_on_adm_button_pressed"]
+[node name="MapSelection" type="Control" parent="." unique_id=130164653]
+anchors_preset = 0
+offset_left = 355.00003
+offset_top = 108.000046
+offset_right = 395.00003
+offset_bottom = 148.00005
+
+[node name="RandomButton" type="TextureButton" parent="MapSelection" unique_id=751975053]
+layout_mode = 0
+offset_right = 500.0
+offset_bottom = 500.0
+scale = Vector2(0.21, 0.21)
+texture_normal = ExtResource("7_u3d3j")
+texture_focused = ExtResource("8_idin7")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="EmptyButton" type="TextureButton" parent="MapSelection" unique_id=404822433]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 229.99995
+offset_right = 514.0
+offset_bottom = 729.99994
+scale = Vector2(0.155, 0.155)
+texture_normal = ExtResource("13_eq144")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="EmptyButton2" type="TextureButton" parent="MapSelection" unique_id=95418231]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 159.00002
+offset_right = 555.9353
+offset_bottom = 659.00006
+scale = Vector2(0.155, 0.155)
+texture_normal = ExtResource("13_eq144")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="EmptyButton3" type="TextureButton" parent="MapSelection" unique_id=226256743]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 85.999985
+offset_right = 514.0
+offset_bottom = 586.0
+scale = Vector2(0.155, 0.155)
+texture_normal = ExtResource("13_eq144")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="CharacterSelection" type="Control" parent="." unique_id=1184891398]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AgroButton" type="TextureButton" parent="CharacterSelection" unique_id=1059883896]
+layout_mode = 0
+offset_left = 443.00003
+offset_top = 122.00003
+offset_right = 943.0
+offset_bottom = 622.00006
+scale = Vector2(0.155, 0.155)
+focus_mode = 0
+mouse_filter = 2
+texture_normal = ExtResource("7_qmssh")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="InfoButton" type="TextureButton" parent="CharacterSelection" unique_id=476158155]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 122.00003
+offset_right = 1018.0
+offset_bottom = 622.00006
+scale = Vector2(0.155, 0.155)
+focus_mode = 0
+mouse_filter = 2
+texture_normal = ExtResource("8_u3d3j")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="AlimButton" type="TextureButton" parent="CharacterSelection" unique_id=1765905952]
+layout_mode = 0
+offset_left = 443.00003
+offset_top = 194.00003
+offset_right = 943.0
+offset_bottom = 694.0
+scale = Vector2(0.155, 0.155)
+focus_mode = 0
+mouse_filter = 2
+texture_normal = ExtResource("9_idin7")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="MeioButton" type="TextureButton" parent="CharacterSelection" unique_id=550664480]
+layout_mode = 0
+offset_left = 443.00003
+offset_top = 267.0
+offset_right = 943.0
+offset_bottom = 767.0
+scale = Vector2(0.155, 0.155)
+focus_mode = 0
+mouse_filter = 2
+texture_normal = ExtResource("10_6d0h3")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="GeoButton" type="TextureButton" parent="CharacterSelection" unique_id=213126494]
+layout_mode = 0
+offset_left = 443.00003
+offset_top = 338.0
+offset_right = 943.0
+offset_bottom = 838.0
+scale = Vector2(0.155, 0.155)
+focus_mode = 0
+mouse_filter = 2
+texture_normal = ExtResource("11_4fxaf")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[node name="AdmButton" type="TextureButton" parent="CharacterSelection" unique_id=49341750]
+layout_mode = 0
+offset_left = 518.0
+offset_top = 267.0
+offset_right = 1018.0
+offset_bottom = 767.0
+scale = Vector2(0.155, 0.155)
+focus_mode = 0
+mouse_filter = 2
+texture_normal = ExtResource("12_q8s6r")
+texture_focused = ExtResource("9_u3d3j")
+stretch_mode = 4
+script = ExtResource("9_6d0h3")
+
+[connection signal="focus_entered" from="MapSelection/RandomButton" to="." method="_on_random_button_focus_entered"]
+[connection signal="pressed" from="MapSelection/RandomButton" to="." method="_on_random_button_pressed"]
+[connection signal="focus_entered" from="CharacterSelection/AgroButton" to="." method="_on_agro_button_focus_entered"]
+[connection signal="pressed" from="CharacterSelection/AgroButton" to="." method="_on_agro_button_pressed"]
+[connection signal="focus_entered" from="CharacterSelection/InfoButton" to="." method="_on_info_button_focus_entered"]
+[connection signal="pressed" from="CharacterSelection/InfoButton" to="." method="_on_info_button_pressed"]
+[connection signal="focus_entered" from="CharacterSelection/AlimButton" to="." method="_on_alim_button_focus_entered"]
+[connection signal="pressed" from="CharacterSelection/AlimButton" to="." method="_on_alim_button_pressed"]
+[connection signal="focus_entered" from="CharacterSelection/MeioButton" to="." method="_on_meio_button_focus_entered"]
+[connection signal="pressed" from="CharacterSelection/MeioButton" to="." method="_on_meio_button_pressed"]
+[connection signal="focus_entered" from="CharacterSelection/GeoButton" to="." method="_on_geo_button_focus_entered"]
+[connection signal="pressed" from="CharacterSelection/GeoButton" to="." method="_on_geo_button_pressed"]
+[connection signal="focus_entered" from="CharacterSelection/AdmButton" to="." method="_on_adm_button_focus_entered"]
+[connection signal="pressed" from="CharacterSelection/AdmButton" to="." method="_on_adm_button_pressed"]

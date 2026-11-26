@@ -31,6 +31,9 @@ region = Rect2(0, 0, 192, 96)
 [sub_resource type="SpriteFrames" id="SpriteFrames_llu7j"]
 animations = [{
 "frames": [{
+"duration": 0.2,
+"texture": null
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_0giqf")
 }, {
@@ -46,7 +49,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_vdg1e")
 }, {
-"duration": 0.5,
+"duration": 0.2,
 "texture": null
 }],
 "loop": 1,
@@ -73,6 +76,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -47.0
+offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 theme_override_colors/font_shadow_color = Color(0.15686275, 0.09019608, 0, 0.39607844)
@@ -86,6 +90,7 @@ layout_mode = 1
 anchors_preset = 10
 anchor_right = 1.0
 offset_top = -47.0
+offset_bottom = 23.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 0, 0, 1)
 theme_override_colors/font_shadow_color = Color(0, 0.1882353, 0.11372549, 0.39607844)
@@ -100,4 +105,3 @@ position = Vector2(480, 270)
 scale = Vector2(5.0000005, 5.625)
 sprite_frames = SubResource("SpriteFrames_llu7j")
 autoplay = "default"
-frame = 5
