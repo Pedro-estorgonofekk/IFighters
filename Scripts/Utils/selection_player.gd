@@ -4,7 +4,7 @@ var personagens = {
 	"Adm": {
 		"Cena": "res://Entities/Adm/AdmStudent.tscn",
 		"Sprite": preload("res://Entities/Adm/Sprites/parado adm.png"),
-		"Nome": "Administração"
+		"Nome": "Administracao"
 	},
 	"Agro": {
 		"Cena": "res://Entities/Agro/AgroStudent.tscn",
@@ -19,7 +19,7 @@ var personagens = {
 	"Geo": {
 		"Cena": "res://Entities/Geo/GeoStudent.tscn",
 		"Sprite": preload("res://Entities/Geo/Sprites/paradinho geo.png"),
-		"Nome": "Geoprocessamento"
+		"Nome": "Agrimensura"
 	},
 	"Info": {
 		"Cena": "res://Entities/Info/InfoStudent.tscn",

@@ -130,16 +130,16 @@ flip_h = true
 [node name="P1Icon" type="ColorRect" parent="." unique_id=1960647195]
 clip_children = 1
 offset_left = -1.0
-offset_top = -10.0
+offset_top = 3.0
 offset_right = 49.0
 offset_bottom = 53.0
 
 [node name="TextureRect" type="TextureRect" parent="P1Icon" unique_id=1324304732]
 layout_mode = 0
 offset_left = -35.0
-offset_top = 5.0
+offset_top = -11.0
 offset_right = 81.0
-offset_bottom = 109.0
+offset_bottom = 93.0
 texture = ExtResource("15_x461h")
 
 [node name="Ponto" parent="." unique_id=1156504210 instance=ExtResource("11_g3dba")]
