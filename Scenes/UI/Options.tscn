@@ -180,6 +180,27 @@ grow_vertical = 0
 icon = ExtResource("6_reoj2")
 expand_icon = true
 
+[node name="Label" type="Label" parent="TextureRect" unique_id=1485586605]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -110.5
+offset_top = -28.0
+offset_right = 110.5
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.59313357, 0.5931336, 0.5931334, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_reoj2")
+theme_override_font_sizes/font_size = 13
+text = "Pressione  ESC  para  fechar"
+clip_text = true
+
 [node name="regua" type="ColorRect" parent="." unique_id=1475118537]
 visible = false
 layout_mode = 0
@@ -194,3 +215,4 @@ color = Color(0, 1, 0, 1)
 [connection signal="value_changed" from="TextureRect/SliderMusica" to="." method="_on_slider_musica_value_changed"]
 [connection signal="focus_entered" from="TextureRect/BtnControles" to="." method="_on_btn_controles_focus_entered"]
 [connection signal="focus_exited" from="TextureRect/BtnControles" to="." method="_on_btn_controles_focus_exited"]
+[connection signal="pressed" from="TextureRect/BtnControles" to="." method="_on_btn_controles_pressed"]

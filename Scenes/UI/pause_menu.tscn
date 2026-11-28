@@ -1,9 +1,10 @@
 [gd_scene format=3 uid="uid://dpva7fbbwgbxn"]
 
+[ext_resource type="Script" uid="uid://dhhrrc2o3u4k5" path="res://Scripts/Utils/pause_menu.gd" id="1_702e2"]
 [ext_resource type="Texture2D" uid="uid://c1p8k7faduuax" path="res://Assets/Sprites/backgroudCreditos.png" id="1_kdnb7"]
 [ext_resource type="Texture2D" uid="uid://b4stwqcpq1mgb" path="res://Assets/Sprites/ContinuarBotao.png" id="2_702e2"]
 [ext_resource type="Texture2D" uid="uid://dphttpxjkhfxk" path="res://Assets/Sprites/OpcoesBotao.png" id="3_qyryt"]
-[ext_resource type="Texture2D" uid="uid://dwd3666jjty38" path="res://Assets/Sprites/MenuBotao.png" id="4_23me3"]
+[ext_resource type="Texture2D" uid="uid://cqrr2rwgaycjk" path="res://Assets/Sprites/MenuBotao.png" id="4_23me3"]
 [ext_resource type="FontFile" uid="uid://bqb4qisw5f025" path="res://Assets/Fonts/minecraft_font.ttf" id="5_deree"]
 
 [node name="PauseMenu" type="ColorRect" unique_id=1081073644]
@@ -12,6 +13,7 @@ offset_top = -155.0
 offset_right = 1235.5555
 offset_bottom = 698.0
 color = Color(0, 0, 0, 0.60784316)
+script = ExtResource("1_702e2")
 
 [node name="TextureRect" type="TextureRect" parent="." unique_id=1814707478]
 layout_mode = 1
@@ -83,3 +85,7 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("5_deree")
 theme_override_font_sizes/font_size = 84
 text = "PAUSA"
+
+[connection signal="pressed" from="TextureRect/VBoxContainer/Continuar" to="." method="_on_continuar_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/opcoes" to="." method="_on_opcoes_pressed"]
+[connection signal="pressed" from="TextureRect/VBoxContainer/menu" to="." method="_on_menu_pressed"]

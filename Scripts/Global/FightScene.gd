@@ -1,4 +1,3 @@
-
 extends Node2D
 
 @onready var P1Spawn: Marker2D = $Stage/P1Spawn
@@ -20,6 +19,7 @@ var p2 = load(player_2).instantiate()
 
 var round_over: bool = false
 
+var pause = preload("res://Scenes/UI/pause_menu.tscn")
 func SpawnPlayers():
 	if player_1 == player_2:
 		p2.modulate = Color(0.6, 0.6, 1)
@@ -33,6 +33,19 @@ func SpawnPlayers():
 	p2.get_node("AnimatedSprite2D").flip_h = true
 		
 	add_child(p2)
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_cancel") and not has_node("Pause"):
+		var camada := CanvasLayer.new()
+		camada.name = "Pause"
+		camada.layer = 100
+		camada.process_mode = Node.PROCESS_MODE_ALWAYS
+		var pmenu = pause.instantiate()
+		pmenu.tree_exited.connect(camada.queue_free)
+		camada.add_child(pmenu)
+		add_child(camada)
+		
+		
+
 
 func _process(delta: float) -> void:
 	$TimerLabel.text = str(int($Timer.time_left))

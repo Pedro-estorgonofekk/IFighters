@@ -7,7 +7,7 @@ func _ready() -> void:
 	$VBoxContainer/Versus.grab_focus()
 	if not volumes_iniciados:
 		volumes_iniciados = true	
-		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.7))
+		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Master"), linear_to_db(0.67))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("SFX"), linear_to_db(0.6))
 		AudioServer.set_bus_volume_db(AudioServer.get_bus_index("Music"), linear_to_db(0.3))
 		
@@ -53,15 +53,13 @@ func _on_versus_pressed() -> void:
 	
 var exit_screen_scene = preload("res://Scenes/UI/ExitScreen.tscn")
 
-func _process(_delta: float) -> void:
-	if Input.is_action_just_pressed("Sair"):
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("Sair"):
 		if not has_node("ExitScreen"):
 			var tela = preload("res://Scenes/UI/ExitScreen.tscn").instantiate()
 			add_child(tela)
 		else:
 			get_node("ExitScreen").queue_free()
-
-
 func _on_creditos_pressed() -> void:
 	if not has_node("Creditos"):
 		var opt = credito.instantiate()
